@@ -97,11 +97,25 @@ body {
 
 .navbar-default .navbar-brand {
 	font-size: 1.5em;
-	color: #fff;
+	display: block;
+	position: absolute;
+	z-index: 888;
+	background-color: #834139;
+	top: -3px;
+	left: 60px;
+	padding: 10px 20px;
+	margin: 0;
+	text-align: center;
+	box-shadow: 0px 2px 20px 2px #0D0D0D;
+	border-radius: 4px;
+	line-height: 40px;
+	height: 60px;
+	color: #572B2B;
 }
 
 	.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-		color: #bbb;
+		color: #572B2B;
+		background-color: #834139;
 	}
 	
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
@@ -128,22 +142,17 @@ body {
 .top-button {
 	width: 68px;
 	height: 68px;
-	background: #fff url('../img/up.png') center center no-repeat;
-	color: #fff;
+	background: transparent url('../img/up.png') center center no-repeat;
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
 	z-index: 999;
 	cursor: pointer;
-	border-radius: 100%;
-	-moz-border-radius: 100%;
-	-webkit-border-radius: 100%;
-	-o-border-radius: 100%;
 	display: none;
 }
 
 .top-button:hover {
-	background: #fff url('../img/up_hover.png') center center no-repeat;	
+	background-image: url('../img/up_hover.png');	
 }
 
 /*
@@ -151,6 +160,11 @@ body {
  *  HOME PAGE
  *
  */
+ 
+ #web-carousel {
+	height: 400px;
+	overflow: hidden;
+ }
 
 #web-carousel .carousel-indicators li {
 	background-color: #edecec;
@@ -185,43 +199,112 @@ body {
 		font-size: 1.1em;
 		font-weight: bold;
 		font-family: 'MyriadPro Semibold';
+		border: none;
+		border-bottom: 2px solid;
+		border-radius: 0;
+		-moz-border-radius: 0;
+		-webkit-border-radius: 0;
+		-o-border-radius: 0;
 	}
 
 		.hotline-alert p span {
 			color: #ff0000;
+		}			
+	
+	#home-page .panel-happy {
+		font-size: 2.2em;
+		font-weight: bold;
+		color: #fff;
+		text-transform: uppercase;
+		text-align: center;
+		background-color: rgb(20, 110, 165);
+		font-family: 'MyriadPro Regular';
+		border: none;
+		border-radius: 0;
+		-moz-border-radius: 0;
+		-webkit-border-radius: 0;
+		-o-border-radius: 0;
+		border-bottom: 4px solid #4491DB;
+	}
+	
+		#home-page .panel-happy span {
+			display: block;
+			margin-bottom: 5px;
+			font-size: 1.5em;
+		}
+	
+	#home-page .panel-hotline {
+		font-size: 2.2em;
+		font-weight: bold;
+		color: #fff;
+		text-transform: uppercase;
+		text-align: center;
+		background-color: rgb(165, 70, 70);
+		font-family: 'MyriadPro Semibold';
+		border: none;
+		border-radius: 0;
+		-moz-border-radius: 0;
+		-webkit-border-radius: 0;
+		-o-border-radius: 0;
+		border-bottom: 4px solid #842727;
+	}
+	
+		#home-page .panel-hotline span {
+			display: block;
+			margin-bottom: 5px;
+			font-size: 1.5em;
+		}
+	
+	#home-page .panel-quality {
+		font-size: 2.2em;
+		font-weight: bold;
+		color: #fff;
+		text-transform: uppercase;
+		text-align: center;
+		background-color: rgb(58, 181, 69);
+		font-family: 'MyriadPro Regular';
+		border: none;
+		border-radius: 0;
+		-moz-border-radius: 0;
+		-webkit-border-radius: 0;
+		-o-border-radius: 0;
+		border-bottom: 4px solid #248E06;
+	}
+	
+		#home-page .panel-quality span {
+			display: block;
+			margin-bottom: 5px;
+			font-size: 1.5em;
 		}
 
-	.thumbnail {
+	#home-page .thumbnail {
 		border: none;
 		text-align: center;
 	}
 
-	.thumbnail .thumbnail-inner {
+	#home-page .thumbnail .thumbnail-inner {
 		padding: 5px;
+		background-color: #F4F4F4;		
 	}
 
-	.thumbnail .thumbnail-image {
+	#home-page .thumbnail .thumbnail-image {
 		box-shadow: 3px 3px #dedede;
 		-moz-box-shadow: 3px 3px #dedede;
 		-webkit-box-shadow: 3px 3px #dedede;
 		-o-box-shadow: 3px 3px #dedede;
 	}
 
-	.thumbnail .thumbnail-caption {
+	#home-page .thumbnail .thumbnail-caption {
 		margin: 5px auto;
 		font-style: italic;
+		font-size: 0.9em;
 	}
 	
-	.panel-hotline {
-		font-size: 2.2em;
-		font-weight: bold;
-		color: #fff;
-		text-transform: uppercase;
-		text-align: center;
-		border-color: rgb(148, 19, 19);
-		background-color: rgb(165, 70, 70);
-		font-family: 'MyriadPro Semibold';	
-	}
+/*
+ *
+ *  GENERAL
+ *
+ */
 
 .corp-map {	
 	margin-top: 50px;
