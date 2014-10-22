@@ -154,7 +154,7 @@ body {
  */
  
  #web-carousel {
-	height: 400px;
+	max-height: 400px;
 	overflow: hidden;
  }
 
@@ -189,7 +189,6 @@ body {
 	.hotline-alert {
 		text-transform: uppercase;
 		font-size: 1.1em;
-		font-weight: bold;
 		font-family: 'MyriadPro Semibold';
 		border: none;
 		border-bottom: 2px solid;
@@ -296,8 +295,7 @@ body {
 }
 
 	.thumbnail .thumbnail-inner {
-		padding: 5px;
-		background-color: #F4F4F4;		
+		padding: 5px;			
 	}
 
 		.thumbnail .thumbnail-image {
@@ -305,6 +303,7 @@ body {
 			-moz-box-shadow: 3px 3px #dedede;
 			-webkit-box-shadow: 3px 3px #dedede;
 			-o-box-shadow: 3px 3px #dedede;
+			margin: 0 auto;
 		}
 
 		.thumbnail .thumbnail-caption {
@@ -387,11 +386,16 @@ body {
 	#footer .footer-text {
 		font-size: 1em;
 		text-align: center;
-		background-color: #efefef;
-		height: 40px;
-		line-height: 40px;
+		background-color: #efefef;			
 		color: #666;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
+	
+		#footer .footer-text p {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
 
 /*
  *
