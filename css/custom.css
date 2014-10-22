@@ -277,34 +277,34 @@ body {
 			font-size: 1.5em;
 		}
 
-	#home-page .thumbnail {
-		border: none;
-		text-align: center;
-	}
-
-	#home-page .thumbnail .thumbnail-inner {
-		padding: 5px;
-		background-color: #F4F4F4;		
-	}
-
-	#home-page .thumbnail .thumbnail-image {
-		box-shadow: 3px 3px #dedede;
-		-moz-box-shadow: 3px 3px #dedede;
-		-webkit-box-shadow: 3px 3px #dedede;
-		-o-box-shadow: 3px 3px #dedede;
-	}
-
-	#home-page .thumbnail .thumbnail-caption {
-		margin: 5px auto;
-		font-style: italic;
-		font-size: 0.9em;
-	}
-	
 /*
  *
  *  GENERAL
  *
  */
+ 
+.thumbnail {
+	border: none;
+	text-align: center;
+}
+
+	.thumbnail .thumbnail-inner {
+		padding: 5px;
+		background-color: #F4F4F4;		
+	}
+
+		.thumbnail .thumbnail-image {
+			box-shadow: 3px 3px #dedede;
+			-moz-box-shadow: 3px 3px #dedede;
+			-webkit-box-shadow: 3px 3px #dedede;
+			-o-box-shadow: 3px 3px #dedede;
+		}
+
+		.thumbnail .thumbnail-caption {
+			margin: 5px auto;
+			font-style: italic;
+			font-size: 0.9em;
+		}
 
 .corp-map {	
 	margin-top: 50px;
