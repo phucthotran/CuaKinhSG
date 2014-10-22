@@ -403,3 +403,21 @@ body {
 #contact-page .left-side h3 {
 	text-transform: uppercase;
 }
+
+/*
+ *
+ *  PRODUCT PAGE
+ *
+ */
+ 
+ #product-page .panel-success {
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	-o-border-radius: 0;
+ }
+ 
+ #product-page .panel .panel-heading {
+	font-weight: bold;
+	text-align: center;
+ }
