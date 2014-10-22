@@ -227,6 +227,11 @@ body {
 		border-bottom: 4px solid #4491DB;
 	}
 	
+	#home-page .panel-happy:hover {
+		background-color: rgb(21, 102, 152);
+		cursor: pointer;
+	}
+	
 		#home-page .panel-happy span {
 			display: block;
 			margin-bottom: 5px;
@@ -249,6 +254,11 @@ body {
 		border-bottom: 4px solid #842727;
 	}
 	
+	#home-page .panel-hotline:hover {
+		background-color: rgb(152, 61, 61);
+		cursor: pointer;
+	}
+	
 		#home-page .panel-hotline span {
 			display: block;
 			margin-bottom: 5px;
@@ -269,6 +279,11 @@ body {
 		-webkit-border-radius: 0;
 		-o-border-radius: 0;
 		border-bottom: 4px solid #248E06;
+	}
+	
+	#home-page .panel-quality:hover {
+		background-color: rgb(51, 166, 61);
+		cursor: pointer;
 	}
 	
 		#home-page .panel-quality span {
