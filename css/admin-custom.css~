@@ -4,10 +4,6 @@ body {
 	font-family: "Roboto Regular", "MyriadPro Regular", "Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 
-.note {
-	color: #ff0000;
-}
-
 .navbar-inverse {
 	border-radius: 0;
 	-moz-border-radius: 0;
