@@ -1,0 +1,77 @@
+@font-face {
+	font-family: 'Roboto Thin';
+	src: url('../fonts/Roboto/Roboto-Thin.ttf');
+}
+
+@font-face {
+	font-family: 'Roboto Thin';
+	src: url('../fonts/Roboto/Roboto-ThinItalic.ttf');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Roboto Light';
+	src: url('../fonts/Roboto/Roboto-Light.ttf');	
+}
+
+@font-face {
+	font-family: 'Roboto Light';
+	src: url('../fonts/Roboto/Roboto-LightItalic.ttf');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Roboto Regular';
+	src: url('../fonts/Roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Roboto Regular';
+	src: url('../fonts/Roboto/Roboto-Italic.ttf');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Roboto Bold';
+	src: url('../fonts/Roboto/Roboto-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Roboto Bold';
+	src: url('../fonts/Roboto/Roboto-BoldItalic.ttf');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'MyriadPro Regular';
+	src: url('../fonts/MyriadPro/MyriadPro-Regular.otf');
+}
+
+@font-face {
+	font-family: 'MyriadPro Regular';
+	src: url('../fonts/MyriadPro/MyriadPro-It.otf');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'MyriadPro Semibold';
+	src: url('../fonts/MyriadPro/MyriadPro-Semibold.otf');
+}
+
+@font-face {
+	font-family: 'MyriadPro Semibold';
+	src: url('../fonts/MyriadPro/MyriadPro-SemiboldIt.otf');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'MyriadPro Condensed';
+	src: url('../fonts/MyriadPro/MyriadPro-Cond.otf');
+}
+
+@font-face {
+	font-family: 'MyriadPro Condensed';
+	src: url('../fonts/MyriadPro/MyriadPro-BoldCondIt.otf');
+	font-style: italic;
+	font-weight: bold;
+}
