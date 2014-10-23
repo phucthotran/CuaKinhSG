@@ -41,6 +41,7 @@ body {
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 	-o-border-radius: 0;
+	padding: 0;
 }
 
 #main-wrapper .panel .list-group .list-group-item:hover {
@@ -70,8 +71,19 @@ body {
 #main-wrapper .panel .list-group .list-group-item a {
 	color: inherit;
 	text-decoration: none;
-	display: block-inline;
-	padding-left: 10px;
+	display: inline-block;
+	padding: 10px 15px;
+	font-size: 1.1em;
+	width: 100%;
+}
+
+#main-wrapper .col-md-9 .list-group .list-group-item {
+	padding: 10px 15px;
+}
+
+#main-wrapper .col-md-9 .list-group .list-group-item a {
+	padding-left: 15px;
+	display: inline;
 }
 
 #page-manager-page .table tr td a {
