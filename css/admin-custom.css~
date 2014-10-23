@@ -35,17 +35,17 @@ body {
 }
 
 #main-wrapper .panel .list-group .active {
-	background-color: #808080;
+	background-color: #934F4F;
 	color: #fff;
 	border: none;
 }
 
 #main-wrapper .panel .list-group .active:hover {
-	background-color: #808080;
+	background-color: #934F4F;
 }
 
 #main-wrapper .panel .list-group .list-group-item a {
 	color: inherit;
 	text-decoration: none;
-	display: block;
+	display: block-inline;
 }

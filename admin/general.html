@@ -44,75 +44,87 @@
 					<div class="panel panel-danger">
 						<div class="panel-heading">Cài Đặt Tin Chung</div>
 						<ul class="list-group">
-							<li class="list-group-item active"><a href="general.html">Thông Tin Website</a></li>
-							<li class="list-group-item"><a href="contact_email.html">Nội Dung Email Liên Hệ</a></li>
-							<li class="list-group-item"><a href="breadcrumb.html">Box Định Hướng</a></li>	
-							<li class="list-group-item"><a href="features_box.html">Features Box</a></li>
-							<li class="list-group-item"><a href="map.html">Bản Đồ</a></li>																		
+							<li class="list-group-item active"><span class="glyphicon glyphicon-cog"></span><a href="general.html">Thông Tin Website</a></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-envelope"></span><a href="contact_email.html">Nội Dung Email Liên Hệ</a></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-forward"></span><a href="breadcrumb.html">Box Định Hướng</a></li>	
+							<li class="list-group-item"><span class="glyphicon glyphicon-star"></span><a href="features_box.html">Features Box</a></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-globe"></span><a href="map.html">Bản Đồ</a></li>																		
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
 					
 					<div class="panel panel-danger">
 						<div class="panel-heading">Trang</div>
 						<ul class="list-group">
-							<li class="list-group-item"><a href="navbar.html">Quản Lý Trang</a></li>													
+							<li class="list-group-item"><span class="glyphicon glyphicon-file"></span><a href="navbar.html">Quản Lý Trang</a></li>													
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
 				
 					<div class="panel panel-info">
 						<div class="panel-heading">Thanh Điều Hướng</div>
 						<ul class="list-group">
-							<li class="list-group-item"><a href="navbar.html">Cài Đặt</a></li>							
+							<li class="list-group-item"><span class="glyphicon glyphicon-list"></span><a href="navbar.html">Cài Đặt</a></li>							
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->					
 					
 					<div class="panel panel-info">
 						<div class="panel-heading">Thông Báo</div>
 						<ul class="list-group">
-							<li class="list-group-item"><a href="features_box_setup.html">Cài Đặt</a></li>
-							<li class="list-group-item"><a href="features_box_manager.html">Quản Lý</a></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-wrench"></span><a href="announcement_setup.html">Cài Đặt</a></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-bullhorn"></span><a href="announcement_manager.html">Quản Lý</a></li>
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
 					
 					<div class="panel panel-info">
 						<div class="panel-heading">Footer Widget</div>
 						<ul class="list-group">
-							<li class="list-group-item"><a href="footer_widget_setup.html">Cài Đặt</a></li>
-							<li class="list-group-item"><a href="footer_widget_manager.html">Quản Lý</a></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-wrench"></span><a href="footer_widget_setup.html">Cài Đặt</a></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-th"></span><a href="footer_widget_manager.html">Quản Lý</a></li>
 						</ul>	
-					</div> <!-- / .panel .panel-primary -->					
+					</div> <!-- / .panel .panel-primary -->				
 
 				</div> <!-- / .col-md-3 -->
 				<div class="col-md-9">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<div class="form-group">
-								<p>Đóng Cửa Bảo Trì</p>
-								<div class="input-group">
-									<span class="input-group-addon">
-        								<input type="checkbox" name="cb_maintenance">
-      							</span>								
-									<input type="text" name="maintenance_text" class="form-control" placeholder="Nội dung thông báo"/>
-								</div>			
-							</div>
-							<div class="form-group">						
-								<p>Tên Website</p>
-								<input type="text" name="web_name" class="form-control"/>				
-							</div>
-							<div class="form-group">						
-								<p>Tiêu Đề Website</p>
-								<input type="text" name="web_title" class="form-control"/>
-							</div>
-							<div class="form-group">						
-								<p>Tên Doanh Nghiệp/Công Ty</p>
-								<input type="text" name="corp_name" class="form-control"/>
-							</div>
-							<div class="form-group">						
-								<p>Địa Chỉ (Vui lòng ghi rõ phường/xã, quận/huyện để bản đồ hiển thị chính xác)</p>
-								<input type="text" name="corp_address" class="form-control"/>
-							</div>
-						</div>					
-					</div>
+							<form id="general-form" class="form">
+								<div class="form-group">
+									<p>Đóng Cửa Bảo Trì</p>
+									<div class="input-group">
+										<span class="input-group-addon">
+	        								<input type="checkbox" name="cb_maintenance">
+	      							</span>								
+										<input type="text" name="maintenance_text" class="form-control" placeholder="Nội dung thông báo"/>
+									</div>			
+								</div>
+								<div class="form-group">						
+									<p>Tên Website</p>
+									<input type="text" name="web_name" class="form-control"/>				
+								</div>
+								<div class="form-group">						
+									<p>Tiêu Đề Website</p>
+									<input type="text" name="web_title" class="form-control"/>
+								</div>
+								<div class="form-group">						
+									<p>Tên Doanh Nghiệp/Công Ty</p>
+									<input type="text" name="corp_name" class="form-control"/>
+								</div>
+								<div class="form-group">						
+									<p>Địa Chỉ (Vui lòng ghi rõ phường/xã, quận/huyện để bản đồ hiển thị chính xác)</p>
+									<input type="text" name="corp_address" class="form-control"/>
+								</div>
+								<div class="form-group">
+									<p>Email</p>
+									<div class="input-group">
+								  		<span class="input-group-addon">@</span>
+								  		<input type="email" name="corp_email" class="form-control"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<button type="button" name="btn_save" class="btn btn-primary">LƯU CÀI ĐẶT</button>
+								</div>
+							</form> <!-- / #general-form -->
+						</div> <!-- / .panel-body -->			
+					</div> <!-- / .panel .panel-default -->
 				</div> <!-- / .col-md-9 -->
 			</div> <!-- / .row -->
 		</div> <!-- / .container-fluid -->

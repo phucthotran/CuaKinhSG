@@ -47,5 +47,6 @@ body {
 #main-wrapper .panel .list-group .list-group-item a {
 	color: inherit;
 	text-decoration: none;
-	display: block;
+	display: block-inline;
+	padding-left: 10px;
 }
