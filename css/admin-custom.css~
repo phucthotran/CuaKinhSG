@@ -25,14 +25,7 @@ body {
 	font-weight: bold;
 }
 
-#main-wrapper .panel .list-group .list-group-item {
-	cursor: pointer;
-	color: #666;
-}
 
-#main-wrapper .panel .list-group .list-group-item:hover {
-	background-color: #F4F4F4;
-}
 
 #main-wrapper .panel-danger .list-group .active {
 	background-color: #934F4F;
