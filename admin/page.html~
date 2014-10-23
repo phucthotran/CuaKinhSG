@@ -47,7 +47,7 @@
 							<li class="list-group-item"><span class="glyphicon glyphicon-cog"></span><a href="general.html">Thông Tin Website</a></li>
 							<li class="list-group-item"><span class="glyphicon glyphicon-envelope"></span><a href="contact_email.html">Nội Dung Email Liên Hệ</a></li>
 							<li class="list-group-item"><span class="glyphicon glyphicon-forward"></span><a href="breadcrumb.html">Box Định Hướng</a></li>	
-							<li class="list-group-item active"><span class="glyphicon glyphicon-star"></span><a href="features_box.html">Features Box</a></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-star"></span><a href="features_box.html">Features Box</a></li>
 							<li class="list-group-item"><span class="glyphicon glyphicon-globe"></span><a href="map.html">Bản Đồ</a></li>																		
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
@@ -55,7 +55,7 @@
 					<div class="panel panel-danger">
 						<div class="panel-heading">Trang</div>
 						<ul class="list-group">
-							<li class="list-group-item"><span class="glyphicon glyphicon-file"></span><a href="navbar.html">Quản Lý Trang</a></li>													
+							<li class="list-group-item active"><span class="glyphicon glyphicon-file"></span><a href="page.html">Quản Lý Trang</a></li>													
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
 				
@@ -69,8 +69,8 @@
 					<div class="panel panel-info">
 						<div class="panel-heading">Thông Báo</div>
 						<ul class="list-group">
-							<li class="list-group-item"><span class="glyphicon glyphicon-wrench"></span><a href="features_box_setup.html">Cài Đặt</a></li>
-							<li class="list-group-item"><span class="glyphicon glyphicon-bullhorn"></span><a href="features_box_manager.html">Quản Lý</a></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-wrench"></span><a href="announcement_setup.html">Cài Đặt</a></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-bullhorn"></span><a href="announcement_manager.html">Quản Lý</a></li>
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
 					
@@ -84,30 +84,45 @@
 
 				</div> <!-- / .col-md-3 -->
 				<div class="col-md-9">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<form id="features-box-setup-form" class="form">
-								<div class="form-group">
-									<input type="checkbox" name="cb_features_box" checked="true"> Kích Hoạt</input>
-								</div>
-								<div class="form-group">
-									<p>Box 1</p>
-									<input type="text" name="features_box_1" class="form-control" placeholder="Nội Dung"/>							
-								</div>
-								<div class="form-group">						
-									<p>Box 2</p>
-									<input type="text" name="features_box_2" class="form-control" placeholder="Nội Dung"/>							
-								</div>
-								<div class="form-group">						
-									<p>Box 3</p>
-									<input type="text" name="features_box_3" class="form-control" placeholder="Nội Dung"/>							
-								</div>
-								<div class="form-group">
-										<button type="button" name="btn_save" class="btn btn-primary">LƯU CÀI ĐẶT</button>
-								</div>
-							</form> <!-- / #breadcrumb-form -->												
-						</div> <!-- / .panel-body -->						
-					</div> <!-- / .panel .panel-default -->
+					<div id="page-manager-page">
+					<div class="row">
+						<button type="button" name="btn_add" class="btn btn-primary">THÊM TRANG</button>
+					</div> <!-- / .row -->
+					<div style="margin: 20px 0;"></div>
+					<div class="row">
+						<table class="table table-striped">
+							<thead>
+								<th>#</th>
+								<th>Tiêu Đề</th>
+								<th>URL</th>
+								<th>Từ Khóa</th>
+								<th width="16"></th>
+								<th width="16"></th>
+								<th width="16"></th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Liên Hệ</td>
+									<td>lien-he</td>
+									<td>lien he, contact</td>
+									<td><a class="glyphicon glyphicon-ok" title="Công Khai" href="#"></a></td>
+									<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="#"></a></td>
+									<td><a class="glyphicon glyphicon-trash" title="Xóa" href="#"></a></td>																
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Trang Chủ</td>
+									<td>trang-chu</td>
+									<td>trang chu, quoc bao, cua kinh</td>
+									<td><a class="glyphicon glyphicon-remove" title="Không Công Khai" href="#"></a></td>
+									<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="#"></a></td>
+									<td><a class="glyphicon glyphicon-trash" title="Xóa" href="#"></a></td>
+								</tr>
+							</tbody>					
+						</table>
+					</div> <!-- / .row -->
+					</div> <!-- / #page-manager-page -->
 				</div> <!-- / .col-md-9 -->
 			</div> <!-- / .row -->
 		</div> <!-- / .container-fluid -->

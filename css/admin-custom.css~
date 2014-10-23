@@ -48,4 +48,9 @@ body {
 	color: inherit;
 	text-decoration: none;
 	display: block-inline;
+	padding-left: 10px;
+}
+
+#page-manager-page .table tr td a {
+	
 }

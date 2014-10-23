@@ -50,3 +50,8 @@ body {
 	display: block-inline;
 	padding-left: 10px;
 }
+
+#page-manager-page .table tr td a {
+	color: inherit;
+	text-decoration: none;
+}
