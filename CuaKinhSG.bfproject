@@ -1,5 +1,6 @@
 c2e.convert_special: 0
 e2c.convert_num: 0
+openfiles: /home/thotran/Projects/CuaKinhSG/admin/index.html:0:0:1:
 snr_recursion_level: 5
 convertcolumn_horizontally: 0
 adv_open_matchname: 0
@@ -11,7 +12,7 @@ view_left_panel: 1
 default_mime_type: text/plain
 e2c.convert_xml: 1
 c2e.convert_iso: 0
-opendir: file:///home/thotran/Projects/CuaKinhSG/css
+opendir: file:///home/thotran/Projects/CuaKinhSG/admin
 wrap_text_default: 0
 documentroot: file:///home/thotran/Projects/CuaKinhSG
 bookmarks_filename_mode: 0
@@ -49,6 +50,7 @@ recent_files: file:///home/thotran/Projects/CuaKinhSG/js/jquery.min.js
 recent_files: file:///home/thotran/Projects/CuaKinhSG/css/bootstrap.min.css
 recent_files: file:///home/thotran/Projects/CuaKinhSG/js/bootstrap.min.js
 recent_files: file:///home/thotran/Projects/CuaKinhSG/css/bootstrap-theme.min.css
+recent_files: file:///home/thotran/Projects/CuaKinhSG/admin/index.html
 snr_replacetype: 0
 savedir: file:///home/thotran/VietIdeals_HTML
 spell_check_default: 1
@@ -89,6 +91,7 @@ recent_dirs: file:///home/thotran/Projects
 recent_dirs: file:///home/thotran/Projects/CuaKinhSG
 recent_dirs: file:///home/thotran/Projects/CuaKinhSG/js
 recent_dirs: file:///home/thotran/Projects/CuaKinhSG/css
+recent_dirs: file:///home/thotran/Projects/CuaKinhSG/admin
 fb_focus_follow: 1
 ssearch_unescape: 0
 c2e.convert_symbol: 0
