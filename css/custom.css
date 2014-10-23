@@ -345,14 +345,32 @@ body {
  *
  */
  
- #product-page .panel-success {
+#product-page .panel-success {
 	border-radius: 0;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 	-o-border-radius: 0;
  }
  
- #product-page .panel .panel-heading {
+#product-page .panel .panel-heading {
 	font-weight: bold;
 	text-align: center;
  }
+ 
+ /*
+ *
+ *  NOT FOUND PAGE
+ *
+ */
+ 
+#notfound-page {
+	text-align: center;
+}
+
+#notfound-page h1 {
+	font-size: 12em;
+}
+
+#notfound-page h2 {
+	font-size: 4em;
+}

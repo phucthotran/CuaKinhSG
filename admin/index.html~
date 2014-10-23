@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div class="navbar navbar-inverse" role="navigation">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
 					<span class="sr-only">Menu</span>
@@ -49,14 +49,14 @@
 							<li class="list-group-item"><span class="glyphicon glyphicon-forward"></span><a href="breadcrumb.html">Box Định Hướng</a></li>	
 							<li class="list-group-item"><span class="glyphicon glyphicon-star"></span><a href="features_box.html">Features Box</a></li>
 							<li class="list-group-item"><span class="glyphicon glyphicon-globe"></span><a href="map.html">Bản Đồ</a></li>
-							<li class="list-group-item active"><span class="glyphicon glyphicon-th-large"></span><a href="footer_widget.html">Footer Widget</a></li>																		
+							<li class="list-group-item"><span class="glyphicon glyphicon-th-large"></span><a href="footer_widget.html">Footer Widget</a></li>																		
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
 					
 					<div class="panel panel-danger">
 						<div class="panel-heading">Trang</div>
 						<ul class="list-group">
-							<li class="list-group-item"><span class="glyphicon glyphicon-file"></span><a href="page.html">Quản Lý Trang</a></li>													
+							<li class="list-group-item"><span class="glyphicon glyphicon-file"></span><a href="navbar.html">Quản Lý Trang</a></li>													
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
 				
@@ -73,47 +73,10 @@
 							<li class="list-group-item"><span class="glyphicon glyphicon-wrench"></span><a href="announcement_setup.html">Cài Đặt</a></li>
 							<li class="list-group-item"><span class="glyphicon glyphicon-bullhorn"></span><a href="announcement_manager.html">Quản Lý</a></li>
 						</ul>	
-					</div> <!-- / .panel .panel-primary -->			
+					</div> <!-- / .panel .panel-primary -->				
 
 				</div> <!-- / .col-md-3 -->
 				<div class="col-md-9">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<form id="footer-widget-form" class="form">
-								<div class="form-group">
-									<input type="checkbox" name="cb_footer_widget" checked="true"> Kích Hoạt</input>
-								</div>
-								
-								<div class="col-md-6">
-									<div class="form-group">
-										<p>Widget 1 - Tiêu Đề</p>
-										<input type="text" name="footer_widget1_title" class="form-control"/>							
-									</div>
-									<div class="form-group">						
-										<p>Widget 1 - Nội Dung <span class="note">**</span></p>
-										<textarea style="resize: none;" name="footer_widget1_content" rows="10" class="form-control"></textarea>					
-									</div>
-								</div>
-								
-								<div class="col-md-6">
-									<div class="form-group">
-										<p>Widget 2 - Tiêu Đề</p>
-										<input type="text" name="footer_widget2_title" class="form-control"/>							
-									</div>
-									<div class="form-group">						
-										<p>Widget 2 - Nội Dung <span class="note">**</span></p>
-										<textarea style="resize: none;" name="footer_widget2_content" rows="10" class="form-control"></textarea>					
-									</div>
-								</div>
-								
-								<p style="color: #ff0000;">Hỗ trợ mã HTML</p>
-								
-								<div class="form-group">
-										<button type="button" name="btn_save" class="btn btn-primary">LƯU CÀI ĐẶT</button>
-								</div>
-							</form> <!-- / #footer-widget-form -->												
-						</div> <!-- / .panel-body -->						
-					</div> <!-- / .panel .panel-default -->
 				</div> <!-- / .col-md-9 -->
 			</div> <!-- / .row -->
 		</div> <!-- / .container-fluid -->
