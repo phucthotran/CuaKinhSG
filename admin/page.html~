@@ -85,43 +85,43 @@
 				</div> <!-- / .col-md-3 -->
 				<div class="col-md-9">
 					<div id="page-manager-page">
-					<div class="row">
-						<button type="button" name="btn_add" class="btn btn-primary">THÊM TRANG</button>
-					</div> <!-- / .row -->
-					<div style="margin: 20px 0;"></div>
-					<div class="row">
-						<table class="table table-striped">
-							<thead>
-								<th>#</th>
-								<th>Tiêu Đề</th>
-								<th>URL</th>
-								<th>Từ Khóa</th>
-								<th width="16"></th>
-								<th width="16"></th>
-								<th width="16"></th>
-							</thead>
-							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Liên Hệ</td>
-									<td>lien-he</td>
-									<td>lien he, contact</td>
-									<td><a class="glyphicon glyphicon-ok" title="Công Khai" href="#"></a></td>
-									<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="#"></a></td>
-									<td><a class="glyphicon glyphicon-trash" title="Xóa" href="#"></a></td>																
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Trang Chủ</td>
-									<td>trang-chu</td>
-									<td>trang chu, quoc bao, cua kinh</td>
-									<td><a class="glyphicon glyphicon-remove" title="Không Công Khai" href="#"></a></td>
-									<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="#"></a></td>
-									<td><a class="glyphicon glyphicon-trash" title="Xóa" href="#"></a></td>
-								</tr>
-							</tbody>					
-						</table>
-					</div> <!-- / .row -->
+						<div class="row">
+							<button type="button" name="btn_add" class="btn btn-primary">THÊM TRANG</button>
+						</div> <!-- / .row -->
+						<div style="margin: 20px 0;"></div>
+						<div class="row">
+							<table class="table table-striped">
+								<thead>
+									<th>#</th>
+									<th>Tiêu Đề</th>
+									<th>URL</th>
+									<th>Từ Khóa</th>
+									<th width="16"></th>
+									<th width="16"></th>
+									<th width="16"></th>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>Liên Hệ</td>
+										<td>lien-he</td>
+										<td>lien he, contact</td>
+										<td><a class="glyphicon glyphicon-ok" title="Công Khai" href="#"></a></td>
+										<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="#"></a></td>
+										<td><a class="glyphicon glyphicon-trash" title="Xóa" href="#"></a></td>																
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Trang Chủ</td>
+										<td>trang-chu</td>
+										<td>trang chu, quoc bao, cua kinh</td>
+										<td><a class="glyphicon glyphicon-remove" title="Không Công Khai" href="#"></a></td>
+										<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="#"></a></td>
+										<td><a class="glyphicon glyphicon-trash" title="Xóa" href="#"></a></td>
+									</tr>
+								</tbody>					
+							</table>
+						</div> <!-- / .row -->
 					</div> <!-- / #page-manager-page -->
 				</div> <!-- / .col-md-9 -->
 			</div> <!-- / .row -->

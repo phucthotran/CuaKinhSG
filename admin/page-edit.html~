@@ -48,14 +48,14 @@
 							<li class="list-group-item"><span class="glyphicon glyphicon-envelope"></span><a href="contact_email.html">Nội Dung Email Liên Hệ</a></li>
 							<li class="list-group-item"><span class="glyphicon glyphicon-forward"></span><a href="breadcrumb.html">Box Định Hướng</a></li>	
 							<li class="list-group-item"><span class="glyphicon glyphicon-star"></span><a href="features_box.html">Features Box</a></li>
-							<li class="list-group-item active"><span class="glyphicon glyphicon-globe"></span><a href="map.html">Bản Đồ</a></li>																		
+							<li class="list-group-item"><span class="glyphicon glyphicon-globe"></span><a href="map.html">Bản Đồ</a></li>																		
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
 					
 					<div class="panel panel-danger">
 						<div class="panel-heading">Trang</div>
 						<ul class="list-group">
-							<li class="list-group-item"><span class="glyphicon glyphicon-file"></span><a href="page.html">Quản Lý Trang</a></li>													
+							<li class="list-group-item active"><span class="glyphicon glyphicon-file"></span><a href="page.html">Quản Lý Trang</a></li>													
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
 				
@@ -86,19 +86,29 @@
 				<div class="col-md-9">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<form id="map-form" class="form">								
+							<form id="new-page-form" class="form">								
 								<div class="form-group">
-									<p>Lat</p>
-									<input type="text" name="map_lat" class="form-control"/>							
+									<p>Tiêu Đề</p>
+									<input type="text" name="page_title" class="form-control"/>							
 								</div>
 								<div class="form-group">						
-									<p>Long</p>
-									<input type="text" name="map_long" class="form-control"/>							
+									<p>URL</p>
+									<input type="text" name="page_url" class="form-control"/>							
+								</div>
+								<div class="form-group">						
+									<p>Từ Khóa</p>
+									<input type="text" name="page_keywords" class="form-control"/>							
 								</div>
 								<div class="form-group">
-										<button type="button" name="btn_save" class="btn btn-primary">LƯU CÀI ĐẶT</button>
+									<input type="checkbox" name="cb_publish" checked="true"> Công Khai</input>
 								</div>
-							</form> <!-- / #breadcrumb-form -->												
+								<div class="form-group">
+								  <textarea style="resize: none;" id="page_content" name="page_content" rows="20" class="form-control"></textarea>
+								</div>
+								<div class="form-group">
+										<button type="button" name="btn_save" class="btn btn-primary">LƯU TRANG</button>
+								</div>								
+							</form> <!-- / #new-page-form -->												
 						</div> <!-- / .panel-body -->						
 					</div> <!-- / .panel .panel-default -->
 				</div> <!-- / .col-md-9 -->
