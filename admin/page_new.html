@@ -48,21 +48,22 @@
 							<li class="list-group-item"><span class="glyphicon glyphicon-envelope"></span><a href="contact_email.html">Nội Dung Email Liên Hệ</a></li>
 							<li class="list-group-item"><span class="glyphicon glyphicon-forward"></span><a href="breadcrumb.html">Box Định Hướng</a></li>	
 							<li class="list-group-item"><span class="glyphicon glyphicon-star"></span><a href="features_box.html">Features Box</a></li>
-							<li class="list-group-item"><span class="glyphicon glyphicon-globe"></span><a href="map.html">Bản Đồ</a></li>																		
+							<li class="list-group-item"><span class="glyphicon glyphicon-globe"></span><a href="map.html">Bản Đồ</a></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-th-large"></span><a href="footer_widget.html">Footer Widget</a></li>												
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
 					
 					<div class="panel panel-danger">
 						<div class="panel-heading">Trang</div>
 						<ul class="list-group">
-							<li class="list-group-item"><span class="glyphicon glyphicon-file"></span><a href="page.html">Quản Lý Trang</a></li>													
+							<li class="list-group-item active"><span class="glyphicon glyphicon-file"></span><a href="page.html">Quản Lý Trang</a></li>													
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
 				
 					<div class="panel panel-info">
 						<div class="panel-heading">Thanh Điều Hướng</div>
 						<ul class="list-group">
-							<li class="list-group-item active"><span class="glyphicon glyphicon-list"></span><a href="navbar.html">Cài Đặt</a></li>							
+							<li class="list-group-item"><span class="glyphicon glyphicon-list"></span><a href="navbar.html">Cài Đặt</a></li>							
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->					
 					
@@ -72,33 +73,35 @@
 							<li class="list-group-item"><span class="glyphicon glyphicon-wrench"></span><a href="announcement_setup.html">Cài Đặt</a></li>
 							<li class="list-group-item"><span class="glyphicon glyphicon-bullhorn"></span><a href="announcement_manager.html">Quản Lý</a></li>
 						</ul>	
-					</div> <!-- / .panel .panel-primary -->
-					
-					<div class="panel panel-info">
-						<div class="panel-heading">Footer Widget</div>
-						<ul class="list-group">
-							<li class="list-group-item"><span class="glyphicon glyphicon-wrench"></span><a href="footer_widget_setup.html">Cài Đặt</a></li>
-							<li class="list-group-item"><span class="glyphicon glyphicon-th"></span><a href="footer_widget_manager.html">Quản Lý</a></li>
-						</ul>	
-					</div> <!-- / .panel .panel-primary -->					
+					</div> <!-- / .panel .panel-primary -->				
 
 				</div> <!-- / .col-md-3 -->
 				<div class="col-md-9">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<form id="map-form" class="form">								
-								<p style="margin-bottom: 20px;">Các Mục Sẽ Hiển Thị Trên Thanh Điều Hướng</p>
-
-								<ul class="list-group">
-									<li class="list-group-item"><input type="checkbox" name="cb_page1"> Trang Chủ</input></li>
-									<li class="list-group-item"><input type="checkbox" name="cb_page2"> Liên Hệ</input></li>
-									<li class="list-group-item"><input type="checkbox" name="cb_page3"> Bảng Báo Giá</input></li>
-								</ul>
-								
+							<form id="new-page-form" class="form">								
 								<div class="form-group">
-									<button type="button" name="btn_save" class="btn btn-primary">LƯU CÀI ĐẶT</button>
+									<p>Tiêu Đề</p>
+									<input type="text" name="page_title" class="form-control"/>							
 								</div>
-							</form> <!-- / #navbar-form -->												
+								<div class="form-group">						
+									<p>URL</p>
+									<input type="text" name="page_url" class="form-control"/>							
+								</div>
+								<div class="form-group">						
+									<p>Từ Khóa</p>
+									<input type="text" name="page_keywords" class="form-control"/>							
+								</div>
+								<div class="form-group">
+									<input type="checkbox" name="cb_publish" checked="true"> Công Khai</input>
+								</div>
+								<div class="form-group">
+								  <textarea style="resize: none;" id="page-content" name="page_content" rows="20" class="form-control"></textarea>
+								</div>
+								<div class="form-group">
+										<button type="button" name="btn_save" class="btn btn-primary">THÊM TRANG</button>
+								</div>								
+							</form> <!-- / #new-page-form -->												
 						</div> <!-- / .panel-body -->						
 					</div> <!-- / .panel .panel-default -->
 				</div> <!-- / .col-md-9 -->
@@ -115,6 +118,13 @@
 	<script src="../js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7"></script>
 	<script src="../js/maplace-0.1.3.min.js" type="text/javascript"></script>
+	<script src="../js/ckeditor/ckeditor.js"></script>
+	<script src="../js/ckeditor/adapters/jquery.js"></script>
 	<script src="../js/admin-functions.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){			
+			$('#page-content').ckeditor({language: 'vi'});
+		});	
+	</script>
 </body>
 </html>

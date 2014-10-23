@@ -48,7 +48,7 @@
 							<li class="list-group-item"><span class="glyphicon glyphicon-envelope"></span><a href="contact_email.html">Nội Dung Email Liên Hệ</a></li>
 							<li class="list-group-item"><span class="glyphicon glyphicon-forward"></span><a href="breadcrumb.html">Box Định Hướng</a></li>	
 							<li class="list-group-item"><span class="glyphicon glyphicon-star"></span><a href="features_box.html">Features Box</a></li>
-							<li class="list-group-item active"><span class="glyphicon glyphicon-globe"></span><a href="map.html">Bản Đồ</a></li>
+							<li class="list-group-item"><span class="glyphicon glyphicon-globe"></span><a href="map.html">Bản Đồ</a></li>
 							<li class="list-group-item"><span class="glyphicon glyphicon-th-large"></span><a href="footer_widget.html">Footer Widget</a></li>																		
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->
@@ -71,29 +71,48 @@
 						<div class="panel-heading">Thông Báo</div>
 						<ul class="list-group">
 							<li class="list-group-item"><span class="glyphicon glyphicon-wrench"></span><a href="announcement_setup.html">Cài Đặt</a></li>
-							<li class="list-group-item"><span class="glyphicon glyphicon-bullhorn"></span><a href="announcement_manager.html">Quản Lý</a></li>
+							<li class="list-group-item active"><span class="glyphicon glyphicon-bullhorn"></span><a href="announcement_manager.html">Quản Lý</a></li>
 						</ul>	
 					</div> <!-- / .panel .panel-primary -->			
 
 				</div> <!-- / .col-md-3 -->
 				<div class="col-md-9">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<form id="map-form" class="form">								
-								<div class="form-group">
-									<p>Lat</p>
-									<input type="text" name="map_lat" class="form-control"/>							
-								</div>
-								<div class="form-group">						
-									<p>Long</p>
-									<input type="text" name="map_long" class="form-control"/>							
-								</div>
-								<div class="form-group">
-										<button type="button" name="btn_save" class="btn btn-primary">LƯU CÀI ĐẶT</button>
-								</div>
-							</form> <!-- / #map-form -->												
-						</div> <!-- / .panel-body -->						
-					</div> <!-- / .panel .panel-default -->
+					<div id="announcement-manager-page">
+						<div class="row">
+							<a class="btn btn-primary" href="announcement_new.html">THÊM THÔNG BÁO</a>
+						</div> <!-- / .row -->
+						<div style="margin: 20px 0;"></div>
+						<div class="row">
+							<table class="table table-striped">
+								<thead>
+									<th>#</th>
+									<th>Tiêu Đề</th>
+									<th>Mức Độ</th>
+									<th width="16"></th>
+									<th width="16"></th>
+									<th width="16"></th>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>Liên Hệ</td>
+										<td><a class="glyphicon glyphicon-bookmark" title="Bình Thường" href="#"></a></td>										
+										<td><a class="glyphicon glyphicon-ok" title="Công Khai" href="#"></a></td>
+										<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="announcement_edit.html"></a></td>
+										<td><a class="glyphicon glyphicon-trash" title="Xóa" href="#"></a></td>																
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Trang Chủ</td>
+										<td><a class="glyphicon glyphicon-fire" title="Quan Trọng" href="#"></a></td>										
+										<td><a class="glyphicon glyphicon-remove" title="Không Công Khai" href="#"></a></td>
+										<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="announcement_edit.html"></a></td>
+										<td><a class="glyphicon glyphicon-trash" title="Xóa" href="#"></a></td>
+									</tr>
+								</tbody>					
+							</table>
+						</div> <!-- / .row -->
+					</div> <!-- / #announcement-manager-page -->
 				</div> <!-- / .col-md-9 -->
 			</div> <!-- / .row -->
 		</div> <!-- / .container-fluid -->
