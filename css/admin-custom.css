@@ -27,6 +27,11 @@ body {
 	text-transform: uppercase;
 	text-align: center;
 	font-weight: bold;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	-o-border-radius: 0;
+	border: none;
 }
 
 #main-wrapper .panel .list-group .list-group-item {
