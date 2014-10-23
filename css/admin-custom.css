@@ -37,6 +37,10 @@ body {
 #main-wrapper .panel .list-group .list-group-item {
 	cursor: pointer;
 	color: #666;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	-o-border-radius: 0;
 }
 
 #main-wrapper .panel .list-group .list-group-item:hover {
@@ -54,13 +58,13 @@ body {
 }
 
 #main-wrapper .panel-info .list-group .active {
-	background-color: #6D8BA3;
+	background-color: #59C1E7;
 	color: #fff;
 	border: none;
 }
 
 #main-wrapper .panel-info .list-group .active:hover {
-	background-color: #6D8BA3;
+	background-color: #59C1E7;
 }
 
 #main-wrapper .panel .list-group .list-group-item a {

@@ -81,7 +81,7 @@
 						<div class="panel-body">
 							<form id="new-announcement-form" class="form">								
 								<div class="form-group">
-									<p>Tiêu Đề</p>
+									<p>Tiêu Đề <span class="note">*</span></p>
 									<input type="text" name="announcement_title" class="form-control"/>							
 								</div>
 								<div class="form-group">						
@@ -95,9 +95,11 @@
 									<input type="checkbox" name="cb_publish" checked="true"> Công Khai</input>
 								</div>
 								<div class="form-group">						
-									<p>Nội Dung</p>
+									<p>Nội Dung <span class="note">* **</span></p>
 									<input type="text" name="announcement_content" class="form-control"/>							
 								</div>
+								<p class="note">* Không Được Bỏ Trống</p>
+								<p class="note">** Hỗ trợ mã HTML</p>								
 								<div class="form-group">
 										<button type="button" name="btn_save" class="btn btn-primary">THÊM THÔNG BÁO</button>
 								</div>								
