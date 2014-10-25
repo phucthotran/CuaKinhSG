@@ -1,3 +1,7 @@
+/*
+* ROBOTO FONT FAMILY
+*/
+
 @font-face {
 	font-family: 'Roboto Thin';
 	src: url('../fonts/Roboto/Roboto-Thin.ttf');
@@ -41,6 +45,10 @@
 	src: url('../fonts/Roboto/Roboto-BoldItalic.ttf');
 	font-style: italic;
 }
+
+/*
+* MYRIADPRO FONT FAMILY
+*/
 
 @font-face {
 	font-family: 'MyriadPro Regular';
