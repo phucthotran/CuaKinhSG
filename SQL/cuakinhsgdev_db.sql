@@ -49,10 +49,14 @@ DROP TABLE IF EXISTS `announcement`;
 CREATE TABLE `announcement` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
-  `announcement_modeId` tinyint(4) NOT NULL,
+  `mode_id` tinyint(4) NOT NULL,
   `publish` tinyint(4) DEFAULT '1',
   `content` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX (mode_id),
+  
+  FOREIGN KEY (mode_id) 
+  	REFERENCES announcement_mode(id)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
