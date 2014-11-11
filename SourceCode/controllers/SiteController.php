@@ -8,6 +8,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Page;
+use yii\web\NotFoundHttpException;
 
 class SiteController extends Controller
 {
@@ -92,5 +94,15 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    
+    public function actionPage( $pageid )
+    {
+    	$page = Page::find()->where([ 'url' => $pageid])->one();
+
+    	if( $page == null )
+    		throw new NotFoundHttpException;
+   	
+    	return $this->render('page', [ 'page' => $page ]);
     }
 }
