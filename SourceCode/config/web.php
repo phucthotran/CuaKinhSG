@@ -41,6 +41,9 @@ $config = [
     ],
     'params' => $params,
 	'language' => 'vi-VN',
+	'modules' => [
+		'admin' => ['class' => 'app\modules\admin\Admin'],
+	],
 ];
 
 if (YII_ENV_DEV) {
