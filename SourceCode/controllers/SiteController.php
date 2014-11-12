@@ -98,7 +98,8 @@ class SiteController extends Controller
     
     public function actionPage( $pageid )
     {
-    	$page = Page::find()->where([ 'url' => $pageid])->one();
+    	//$page = Page::find()->where([ 'url' => $pageid])->one();
+    	$page = Page::findOne(['url' => $pageid]);
 
     	if( $page == null )
     		throw new NotFoundHttpException;
