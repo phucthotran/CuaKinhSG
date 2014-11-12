@@ -40,6 +40,7 @@ $config = [
         'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,
+	'language' => 'vi-VN',
 ];
 
 if (YII_ENV_DEV) {
