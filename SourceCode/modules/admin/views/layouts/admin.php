@@ -69,11 +69,10 @@ AppAsset::register($this);
 					<div class="panel panel-danger">
 						<div class="panel-heading">Cài Đặt Tin Chung</div>
 						<ul class="list-group">							
-							<li class="list-group-item"><a href="general.html"><span class="glyphicon glyphicon-cog"></span> Thông Tin Website</a></li>
-							<li class="list-group-item"><a href="contact_email.html"><span class="glyphicon glyphicon-envelope"></span> Nội Dung Email Liên Hệ</a></li>
-							<li class="list-group-item"><a href="breadcrumb.html"><span class="glyphicon glyphicon-forward"></span> Box Định Hướng</a></li>							
-							<li class="list-group-item"><a href="map.html"><span class="glyphicon glyphicon-globe"></span> Bản Đồ</a></li>
-							<li class="list-group-item"><a href="footer_widget.html"><span class="glyphicon glyphicon-th-large"></span> Footer Widget</a></li>
+							<li class="list-group-item <?= $url == 'general/index' ? 'active' : '' ?>"><a href="index.php?r=admin/general"><span class="glyphicon glyphicon-cog"></span> Thông Tin Website</a></li>							
+							<li class="list-group-item <?= $url == 'breadcrumb/index' ? 'active' : '' ?>"><a href="index.php?r=admin/breadcrumb"><span class="glyphicon glyphicon-forward"></span> Box Định Hướng</a></li>							
+							<li class="list-group-item <?= $url == 'map/index' ? 'active' : '' ?>"><a href="index.php?r=admin/map"><span class="glyphicon glyphicon-globe"></span> Bản Đồ</a></li>
+							<li class="list-group-item <?= $url == 'footerwidget/index' ? 'active' : '' ?>"><a href="index.php?r=admin/footerwidget"><span class="glyphicon glyphicon-th-large"></span> Footer Widget</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-danger -->
 
@@ -87,15 +86,15 @@ AppAsset::register($this);
 					<div class="panel panel-info">
 						<div class="panel-heading">Thanh Điều Hướng</div>
 						<ul class="list-group">
-							<li class="list-group-item"><a href="navbar.html"><span class="glyphicon glyphicon-list"></span> Cài Đặt</a></li>
+							<li class="list-group-item <?= $url == 'navbar/index' ? 'active' : '' ?>"><a href="index.php?r=admin/navbar"><span class="glyphicon glyphicon-list"></span> Cài Đặt</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-info -->
 
 					<div class="panel panel-info">
 						<div class="panel-heading">Thông Báo</div>
 						<ul class="list-group">
-							<li class="list-group-item"><a href="announcement_setup.html"><span class="glyphicon glyphicon-wrench"></span> Cài Đặt</a></li>
-							<li class="list-group-item"><a href="announcement_manager.html"><span class="glyphicon glyphicon-bullhorn"></span> Quản Lý</a></li>
+							<li class="list-group-item <?= $url == 'announcement/index' ? 'active' : '' ?>"><a href="index.php?r=admin/announcement"><span class="glyphicon glyphicon-wrench"></span> Cài Đặt</a></li>
+							<li class="list-group-item <?= $url == 'announcement/management' ? 'active' : '' ?>"><a href="index.php?r=admin/announcement/management"><span class="glyphicon glyphicon-bullhorn"></span> Quản Lý</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-info -->
 
