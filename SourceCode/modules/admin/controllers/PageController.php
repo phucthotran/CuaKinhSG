@@ -10,16 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\web\BadRequestHttpException;
 
 class PageController extends Controller
-{
-	public function actions()
-	{
-		return [
-			'error' => [
-					'class' => 'yii\web\ErrorAction',
-			],
-		];
-	}
-	
+{	
     public function actionIndex()
     {
     	$pages = Page::find()->all();
