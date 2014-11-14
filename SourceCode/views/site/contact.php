@@ -11,6 +11,24 @@ $this->title = 'Liên Hệ - Cửa kính nhôm Quốc Bảo';
 $this->params['breadcrumbs'][] = 'Liên Hệ';
 ?>
 
+<?php 
+$css = <<<EOT
+	#contact-page {
+		min-height: 500px;
+	}
+	
+	#contact-page .left-side {
+		font-size: 1.1em;
+	}
+	
+	#contact-page .left-side h3 {
+		text-transform: uppercase;
+	}
+EOT;
+
+$this->registerCss($css, ['position' => \yii\web\View::POS_HEAD]);
+?>
+
 <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
     <div class="alert alert-success">
         Cảm ơn quý khách đã liên hệ với chúng tôi. Chúng tôi sẽ hồi âm lại cho quý khách trong thời gian sớm nhất có thể.

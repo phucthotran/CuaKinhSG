@@ -9,19 +9,27 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
-<div class="site-error">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<?php 
+$css = <<<EOT
+	#error-page {
+		text-align: center;
+	}
+	
+	#error-page h1 {
+		font-size: 12em;
+	}
+	
+	#error-page h2 {
+		font-size: 4em;
+	}
+EOT;
 
-    <div class="alert alert-danger">
-        <?= nl2br(Html::encode($message)) ?>
-    </div>
+$this->registerCss($css, \yii\web\View::POS_HEAD);
+?>
 
-    <p>
-        The above error occurred while the Web server was processing your request.
-    </p>
-    <p>
-        Please contact us if you think this is a server error. Thank you.
-    </p>
-
-</div>
+<div id="error-page">				
+		<h1><?= Html::encode($this->title) ?></h1>
+		<h2><?= nl2br(Html::encode($message)) ?></h2>
+		<a class="btn btn-primary" href="index.php" title="Trang Chủ">TRỞ VỀ TRANG CHỦ</a>							
+</div> <!-- / #error-page -->

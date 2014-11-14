@@ -32,7 +32,7 @@ class SiteController extends Controller
                 'actions' => [
                     'logout' => ['post'],
                 ],
-            ],
+            ],        	
         ];
     }
 
@@ -105,4 +105,5 @@ class SiteController extends Controller
    	
     	return $this->render('page', [ 'page' => $page ]);
     }
+
 }

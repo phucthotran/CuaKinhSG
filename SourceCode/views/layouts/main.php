@@ -10,7 +10,52 @@ use yii\bootstrap\Carousel;
 /* @var $content string */
 
 AppAsset::register($this);
+
+$this->registerCssFile('css/custom.css', ['position' => \yii\web\View::POS_BEGIN]);
+
+$this->registerJsFile('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', ['position' => \yii\web\View::POS_HEAD]);
+$this->registerJsFile('https://oss.maxcdn.com/respond/1.4.2/respond.min.js', ['position' => \yii\web\View::POS_HEAD]);
+
+$this->registerJsFile('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', ['position' => \yii\web\View::POS_END]);
+$this->registerJsFile('http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7', ['position' => \yii\web\View::POS_END]);
+$this->registerJsFile('js/maplace-0.1.3.min.js', ['position' => \yii\web\View::POS_END]);
+$this->registerJsFile('js/functions.js', ['position' => \yii\web\View::POS_END]);
 ?>
+
+<?php 
+$css = <<<EOT
+	<style type='text/css'>
+		#web-carousel {
+			max-height: 400px !important;
+			overflow: hidden !important;
+		 }
+		
+		#web-carousel .carousel-indicators li {
+			background-color: #edecec !important;
+			border-color: #bababa !important;
+		}
+		
+		#web-carousel .carousel-indicators li.active {
+			background-color: #ccc !important;
+		}
+		
+		#web-carousel .carousel-indicators li:hover {
+			background-color: #fff !important;
+		}
+		
+		#web-carousel .carousel-inner .carousel-caption {
+			color: #666 !important;
+			text-transform: uppercase !important;
+			font-size: 1.1em !important;
+			text-shadow: none !important;	
+		}
+	</style>
+EOT;
+
+if (Yii::$app->controller->action->id == 'index')
+	$this->registerCss($css, ['position' => \yii\web\View::POS_HEAD]);
+?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -22,19 +67,12 @@ AppAsset::register($this);
 	<?= Html::csrfMetaTags() ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>	
     <title><?= Html::encode($this->title) ?></title>
-
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
 	
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="css/custom.css" rel="stylesheet" type="text/css">	
+	<?php $this->head() ?>	
 </head>
 
 <body>
+	<?php $this->beginBody() ?>
 	<div class="top-button" title="Cuộn lên đầu trang"></div>
 
 	<?php
@@ -177,17 +215,7 @@ AppAsset::register($this);
 				<p>Xây dựng bởi <a href="https://www.facebook.com/thotran.developer" title="Ghé thăm Facebook của tôi" target="_blank">ThoTran Coder</a></p>
 			</div>
 		</div> <!-- / .footer-text -->
-	</div> <!-- / #footer .container-fluid -->
-	
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js" type="text/javascript"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7" type="text/javascript"></script>
-	<script src="js/maplace-0.1.3.min.js" type="text/javascript"></script>
-	<script src="js/functions.js" type="text/javascript"></script>
-	
+	</div> <!-- / #footer .container-fluid -->	
 <?php $this->endBody() ?>
 </body>
 </html>

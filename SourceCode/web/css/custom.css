@@ -7,52 +7,52 @@
 /* NAVBAR */
 
 .navbar-default {
-	background-color: #3f3f3f;
-	border: none;
-	border-radius: 0;
-	font-family: 'Roboto Bold';
-	text-transform: uppercase;
+	background-color: #3f3f3f !important;
+	border: none !important;
+	border-radius: 0 !important;
+	font-family: 'Roboto Bold' !important;
+	text-transform: uppercase !important;
 }
 
 	.navbar-default .navbar-brand {
-		font-size: 1.5em;
-		background-color: #834139;
-		padding: 10px 20px;
-		margin: 0;
-		text-align: center;
-		line-height: 30px;
-		color: #572B2B;
+		font-size: 1.5em !important;
+		background-color: #834139 !important;
+		padding: 10px 20px !important;
+		margin: 0 !important;
+		text-align: center !important;
+		line-height: 30px !important;
+		color: #572B2B !important;
 	}
 
 	.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-		color: #572B2B;
-		background-color: #834139;
+		color: #572B2B !important;
+		background-color: #834139 !important;
 	}
 	
 	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
-		color: #fff;
-		background-color: #595959;
+		color: #fff !important;
+		background-color: #595959 !important;
 	}
 
 	.navbar-default .navbar-nav>li>a {
-		color: #fff;
+		color: #fff !important;
 	}
 
 	.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
-		color: #A5A5A5;
+		color: #A5A5A5 !important;
 	}
 	
 /* BREADCRUMB */
 	
 .breadcrumb {
-	border-radius: 0;
-	border-bottom: 1px solid #E26B6B;
+	border-radius: 0 !important;
+	border-bottom: 1px solid #E26B6B !important;
 }
 
 /* HEADING */
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "MyriadPro Condensed", "Roboto Regular", "MyriadPro Regular", "Helvetica Neue",Helvetica,Arial,sans-serif;	
+	font-family: "MyriadPro Condensed", "Roboto Regular", "MyriadPro Regular", "Helvetica Neue",Helvetica,Arial,sans-serif !important;	
 }
 
 /*
@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
  */
  
  body {
-	font-family: "Roboto Regular", "MyriadPro Regular", "Helvetica Neue",Helvetica,Arial,sans-serif;	
+	font-family: "Roboto Regular", "MyriadPro Regular", "Helvetica Neue",Helvetica,Arial,sans-serif !important;	
 }
 
 .top-button {
@@ -82,20 +82,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .breadcrumb li {
-	text-transform: uppercase;
+	text-transform: uppercase !important;
 }
 
 .normal-announcement {
-		text-transform: uppercase;
-		font-size: 1.1em;
-		font-family: 'MyriadPro Semibold';
-		border: none;
-		border-bottom: 2px solid;
-		border-radius: 0;
+		text-transform: uppercase !important;
+		font-size: 1.1em !important;
+		font-family: 'MyriadPro Semibold' !important;
+		border: none !important;
+		border-bottom: 2px solid !important;
+		border-radius: 0 !important;
 	}
 
 		.normal-announcement p span {
-			color: #ff0000;
+			color: #ff0000 !important;
 		}
 		
 #main-wrapper {
@@ -103,8 +103,8 @@ h1, h2, h3, h4, h5, h6 {
 }
  
 .thumbnail {
-	border: none;
-	text-align: center;
+	border: none !important;
+	text-align: center !important;
 }
 
 	.thumbnail .thumbnail-inner {
@@ -203,32 +203,7 @@ h1, h2, h3, h4, h5, h6 {
  *  HOME PAGE
  *
  */
- 
- #web-carousel {
-	max-height: 400px;
-	overflow: hidden;
- }
-
-#web-carousel .carousel-indicators li {
-	background-color: #edecec;
-	border-color: #bababa;
-}
-
-#web-carousel .carousel-indicators li.active {
-	background-color: #ccc;
-}
-
-#web-carousel .carousel-indicators li:hover {
-	background-color: #fff;
-}
-
-#web-carousel .carousel-inner .carousel-caption {
-	color: #666;
-	text-transform: uppercase;
-	font-size: 1.1em;
-	text-shadow: none;	
-}			
-	
+ 	
 	#home-page .panel-happy {
 		font-size: 2.2em;
 		font-weight: bold;
@@ -303,24 +278,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /*
  *
- *  CONTACT PAGE
- *
- */
- 
-#contact-page {
-	min-height: 500px;
-}
-
-#contact-page .left-side {
-	font-size: 1.1em;
-}
-
-#contact-page .left-side h3 {
-	text-transform: uppercase;
-}
-
-/*
- *
  *  PRODUCT PAGE
  *
  */
@@ -333,21 +290,3 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 	text-align: center;
  }
- 
- /*
- *
- *  NOT FOUND PAGE
- *
- */
- 
-#notfound-page {
-	text-align: center;
-}
-
-#notfound-page h1 {
-	font-size: 12em;
-}
-
-#notfound-page h2 {
-	font-size: 4em;
-}

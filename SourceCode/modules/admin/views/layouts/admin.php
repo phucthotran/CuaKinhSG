@@ -13,6 +13,16 @@ AppAsset::register($this);
 ?>
 
 <?php 
+$this->registerCssFile('css/admin-custom.css', ['position' => \yii\web\View::POS_BEGIN]);
+
+$this->registerJsFile('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', ['position' => \yii\web\View::POS_HEAD]);
+$this->registerJsFile('https://oss.maxcdn.com/respond/1.4.2/respond.min.js', ['position' => \yii\web\View::POS_HEAD]);
+
+$this->registerJsFile('https://cdn.rawgit.com/jprichardson/string.js/master/lib/string.min.js', ['position' => \yii\web\View::POS_END]);
+$this->registerJsFile('js/functions.js', ['position' => \yii\web\View::POS_END]);
+?>
+
+<?php 
 	$controller = Yii::$app->controller->id;
 	$action = Yii::$app->controller->action->id;
 	
@@ -27,19 +37,10 @@ AppAsset::register($this);
 	<?= Html::csrfMetaTags() ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>	
 	<title><?= Html::encode($this->title) ?></title>
-	
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-
-	<link href="/web/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="/web/css/admin-custom.css" rel="stylesheet" type="text/css">
+	<?php $this->head() ?>
 </head>
 <body>
-
+	<?php $this->beginBody() ?>
 	<?php
 	    NavBar::begin([
 	        'brandLabel' => 'Quốc Bảo <small>Control Panel</small>',
@@ -105,15 +106,6 @@ AppAsset::register($this);
 			</div> <!-- / .row -->
 		</div> <!-- / .container-fluid -->
 	</div> <!-- / #main-wrapper -->
-	
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js" type="text/javascript"></script>
-	<!--  String.js -->
-	<script src="https://cdn.rawgit.com/jprichardson/string.js/master/lib/string.min.js" type="text/javascript"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="/web/js/bootstrap.min.js" type="text/javascript"></script>	
-	<script src="/web/js/admin-functions.js" type="text/javascript"></script>
 	<?php $this->endBody() ?>
 </body>
 </html>
