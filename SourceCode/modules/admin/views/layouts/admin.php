@@ -79,7 +79,7 @@ AppAsset::register($this);
 					<div class="panel panel-danger">
 						<div class="panel-heading">Trang</div>
 						<ul class="list-group">
-							<li class="list-group-item <?= $url == 'page/index' ? 'active' : '' ?>"><a href="index.php?r=admin/page"><span class="glyphicon glyphicon-file"></span> Quản Lý Trang</a></li>
+							<li class="list-group-item <?= $url == 'page/index' || 'page/new' | 'page/edit' ? 'active' : '' ?>"><a href="index.php?r=admin/page"><span class="glyphicon glyphicon-file"></span> Quản Lý Trang</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-danger -->
 
@@ -109,7 +109,12 @@ AppAsset::register($this);
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js" type="text/javascript"></script>
+	<!--  String.js -->
+	<script src="https://cdn.rawgit.com/jprichardson/string.js/master/lib/string.min.js" type="text/javascript"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="/web/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/web/js/bootstrap.min.js" type="text/javascript"></script>	
 	<script src="/web/js/admin-functions.js" type="text/javascript"></script>
+	<?php $this->endBody() ?>
 </body>
+</html>
+<?php $this->endPage() ?>

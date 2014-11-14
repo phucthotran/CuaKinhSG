@@ -35,6 +35,6 @@ $this->params['breadcrumbs'][] = 'Liên Hệ';
         <div class="form-group">
             <?= Html::submitButton('GỬI', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
         </div>
-    <?php ActiveForm::end(); ?> <!-- / #contact-form -->
+    	<?php ActiveForm::end(); ?> <!-- / #contact-form -->
 	</div> <!-- / .col-md-8 -->
 </div> <!-- #contact-page -->
