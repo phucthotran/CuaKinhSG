@@ -5,6 +5,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use yii\bootstrap\Carousel;
+use app\models\Setting;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -20,6 +21,19 @@ $this->registerJsFile('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquer
 $this->registerJsFile('http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7', ['position' => \yii\web\View::POS_END]);
 $this->registerJsFile('/js/maplace-0.1.3.min.js', ['position' => \yii\web\View::POS_END]);
 $this->registerJsFile('/js/functions.js', ['position' => \yii\web\View::POS_END]);
+
+$mapAddress = '';
+$mapLat = 0;
+$mapLong = 0;
+
+if( Setting::findOne(['name' => 'general_address']) != null )
+	$mapAddress = strval( Setting::findOne(['name' => 'general_address'])->value );
+
+if( Setting::findOne(['name' => 'map_lat']) != null )
+	$mapLat = strval( Setting::findOne(['name' => 'map_lat'])->value );
+
+if( Setting::findOne(['name' => 'map_long']) != null )
+	$mapLong = strval( Setting::findOne(['name' => 'map_long'])->value );
 ?>
 
 <?php 
@@ -50,8 +64,24 @@ $css = <<<EOT
 	}
 EOT;
 
+$maplaceScript = <<<EOT
+	new Maplace({
+			locations: [{ lat: {lat}, lon: {long}, zoom: 16 }],
+			controls_on_map: false,
+			show_infowindow: false,
+			map_options: {
+				scrollwheel: false
+			}
+	}).Load();
+EOT;
+
+$maplaceScript = str_replace('{lat}', $mapLat, $maplaceScript);
+$maplaceScript = str_replace('{long}', $mapLong, $maplaceScript);
+
 if (Yii::$app->controller->action->id == 'index')
 	$this->registerCss($css, ['position' => \yii\web\View::POS_HEAD]);
+
+$this->registerJs($maplaceScript, \yii\web\View::POS_READY, 'maplace');
 ?>
 
 <?php $this->beginPage() ?>
@@ -158,8 +188,8 @@ if (Yii::$app->controller->action->id == 'index')
 	
 	<div class="container-fluid">				
 		<div class="row corp-map">
-			<p class="corp-map-title">Số 7 Huỳnh Thiện Lộc, P.Hòa Thạnh, Q.Tân Phú, TP.HCM</p>
-			<div id="gmap" class="corp-map-inner"></div>			
+			<p class="corp-map-title"><?= $mapAddress ?></p>
+			<div id="gmap" class="corp-map-inner"></div>
 		</div> <!-- / .row .corp-map -->
 	</div> <!-- / .container-fluid -->
 	

@@ -22,14 +22,4 @@ $(function(){
 		$('navbar-collapse').collapse('toggle');
 	});
 	
-	//Load google map
-	new Maplace({
-			locations: [{ lat: 10.780379, lon: 106.63652, zoom: 16 }],
-			controls_on_map: false,
-			show_infowindow: false,
-			map_options: {
-				scrollwheel: false
-			}
-	}).Load();
-	
 });

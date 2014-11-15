@@ -38,8 +38,6 @@ EOT;
 
 /* @var $this yii\web\View */
 
-use yii\helpers\Html;
-
 $this->title = 'Quản Lý Trang | Quốc Bảo - Control Panel';
 $this->registerJs($pagePublishScript, \yii\web\View::POS_READY);
 $this->registerJs($pageDelScript, \yii\web\View::POS_READY);
