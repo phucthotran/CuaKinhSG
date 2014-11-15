@@ -44,8 +44,10 @@ $this->registerCss($css, ['position' => \yii\web\View::POS_HEAD]);
 	<div class="col-md-8">
 		<?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
         <?= $form->field($model, 'name', ['inputOptions' => ['placeholder' => $model->getAttributeLabel('name')],])->label(false) ?>
-        <?= $form->field($model, 'email', ['inputOptions' => ['placeholder' => $model->getAttributeLabel('email')],])->label(false) ?>
-        <?= $form->field($model, 'subject', ['inputOptions' => ['placeholder' => $model->getAttributeLabel('subject')],])->label(false) ?>
+        <?= $form->field($model, 'email', ['inputOptions' => ['placeholder' => $model->getAttributeLabel('email')], 
+			'inputTemplate' => '<div class="input-group"><span class="input-group-addon glyphicon glyphicon-inbox"></span>{input}</div>',        		
+        ])->label(false) ?>
+        <?= $form->field($model, 'subject', ['inputOptions' => ['placeholder' => $model->getAttributeLabel('subject')],])->label(false) ?>        
         <?= $form->field($model, 'body')->textArea(['rows' => 15])->label(false) ?>
         <?= $form->field($model, 'verifyCode', ['inputOptions' => ['placeholder' => $model->getAttributeLabel('verifyCode')],])->widget(Captcha::className(), [
             'template' => '<div class="row"><div class="col-md-4">{image}</div><div class="col-md-8">{input}</div></div>',
