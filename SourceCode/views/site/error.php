@@ -31,5 +31,5 @@ $this->registerCss($css, \yii\web\View::POS_HEAD);
 <div id="error-page">				
 		<h1><?= Html::encode($this->title) ?></h1>
 		<h2><?= nl2br(Html::encode($message)) ?></h2>
-		<a class="btn btn-primary" href="index.php" title="Trang Chủ">TRỞ VỀ TRANG CHỦ</a>							
+		<a class="btn btn-primary" href="/" title="Trang Chủ">TRỞ VỀ TRANG CHỦ</a>							
 </div> <!-- / #error-page -->
