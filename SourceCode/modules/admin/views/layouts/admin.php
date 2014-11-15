@@ -13,13 +13,13 @@ AppAsset::register($this);
 ?>
 
 <?php 
-$this->registerCssFile('css/admin-custom.css', ['position' => \yii\web\View::POS_BEGIN]);
+$this->registerCssFile('/web/css/admin-custom.css', ['position' => \yii\web\View::POS_BEGIN]);
 
 $this->registerJsFile('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', ['position' => \yii\web\View::POS_HEAD]);
 $this->registerJsFile('https://oss.maxcdn.com/respond/1.4.2/respond.min.js', ['position' => \yii\web\View::POS_HEAD]);
 
 $this->registerJsFile('https://cdn.rawgit.com/jprichardson/string.js/master/lib/string.min.js', ['position' => \yii\web\View::POS_END]);
-$this->registerJsFile('js/functions.js', ['position' => \yii\web\View::POS_END]);
+$this->registerJsFile('/web/js/admin-functions.js', ['position' => \yii\web\View::POS_END]);
 ?>
 
 <?php 
@@ -69,33 +69,33 @@ $this->registerJsFile('js/functions.js', ['position' => \yii\web\View::POS_END])
 				<div class="col-md-3">
 					<div class="panel panel-danger">
 						<div class="panel-heading">Cài Đặt Tin Chung</div>
-						<ul class="list-group">							
-							<li class="list-group-item <?= $url == 'general/index' ? 'active' : '' ?>"><a href="index.php?r=admin/general"><span class="glyphicon glyphicon-cog"></span> Thông Tin Website</a></li>							
-							<li class="list-group-item <?= $url == 'breadcrumb/index' ? 'active' : '' ?>"><a href="index.php?r=admin/breadcrumb"><span class="glyphicon glyphicon-forward"></span> Box Định Hướng</a></li>							
-							<li class="list-group-item <?= $url == 'map/index' ? 'active' : '' ?>"><a href="index.php?r=admin/map"><span class="glyphicon glyphicon-globe"></span> Bản Đồ</a></li>
-							<li class="list-group-item <?= $url == 'footerwidget/index' ? 'active' : '' ?>"><a href="index.php?r=admin/footerwidget"><span class="glyphicon glyphicon-th-large"></span> Footer Widget</a></li>
+						<ul class="list-group">						
+							<li class="list-group-item <?= $url == 'general/index' ? 'active' : '' ?>"><a href="/web/admin/general"><span class="glyphicon glyphicon-cog"></span> Thông Tin Website</a></li>							
+							<li class="list-group-item <?= $url == 'breadcrumb/index' ? 'active' : '' ?>"><a href="/web/admin/breadcrumb"><span class="glyphicon glyphicon-forward"></span> Box Định Hướng</a></li>							
+							<li class="list-group-item <?= $url == 'map/index' ? 'active' : '' ?>"><a href="/web/admin/map"><span class="glyphicon glyphicon-globe"></span> Bản Đồ</a></li>
+							<li class="list-group-item <?= $url == 'footerwidget/index' ? 'active' : '' ?>"><a href="/web/admin/footerwidget"><span class="glyphicon glyphicon-th-large"></span> Footer Widget</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-danger -->
 
 					<div class="panel panel-danger">
 						<div class="panel-heading">Trang</div>
 						<ul class="list-group">
-							<li class="list-group-item <?= $url == 'page/index' || 'page/new' | 'page/edit' ? 'active' : '' ?>"><a href="index.php?r=admin/page"><span class="glyphicon glyphicon-file"></span> Quản Lý Trang</a></li>
+							<li class="list-group-item <?= $url == 'page/index' || $url == 'page/new' || $url == 'page/edit' ? 'active' : '' ?>"><a href="/web/admin/page"><span class="glyphicon glyphicon-file"></span> Quản Lý Trang</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-danger -->
 
 					<div class="panel panel-info">
 						<div class="panel-heading">Thanh Điều Hướng</div>
 						<ul class="list-group">
-							<li class="list-group-item <?= $url == 'navbar/index' ? 'active' : '' ?>"><a href="index.php?r=admin/navbar"><span class="glyphicon glyphicon-list"></span> Cài Đặt</a></li>
+							<li class="list-group-item <?= $url == 'navbar/index' ? 'active' : '' ?>"><a href="/web/admin/navbar"><span class="glyphicon glyphicon-list"></span> Cài Đặt</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-info -->
 
 					<div class="panel panel-info">
 						<div class="panel-heading">Thông Báo</div>
 						<ul class="list-group">
-							<li class="list-group-item <?= $url == 'announcement/index' ? 'active' : '' ?>"><a href="index.php?r=admin/announcement"><span class="glyphicon glyphicon-wrench"></span> Cài Đặt</a></li>
-							<li class="list-group-item <?= $url == 'announcement/management' ? 'active' : '' ?>"><a href="index.php?r=admin/announcement/management"><span class="glyphicon glyphicon-bullhorn"></span> Quản Lý</a></li>
+							<li class="list-group-item <?= $url == 'announcement/index' ? 'active' : '' ?>"><a href="/web/admin/announcement"><span class="glyphicon glyphicon-wrench"></span> Cài Đặt</a></li>
+							<li class="list-group-item <?= $url == 'announcement/management' ? 'active' : '' ?>"><a href="/web/admin/announcement/management"><span class="glyphicon glyphicon-bullhorn"></span> Quản Lý</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-info -->
 

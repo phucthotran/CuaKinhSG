@@ -5,7 +5,7 @@ $pagePublishScript = <<<EOT
 		var current = $(this);
 		var pageId = current.attr('page-id');
 		
-		$.post('index.php?r=admin/page/publish&id=' + pageId, function (result){
+		$.post('/web/admin/page/publish/' + pageId, function (result){
 			if(parseInt(result) > 0) { //Boolean
 				current.removeClass('glyphicon-remove');
 				current.addClass('glyphicon-ok');
@@ -25,7 +25,7 @@ $pageDelScript = <<<EOT
 		var current = $(this);
 		var pageId = current.attr('page-id');
 		
-		$.post('index.php?r=admin/page/remove&id=' + pageId, function(result){
+		$.post('/web/admin/page/remove/' + pageId, function(result){
 			if(parseInt(result) == 'NaN' || parseInt(result) <= 0){
 				alert('Không thể thực hiện thao tác lúc này');
 				return;
@@ -38,6 +38,8 @@ EOT;
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Html;
+
 $this->title = 'Quản Lý Trang | Quốc Bảo - Control Panel';
 $this->registerJs($pagePublishScript, \yii\web\View::POS_READY);
 $this->registerJs($pageDelScript, \yii\web\View::POS_READY);
@@ -45,7 +47,7 @@ $this->registerJs($pageDelScript, \yii\web\View::POS_READY);
 
 <div id="page-manager-page">
 	<div class="row">
-		<a class="btn btn-primary" href="index.php?r=admin/page/new">THÊM TRANG</a>
+		<a class="btn btn-primary" href="/web/admin/page/new">THÊM TRANG</a>
 	</div> <!-- / .row -->
 	<div style="margin: 20px 0;"></div>
 	<div class="row">
@@ -77,7 +79,8 @@ $this->registerJs($pageDelScript, \yii\web\View::POS_READY);
 					<?php else: ?>
 						<td style="text-align: center;"><a class="glyphicon glyphicon-remove page-publish" page-id="<?= $page->id ?>" href="#"></a></td>
 					<?php endif; ?>
-					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="index.php?r=admin/page/edit&id=<?= $page->id ?>"></a></td>
+					
+					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="/web/admin/page/edit/<?= $page->id ?>"></a></td>
 					<td><a class="glyphicon glyphicon-trash page-del" page-id="<?= $page->id ?>" title="Xóa" href="#"></a></td>
 				</tr>
 				<?php

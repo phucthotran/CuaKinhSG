@@ -11,45 +11,43 @@ use yii\bootstrap\Carousel;
 
 AppAsset::register($this);
 
-$this->registerCssFile('css/custom.css', ['position' => \yii\web\View::POS_BEGIN]);
+$this->registerCssFile('/css/custom.css', ['position' => \yii\web\View::POS_BEGIN]);
 
 $this->registerJsFile('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', ['position' => \yii\web\View::POS_HEAD]);
 $this->registerJsFile('https://oss.maxcdn.com/respond/1.4.2/respond.min.js', ['position' => \yii\web\View::POS_HEAD]);
 
 $this->registerJsFile('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', ['position' => \yii\web\View::POS_END]);
 $this->registerJsFile('http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7', ['position' => \yii\web\View::POS_END]);
-$this->registerJsFile('js/maplace-0.1.3.min.js', ['position' => \yii\web\View::POS_END]);
-$this->registerJsFile('js/functions.js', ['position' => \yii\web\View::POS_END]);
+$this->registerJsFile('/js/maplace-0.1.3.min.js', ['position' => \yii\web\View::POS_END]);
+$this->registerJsFile('/js/functions.js', ['position' => \yii\web\View::POS_END]);
 ?>
 
 <?php 
 $css = <<<EOT
-	<style type='text/css'>
-		#web-carousel {
-			max-height: 400px !important;
-			overflow: hidden !important;
-		 }
-		
-		#web-carousel .carousel-indicators li {
-			background-color: #edecec !important;
-			border-color: #bababa !important;
-		}
-		
-		#web-carousel .carousel-indicators li.active {
-			background-color: #ccc !important;
-		}
-		
-		#web-carousel .carousel-indicators li:hover {
-			background-color: #fff !important;
-		}
-		
-		#web-carousel .carousel-inner .carousel-caption {
-			color: #666 !important;
-			text-transform: uppercase !important;
-			font-size: 1.1em !important;
-			text-shadow: none !important;	
-		}
-	</style>
+	#web-carousel {
+		max-height: 400px !important;
+		overflow: hidden !important;
+	 }
+	
+	#web-carousel .carousel-indicators li {
+		background-color: #edecec !important;
+		border-color: #bababa !important;
+	}
+	
+	#web-carousel .carousel-indicators li.active {
+		background-color: #ccc !important;
+	}
+	
+	#web-carousel .carousel-indicators li:hover {
+		background-color: #fff !important;
+	}
+	
+	#web-carousel .carousel-inner .carousel-caption {
+		color: #666 !important;
+		text-transform: uppercase !important;
+		font-size: 1.1em !important;
+		text-shadow: none !important;	
+	}
 EOT;
 
 if (Yii::$app->controller->action->id == 'index')
@@ -109,17 +107,17 @@ if (Yii::$app->controller->action->id == 'index')
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 				<div class="item active">
-				  <img src="data/s1.jpg" alt="...">
+				  <img src="/data/s1.jpg" alt="...">
 				  <div class="carousel-caption">					
 				  </div>
 				</div>
 				<div class="item">
-				  <img src="data/s2.jpg" alt="...">
+				  <img src="/data/s2.jpg" alt="...">
 				  <div class="carousel-caption">					
 				  </div>
 				</div>
 				<div class="item">
-				  <img src="data/s3.jpg" alt="...">
+				  <img src="/data/s3.jpg" alt="...">
 				  <div class="carousel-caption">					
 				  </div>
 				</div>
@@ -138,7 +136,7 @@ if (Yii::$app->controller->action->id == 'index')
 	<?php endif; ?>	
 	
 	<div id="main-wrapper" class="container">
-		
+
 		<div class="row">
 			<?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

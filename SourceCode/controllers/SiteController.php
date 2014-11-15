@@ -96,9 +96,9 @@ class SiteController extends Controller
         return $this->render('about');
     }
     
-    public function actionPage( $pageid )
+    public function actionPage( $url )
     {
-    	$page = Page::findOne(['url' => $pageid]);
+    	$page = Page::findOne(['url' => $url]);
 
     	if( $page == null )
     		throw new NotFoundHttpException;
