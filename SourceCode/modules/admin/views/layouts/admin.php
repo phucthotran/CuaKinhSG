@@ -5,6 +5,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use yii\bootstrap\Carousel;
+use app\models\Setting;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -75,7 +76,7 @@ $this->registerJsFile('https://cdn.rawgit.com/jprichardson/string.js/master/lib/
 							<li class="list-group-item <?= $url == 'general/index' ? 'active' : '' ?>"><a href="/web/admin/general"><span class="glyphicon glyphicon-cog"></span> Thông Tin Website</a></li>							
 							<li class="list-group-item <?= $url == 'breadcrumb/index' ? 'active' : '' ?>"><a href="/web/admin/breadcrumb"><span class="glyphicon glyphicon-forward"></span> Box Định Hướng</a></li>							
 							<li class="list-group-item <?= $url == 'map/index' ? 'active' : '' ?>"><a href="/web/admin/map"><span class="glyphicon glyphicon-globe"></span> Bản Đồ</a></li>
-							<li class="list-group-item <?= $url == 'footerwidget/index' ? 'active' : '' ?>"><a href="/web/admin/footerwidget"><span class="glyphicon glyphicon-th-large"></span> Footer Widget</a></li>
+							<li class="list-group-item <?= $url == 'footer-widget/index' ? 'active' : '' ?>"><a href="/web/admin/footer-widget"><span class="glyphicon glyphicon-th-large"></span> Footer Widget</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-danger -->
 
