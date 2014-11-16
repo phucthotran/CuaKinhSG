@@ -22,9 +22,21 @@ $this->registerJsFile('http://maps.google.com/maps/api/js?sensor=false&libraries
 $this->registerJsFile('/js/maplace-0.1.3.min.js', ['position' => \yii\web\View::POS_END]);
 $this->registerJsFile('/js/functions.js', ['position' => \yii\web\View::POS_END]);
 
+$websiteName = '';
+$websiteTitle = '';
+$corporationName = '';
 $mapAddress = '';
 $mapLat = 0;
 $mapLong = 0;
+
+if( Setting::findOne(['name' => 'general_web_name']) != null )
+	$websiteName = strval( Setting::findOne(['name' => 'general_web_name'])->value );
+
+if( Setting::findOne(['name' => 'general_web_title']) != null )
+	$websiteTitle = strval( Setting::findOne(['name' => 'general_web_title'])->value );
+
+if( Setting::findOne(['name' => 'general_corp_name']) != null )
+	$corporationName = strval( Setting::findOne(['name' => 'general_corp_name'])->value );
 
 if( Setting::findOne(['name' => 'general_corp_address']) != null )
 	$mapAddress = strval( Setting::findOne(['name' => 'general_corp_address'])->value );
@@ -94,7 +106,7 @@ $this->registerJs($maplaceScript, \yii\web\View::POS_READY, 'maplace');
 	<meta name="author" content="ThoTran Coder">
 	<?= Html::csrfMetaTags() ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>	
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode($this->title) . ' - ' . Html::encode($websiteTitle) ?></title>
 	
 	<?php $this->head() ?>	
 </head>
@@ -105,7 +117,7 @@ $this->registerJs($maplaceScript, \yii\web\View::POS_READY, 'maplace');
 
 	<?php
 	    NavBar::begin([
-	        'brandLabel' => 'QUỐC BẢO',
+	        'brandLabel' => $corporationName,
 	        'brandUrl' => Yii::$app->homeUrl,
 	        'options' => [
 	            'class' => 'navbar-default',
@@ -239,7 +251,7 @@ $this->registerJs($maplaceScript, \yii\web\View::POS_READY, 'maplace');
 		</div> <!-- / .container-fluid -->		
 		<div class="footer-text">
 			<div class="container">
-				<p>&copy; <?= date('Y') ?> Bản quyền thuộc về <strong>CuaKinhSG</strong>.</p>
+				<p>&copy; <?= date('Y') ?> Bản quyền thuộc về <strong><?= $websiteName ?></strong>.</p>
 				<p>Xây dựng bởi <a href="https://www.facebook.com/thotran.developer" title="Ghé thăm Facebook của tôi" target="_blank">ThoTran Coder</a></p>
 			</div>
 		</div> <!-- / .footer-text -->
