@@ -6,9 +6,11 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use yii\bootstrap\Carousel;
 use app\models\Setting;
+use app\models\Announcement;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
+/* @var $announcement app\models\Announcement */
 
 AppAsset::register($this);
 
@@ -22,12 +24,7 @@ $this->registerJsFile('http://maps.google.com/maps/api/js?sensor=false&libraries
 $this->registerJsFile('/js/maplace-0.1.3.min.js', ['position' => \yii\web\View::POS_END]);
 $this->registerJsFile('/js/functions.js', ['position' => \yii\web\View::POS_END]);
 
-$websiteName = '';
-$websiteTitle = '';
-$corporationName = '';
-$mapAddress = '';
-$mapLat = 0;
-$mapLong = 0;
+$announcements = Announcement::find()->where(['publish' => '1'])->orderBy('mode_id DESC')->all();
 
 if( Setting::findOne(['name' => 'general_web_name']) != null )
 	$websiteName = strval( Setting::findOne(['name' => 'general_web_name'])->value );
@@ -185,12 +182,22 @@ $this->registerJs($maplaceScript, \yii\web\View::POS_READY, 'maplace');
             ]) ?>
 		</div>
 		
-		<div class="row">
-			<div class="alert alert-info normal-announcement" role="alert">
-				<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<p>Liên hệ <span><span class="glyphicon glyphicon-phone-alt"></span> 0934094456</span> để được tư vấn và đặt hàng ngay hôm nay</p>
-			</div>
-		</div>
+		<?php foreach ( $announcements as $announcement ): ?>
+			<?php if ( $announcement->mode_id == 0 ): ?>
+				<div class="row">
+					<div class="alert alert-info normal-announcement" role="alert">
+						<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>						
+						<p><strong><?= $announcement->title ?></strong>: <?= $announcement->content ?></p>
+					</div>
+				</div>
+			<?php elseif ( $announcement->mode_id == 1 ): ?>
+				<div class="row">
+					<div class="alert alert-danger important-announcement" role="alert">						
+						<p><strong><?= $announcement->title ?></strong>: <?= $announcement->content ?></p>
+					</div>
+				</div>
+			<?php endif; ?>		
+		<?php endforeach; ?>
 		
 		<div id="main-content" class="row">
 			<?= $content ?>	
