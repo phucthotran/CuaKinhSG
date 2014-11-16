@@ -24,6 +24,7 @@ class PageForm extends Model
 		return [
 			//title, url, keywords, content is required
 			[['title', 'url', 'keywords', 'content'], 'required'],
+			[['publish'], 'safe'],
 		];
 	}
 	
