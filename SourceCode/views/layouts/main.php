@@ -26,8 +26,8 @@ $mapAddress = '';
 $mapLat = 0;
 $mapLong = 0;
 
-if( Setting::findOne(['name' => 'general_address']) != null )
-	$mapAddress = strval( Setting::findOne(['name' => 'general_address'])->value );
+if( Setting::findOne(['name' => 'general_corp_address']) != null )
+	$mapAddress = strval( Setting::findOne(['name' => 'general_corp_address'])->value );
 
 if( Setting::findOne(['name' => 'map_lat']) != null )
 	$mapLat = strval( Setting::findOne(['name' => 'map_lat'])->value );
