@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Page;
+use app\models\Setting;
 use yii\web\NotFoundHttpException;
 
 class SiteController extends Controller
@@ -80,15 +81,36 @@ class SiteController extends Controller
     public function actionContact()
     {
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+        
+        $websiteTitle;
+        $corporationName;
+        $corporationAddress;
+        $corporationEmail;
+         
+        if( Setting::findOne(['name' => 'general_web_title']) != null )
+        	$websiteTitle = strval( Setting::findOne(['name' => 'general_web_title'])->value );
+         
+        if( Setting::findOne(['name' => 'general_corp_name']) != null )
+        	$corporationName = strval( Setting::findOne(['name' => 'general_corp_name'])->value );
+         
+        if( Setting::findOne(['name' => 'general_corp_address']) != null )
+        	$corporationAddress = strval( Setting::findOne(['name' => 'general_corp_address'])->value );
+        
+        if( Setting::findOne(['name' => 'general_corp_email']) != null )
+        	$corporationEmail = strval( Setting::findOne(['name' => 'general_corp_email'])->value );
+        
+        if ($model->load(Yii::$app->request->post()) && $model->contact($corporationEmail)) {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
             return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
         }
+        
+        return $this->render('contact', [
+            'model' => $model,
+        	'websiteTitle' => $websiteTitle,
+        	'corporationName' => $corporationName,
+        	'corporationAddress' => $corporationAddress
+        ]);        
     }
 
     public function actionAbout()

@@ -37,8 +37,8 @@ $this->registerCss($css, ['position' => \yii\web\View::POS_HEAD]);
 
 <div id="contact-page" class="container">
 	<div class="col-md-4 left-side">
-		<h3>Cơ sở cửa nhôm kính <strong>Quốc Bảo</strong></h3>
-		<p><span class="glyphicon glyphicon-home"></span> Số 7 Huỳnh Thiện Lộc, P.Hòa Thạnh, Q.Tân Phú, TP.HCM</p>
+		<h3><?= $websiteTitle ?></h3>
+		<p><span class="glyphicon glyphicon-home"></span> <?= $corporationAddress ?></p>
 		<p><span class="glyphicon glyphicon-phone-alt"></span> 0934094456</p>	
 	</div> <!-- / .col-md-4 -->
 	<div class="col-md-8">
