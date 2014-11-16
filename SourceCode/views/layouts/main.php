@@ -26,7 +26,7 @@ $this->registerJsFile('/js/functions.js', ['position' => \yii\web\View::POS_END]
 ?>
 
 <?php
-$announcements = Announcement::find()->where(['publish' => '1'])->orderBy('mode_id DESC')->all();
+$announcements = Announcement::find()->where(['publish' => '1'])->orderBy('modeId DESC')->all();
 
 if ( Setting::findOne(['name' => 'widget_enable']) != null ) {
 	$widgetEnable = Setting::findOne(['name' => 'widget_enable'])->value;
@@ -208,14 +208,14 @@ $this->registerJs($maplaceScript, \yii\web\View::POS_READY, 'maplace');
 		</div>
 		
 		<?php foreach ( $announcements as $announcement ): ?>
-			<?php if ( $announcement->mode_id == 0 ): ?>
+			<?php if ( $announcement->modeId == 0 ): ?>
 				<div class="row">
 					<div class="alert alert-info normal-announcement" role="alert">
 						<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>						
 						<p><strong><?= $announcement->title ?></strong>: <?= $announcement->content ?></p>
 					</div>
 				</div>
-			<?php elseif ( $announcement->mode_id == 1 ): ?>
+			<?php elseif ( $announcement->modeId == 1 ): ?>
 				<div class="row">
 					<div class="alert alert-danger important-announcement" role="alert">						
 						<p><strong><?= $announcement->title ?></strong>: <?= $announcement->content ?></p>

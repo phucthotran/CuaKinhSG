@@ -91,9 +91,9 @@ $this->registerJs($deleteToggleScript, \yii\web\View::POS_READY);
 					<td><?= $nth ?></td>
 					<td><?= $announcement->title ?>
 					
-					<?php if ( $announcement->mode_id == 0 ): ?>
+					<?php if ( $announcement->modeId == 0 ): ?>
 						<td><a class="glyphicon glyphicon-bookmark announcement-priority" title="Bình Thường" announcement-id="<?= $announcement->id ?>" href="#"></a></td>
-					<?php elseif ( $announcement->mode_id == 1 ): ?>
+					<?php elseif ( $announcement->modeId == 1 ): ?>
 						<td><a class="glyphicon glyphicon-fire announcement-priority" title="Quan Trọng" announcement-id="<?= $announcement->id ?>" href="#"></a></td>
 					<?php endif; ?>
 					

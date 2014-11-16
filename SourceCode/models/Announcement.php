@@ -9,7 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $title
- * @property integer $mode_id
+ * @property integer $modeId
  * @property integer $publish
  * @property string $content
  */
@@ -29,8 +29,8 @@ class Announcement extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'mode_id'], 'required'],
-            [['mode_id', 'publish'], 'integer'],
+            [['title', 'modeId'], 'required'],
+            [['modeId', 'publish'], 'integer'],
             [['title'], 'string', 'max' => 45],
             [['content'], 'string', 'max' => 200]
         ];
@@ -44,7 +44,7 @@ class Announcement extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Tiêu Đề',
-            'mode_id' => 'Mức Độ',
+            'modeId' => 'Mức Độ',
             'publish' => 'Công Khai',
             'content' => 'Nội Dung',
         ];

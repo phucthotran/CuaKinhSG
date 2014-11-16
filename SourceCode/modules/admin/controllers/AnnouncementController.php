@@ -48,7 +48,7 @@ class AnnouncementController extends Controller
 		if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
 			$announcement = new Announcement();
 			$announcement->title = $model->title;
-			$announcement->mode_id = $model->modeId;
+			$announcement->modeId = $model->modeId;
 			$announcement->publish = $model->publish;
 			$announcement->content = $model->content;
 			
@@ -70,7 +70,7 @@ class AnnouncementController extends Controller
 		
 		if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
 			$announcement->title = $model->title;
-			$announcement->mode_id = $model->modeId;
+			$announcement->modeId = $model->modeId;
 			$announcement->publish = $model->publish;
 			$announcement->content = $model->content;
 			
@@ -84,7 +84,7 @@ class AnnouncementController extends Controller
 		}
 
 		$model->title = $announcement->title;
-		$model->modeId = $announcement->mode_id;
+		$model->modeId = $announcement->modeId;
 		$model->publish = $announcement->publish;
 		$model->content = $announcement->content;
 		
@@ -108,14 +108,14 @@ class AnnouncementController extends Controller
 			throw new NotFoundHttpException;
 		}
 		
-		$priority = $announcement->mode_id;
-		$announcement->mode_id = $priority > 0 ? 0 : 1; //If announcement mode is normal switch to important
+		$priority = $announcement->modeId;
+		$announcement->modeId = $priority > 0 ? 0 : 1; //If announcement mode is normal switch to important
 		
 		if ( !$announcement->save() ) {
 			throw new BadRequestHttpException;
 		}
 		
-		return $announcement->mode_id;
+		return $announcement->modeId;
 	}
 	
 	public function actionPublish( $id ) {
