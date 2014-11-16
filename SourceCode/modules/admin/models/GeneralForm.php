@@ -12,6 +12,7 @@ class GeneralForm extends Model
 {
 	public $maintenanceEnable;
 	public $maintenanceMessage;
+	public $breadcrumbEnable = true;
 	public $websiteName;
 	public $websiteTitle;
 	public $corporationName;
@@ -27,7 +28,7 @@ class GeneralForm extends Model
 		return [
 			//web's name, title and corp's name, address and email is required
 			[['websiteName', 'websiteTitle', 'corporationName', 'corporationAddress', 'corporationEmail', 'corporationPhone'], 'required'],
-			[['maintenanceEnable', 'maintenanceMessage'], 'safe'],
+			[['maintenanceEnable', 'maintenanceMessage', 'breadcrumbEnable'], 'safe'],
 			// email has to be a valid email address
 			['corporationEmail', 'email'],
 		];
@@ -41,6 +42,7 @@ class GeneralForm extends Model
 		return [
 			'maintenanceEnable' => 'Đóng Cửa Bảo Trì',
 			'maintenanceMessage' => 'Nội Dung Thông Báo',
+			'breadcrumbEnable' => 'Kích Hoạt Box Định Hướng',
 			'websiteName' => 'Tên Website',
 			'websiteTitle' => 'Tiêu Đề Website',
 			'corporationName' => 'Tên Doanh Nghiệp/Công Ty',

@@ -51,6 +51,10 @@ if ( $widgetEnable ) {
 	}
 }
 
+if ( Setting::findOne(['name' => 'general_breadcrumb_enable']) != null ) {
+	$breadcrumbEnable = Setting::findOne(['name' => 'general_breadcrumb_enable'])->value;
+}
+
 if( Setting::findOne(['name' => 'general_web_name']) != null )
 	$websiteName = strval( Setting::findOne(['name' => 'general_web_name'])->value );
 
@@ -200,12 +204,14 @@ $this->registerJs($maplaceScript, \yii\web\View::POS_READY, 'maplace');
 	<?php endif; ?>	
 	
 	<div id="main-wrapper" class="container">
-
+		
+		<?php if ( $breadcrumbEnable ): ?>
 		<div class="row">
 			<?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
 		</div>
+		<?php endif; ?>
 		
 		<?php foreach ( $announcements as $announcement ): ?>
 			<?php if ( $announcement->modeId == 0 ): ?>

@@ -15,6 +15,7 @@ class GeneralController extends Controller
 		
 		$maintenanceEnable = Setting::findOne(['name' => 'general_maintenance_enable']);
 		$maintenanceMessage = Setting::findOne(['name' => 'general_maintenance_message']);
+		$breadcrumbEnable = Setting::findOne(['name' => 'general_breadcrumb_enable']);
 		$websiteName = Setting::findOne(['name' => 'general_web_name']);
 		$websiteTitle = Setting::findOne(['name' => 'general_web_title']);
 		$corporationName = Setting::findOne(['name' => 'general_corp_name']);
@@ -26,6 +27,7 @@ class GeneralController extends Controller
 		{
 			$maintenanceEnable->value = $model->maintenanceEnable;
 			$maintenanceMessage->value = $model->maintenanceMessage;
+			$breadcrumbEnable->value = $model->breadcrumbEnable;
 			$websiteName->value = $model->websiteName;
 			$websiteTitle->value = $model->websiteTitle;
 			$corporationName->value = $model->corporationName;
@@ -34,6 +36,7 @@ class GeneralController extends Controller
 			$corporationPhone->value = $model->corporationPhone;
 			
 			$save_all = $maintenanceEnable->save() && $maintenanceMessage->save() && 
+						$breadcrumbEnable->save() &&
 						$websiteName->save() && $websiteTitle->save() && 
 						$corporationName->save() && $corporationAddress->save() && $corporationEmail->save() && $corporationPhone->save();			
 
@@ -47,6 +50,7 @@ class GeneralController extends Controller
 
 		$model->maintenanceEnable = $maintenanceEnable->value;
 		$model->maintenanceMessage = $maintenanceMessage->value;
+		$model->breadcrumbEnable = $breadcrumbEnable->value;
 		$model->websiteName = $websiteName->value;
 		$model->websiteTitle = $websiteTitle->value;
 		$model->corporationName = $corporationName->value;
