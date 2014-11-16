@@ -22,7 +22,7 @@ $this->title = 'Thông tin Website | Quốc Bảo - Control Panel';
 
 <div class="panel panel-default">
 	<div class="panel-body">
-		<?php $form = ActiveForm::begin(['id' => 'genral-form']); ?>
+		<?php $form = ActiveForm::begin(['id' => 'general-form']); ?>
 		<?= $form->field($model, 'maintenanceEnable')->checkbox() ?>
 		<?= $form->field($model, 'maintenanceMessage', array(
 			'inputOptions' => array('placeholder' => $model->getAttributeLabel('maintenanceMessage'))
