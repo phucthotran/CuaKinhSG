@@ -32,7 +32,7 @@ class Announcement extends \yii\db\ActiveRecord
             [['title', 'mode_id'], 'required'],
             [['mode_id', 'publish'], 'integer'],
             [['title'], 'string', 'max' => 45],
-            [['content'], 'string', 'max' => 100]
+            [['content'], 'string', 'max' => 200]
         ];
     }
 
