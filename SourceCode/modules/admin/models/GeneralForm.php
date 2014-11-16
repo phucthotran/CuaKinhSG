@@ -28,6 +28,8 @@ class GeneralForm extends Model
 			//web's name, title and corp's name, address and email is required
 			[['websiteName', 'websiteTitle', 'corporationName', 'corporationAddress', 'corporationEmail', 'corporationPhone'], 'required'],
 			[['maintenanceEnable', 'maintenanceMessage'], 'safe'],
+			// email has to be a valid email address
+			['email' => 'email'],	
 		];
 	}
 	
