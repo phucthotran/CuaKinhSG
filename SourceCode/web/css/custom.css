@@ -95,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 		.normal-announcement p span {
-			color: #ff0000 !important;
+			color: #0DA5D7 !important;
 		}
 		
 .important-announcement {
@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 		.important-announcement p span {
-			color: #0DA5D7 !important;
+			color: #ff0000 !important;
 		}
 		
 #main-wrapper {
