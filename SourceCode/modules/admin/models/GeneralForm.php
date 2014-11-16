@@ -29,7 +29,7 @@ class GeneralForm extends Model
 			[['websiteName', 'websiteTitle', 'corporationName', 'corporationAddress', 'corporationEmail', 'corporationPhone'], 'required'],
 			[['maintenanceEnable', 'maintenanceMessage'], 'safe'],
 			// email has to be a valid email address
-			['email' => 'email'],	
+			['corporationEmail', 'email'],
 		];
 	}
 	
