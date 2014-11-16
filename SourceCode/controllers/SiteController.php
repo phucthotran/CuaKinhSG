@@ -86,6 +86,7 @@ class SiteController extends Controller
         $corporationName;
         $corporationAddress;
         $corporationEmail;
+        $corporationPhone;
          
         if( Setting::findOne(['name' => 'general_web_title']) != null )
         	$websiteTitle = strval( Setting::findOne(['name' => 'general_web_title'])->value );
@@ -99,6 +100,9 @@ class SiteController extends Controller
         if( Setting::findOne(['name' => 'general_corp_email']) != null )
         	$corporationEmail = strval( Setting::findOne(['name' => 'general_corp_email'])->value );
         
+        if( Setting::findOne(['name' => 'general_corp_phone']) != null )
+        	$corporationPhone = strval( Setting::findOne(['name' => 'general_corp_phone'])->value );
+        
         if ($model->load(Yii::$app->request->post()) && $model->contact($corporationEmail)) {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
@@ -109,7 +113,8 @@ class SiteController extends Controller
             'model' => $model,
         	'websiteTitle' => $websiteTitle,
         	'corporationName' => $corporationName,
-        	'corporationAddress' => $corporationAddress
+        	'corporationAddress' => $corporationAddress,
+        	'corporationPhone' => $corporationPhone
         ]);        
     }
 

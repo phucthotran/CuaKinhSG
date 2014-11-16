@@ -39,7 +39,7 @@ $this->registerCss($css, ['position' => \yii\web\View::POS_HEAD]);
 	<div class="col-md-4 left-side">
 		<h3><?= $websiteTitle ?></h3>
 		<p><span class="glyphicon glyphicon-home"></span> <?= $corporationAddress ?></p>
-		<p><span class="glyphicon glyphicon-phone-alt"></span> 0934094456</p>	
+		<p><span class="glyphicon glyphicon-phone-alt"></span> <?= $corporationPhone ?></p>	
 	</div> <!-- / .col-md-4 -->
 	<div class="col-md-8">
 		<?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
