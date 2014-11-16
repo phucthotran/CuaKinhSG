@@ -25,7 +25,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\PageForm */
 	
-$this->title = 'Thêm Trang | Quốc Bảo - Control Panel';
+$this->title = 'Thêm Trang';
 
 $this->registerJsFile('/web/js/ckeditor/ckeditor.js', ['position' => \yii\web\View::POS_END]);
 $this->registerJs($script, \yii\web\View::POS_READY);

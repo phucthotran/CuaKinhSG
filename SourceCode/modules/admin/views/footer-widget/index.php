@@ -8,7 +8,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $model app\modules\admin\models\FooterWidgetForm */
 /* @var $form yii\bootstrap\ActiveForm */
 
-$this->title = 'Cài Đặt Footer Widget | Quốc Bảo - Control Panel';
+$this->title = 'Cài Đặt Footer Widget';
 ?>
 <?php if(Yii::$app->session->hasFlash('ChangeWidgetSuccess')): ?>
 	<div class="alert alert-success">Cập nhật Footer Widget thành công!</div>

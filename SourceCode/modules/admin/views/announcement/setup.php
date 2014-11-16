@@ -7,7 +7,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\AnnouncementSetupForm */
 
-$this->title = 'Cài Đặt Thông Báo | Quốc Bảo - Control Panel';
+$this->title = 'Cài Đặt Thông Báo';
 
 ?>
 

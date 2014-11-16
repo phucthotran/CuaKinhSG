@@ -8,7 +8,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $model app\modules\admin\models\AnnouncementForm */
 /* @var $form yii\bootstrap\ActiveForm */
 
-$this->title = 'Thêm Thông Báo | Quốc Bảo - Control Panel';
+$this->title = 'Thêm Thông Báo';
 ?>
 <?php if(Yii::$app->session->hasFlash('AddAnnouncementSuccess')): ?>
 	<div class="alert alert-success">Thêm thông báo mới thành công!</div>

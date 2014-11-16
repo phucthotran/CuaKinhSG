@@ -60,7 +60,7 @@ EOT;
 /* @var $this yii\web\View */
 /* @var $announcement app\models\Announcement */
 
-$this->title = 'Quản Lý Thông Báo | Quốc Bảo - Control Panel';
+$this->title = 'Quản Lý Thông Báo';
 $this->registerJs($priorityToggleScript, \yii\web\View::POS_READY);
 $this->registerJs($publishToggleScript, \yii\web\View::POS_READY);
 $this->registerJs($deleteToggleScript, \yii\web\View::POS_READY);

@@ -26,6 +26,9 @@ $this->registerJsFile('https://cdn.rawgit.com/jprichardson/string.js/master/lib/
 	$action = Yii::$app->controller->action->id;
 	
 	$url = "$controller/$action";
+	
+	if( Setting::findOne(['name' => 'general_corp_name']) != null )
+		$corporationName = strval( Setting::findOne(['name' => 'general_corp_name'])->value );
 ?>
 
 <?php $this->beginPage() ?>
@@ -35,14 +38,14 @@ $this->registerJsFile('https://cdn.rawgit.com/jprichardson/string.js/master/lib/
 	<meta charset="<?= Yii::$app->charset ?>">
 	<?= Html::csrfMetaTags() ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>	
-	<title><?= Html::encode($this->title) ?></title>
+	<title><?= Html::encode($this->title) . ' | ' . $corporationName . ' - Control Panel' ?></title>
 	<?php $this->head() ?>
 </head>
 <body>
 	<?php $this->beginBody() ?>
 	<?php
 	    NavBar::begin([
-	        'brandLabel' => 'Quốc Bảo <small>Control Panel</small>',
+	        'brandLabel' => $corporationName . ' <small>Control Panel</small>',
 	        'brandUrl' => '#',
 	        'options' => [
 	            'class' => 'navbar-inverse',

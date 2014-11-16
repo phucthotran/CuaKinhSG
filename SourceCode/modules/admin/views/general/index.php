@@ -7,7 +7,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\GeneralForm */
 
-$this->title = 'Thông tin Website | Quốc Bảo - Control Panel';
+$this->title = 'Thông tin Website';
 
 ?>
 

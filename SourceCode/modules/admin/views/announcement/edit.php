@@ -8,7 +8,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $model app\modules\admin\models\AnnouncementForm */
 /* @var $form yii\bootstrap\ActiveForm */
 
-$this->title = 'Sửa Thông Báo | Quốc Bảo - Control Panel';
+$this->title = 'Sửa Thông Báo';
 ?>
 <?php if(Yii::$app->session->hasFlash('EditAnnouncementSuccess')): ?>
 	<div class="alert alert-success">Cập nhật thông báo thành công!</div>
