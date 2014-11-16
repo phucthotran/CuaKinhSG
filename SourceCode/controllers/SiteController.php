@@ -81,12 +81,6 @@ class SiteController extends Controller
     public function actionContact()
     {
         $model = new ContactForm();
-        
-        $websiteTitle;
-        $corporationName;
-        $corporationAddress;
-        $corporationEmail;
-        $corporationPhone;
          
         if( Setting::findOne(['name' => 'general_web_title']) != null )
         	$websiteTitle = strval( Setting::findOne(['name' => 'general_web_title'])->value );
