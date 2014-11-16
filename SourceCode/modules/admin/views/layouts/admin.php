@@ -71,10 +71,9 @@ $this->registerJsFile('https://cdn.rawgit.com/jprichardson/string.js/master/lib/
 			<div class="row">
 				<div class="col-md-3">
 					<div class="panel panel-danger">
-						<div class="panel-heading">Cài Đặt Tin Chung</div>
+						<div class="panel-heading">Cài Đặt Chung</div>
 						<ul class="list-group">						
-							<li class="list-group-item <?= $url == 'general/index' ? 'active' : '' ?>"><a href="/web/admin/general"><span class="glyphicon glyphicon-cog"></span> Thông Tin Website</a></li>							
-							<li class="list-group-item <?= $url == 'breadcrumb/index' ? 'active' : '' ?>"><a href="/web/admin/breadcrumb"><span class="glyphicon glyphicon-forward"></span> Box Định Hướng</a></li>							
+							<li class="list-group-item <?= $url == 'general/index' ? 'active' : '' ?>"><a href="/web/admin/general"><span class="glyphicon glyphicon-cog"></span> Cài Đặt Cơ Bản</a></li>														
 							<li class="list-group-item <?= $url == 'map/index' ? 'active' : '' ?>"><a href="/web/admin/map"><span class="glyphicon glyphicon-globe"></span> Bản Đồ</a></li>
 							<li class="list-group-item <?= $url == 'footer-widget/index' ? 'active' : '' ?>"><a href="/web/admin/footer-widget"><span class="glyphicon glyphicon-th-large"></span> Footer Widget</a></li>
 						</ul>
