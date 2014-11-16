@@ -19,7 +19,6 @@ $this->registerJsFile('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js',
 $this->registerJsFile('https://oss.maxcdn.com/respond/1.4.2/respond.min.js', ['position' => \yii\web\View::POS_HEAD]);
 
 $this->registerJsFile('https://cdn.rawgit.com/jprichardson/string.js/master/lib/string.min.js', ['position' => \yii\web\View::POS_END]);
-$this->registerJsFile('/web/js/admin-functions.js', ['position' => \yii\web\View::POS_END]);
 ?>
 
 <?php 
@@ -94,8 +93,8 @@ $this->registerJsFile('/web/js/admin-functions.js', ['position' => \yii\web\View
 					<div class="panel panel-info">
 						<div class="panel-heading">Thông Báo</div>
 						<ul class="list-group">
-							<li class="list-group-item <?= $url == 'announcement/index' ? 'active' : '' ?>"><a href="/web/admin/announcement"><span class="glyphicon glyphicon-wrench"></span> Cài Đặt</a></li>
-							<li class="list-group-item <?= $url == 'announcement/management' ? 'active' : '' ?>"><a href="/web/admin/announcement/management"><span class="glyphicon glyphicon-bullhorn"></span> Quản Lý</a></li>
+							<li class="list-group-item <?= $url == 'announcement/setup' ? 'active' : '' ?>"><a href="/web/admin/announcement/setup"><span class="glyphicon glyphicon-wrench"></span> Cài Đặt</a></li>
+							<li class="list-group-item <?= $url == 'announcement/index' || $url == 'announcement/new' || $url == 'announcement/edit' ? 'active' : '' ?>"><a href="/web/admin/announcement"><span class="glyphicon glyphicon-bullhorn"></span> Quản Lý</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-info -->
 
