@@ -23,8 +23,33 @@ $this->registerJsFile('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquer
 $this->registerJsFile('http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7', ['position' => \yii\web\View::POS_END]);
 $this->registerJsFile('/js/maplace-0.1.3.min.js', ['position' => \yii\web\View::POS_END]);
 $this->registerJsFile('/js/functions.js', ['position' => \yii\web\View::POS_END]);
+?>
 
+<?php
 $announcements = Announcement::find()->where(['publish' => '1'])->orderBy('mode_id DESC')->all();
+
+if ( Setting::findOne(['name' => 'widget_enable']) != null ) {
+	$widgetEnable = Setting::findOne(['name' => 'widget_enable'])->value;
+}
+
+if ( $widgetEnable ) {
+	
+	if ( Setting::findOne(['name' => 'widget_1_title']) != null ) {
+		$widget1Title = Setting::findOne(['name' => 'widget_1_title'])->value;
+	}
+	
+	if ( Setting::findOne(['name' => 'widget_1_text']) != null ) {
+		$widget1Text = Setting::findOne(['name' => 'widget_1_text'])->value;
+	}
+	
+	if ( Setting::findOne(['name' => 'widget_2_title']) != null ) {
+		$widget2Title = Setting::findOne(['name' => 'widget_2_title'])->value;
+	}
+	
+	if ( Setting::findOne(['name' => 'widget_2_text']) != null ) {
+		$widget2Text = Setting::findOne(['name' => 'widget_2_text'])->value;
+	}
+}
 
 if( Setting::findOne(['name' => 'general_web_name']) != null )
 	$websiteName = strval( Setting::findOne(['name' => 'general_web_name'])->value );
@@ -213,49 +238,31 @@ $this->registerJs($maplaceScript, \yii\web\View::POS_READY, 'maplace');
 	</div> <!-- / .container-fluid -->
 	
 	<div id="footer">
+		<?php if ( $widgetEnable ): ?>
 		<div class="container-fluid">
-			<div class="footer-header container">
-				<div class="row">
-					<div class="col-md-6 col-intro">
-						<h3 class="col-title">Cơ sở cửa kính nhôm <strong>Quốc Bảo</strong></h3>
+			<div class="footer-header container">				
+				<div class="row">					
+					<div class="col-md-6">
+						<h3 class="col-title"><?= $widget1Title ?></h3>
 						<p class="col-summary">						
 						</p>
 						<div class="col-content">
-							<p>Cung cấp tất cả các loại dịch vụ ngành kính xây dựng như</p>
-							<ul>
-								<li>Sửa cửa kính, cửa kiếng</li>
-								<li>Lắp đặt, thi công các công trình cửa kính</li>
-								<li>Thiết kế các mẫu cửa kính theo ý tưởng của khách hàng</li>
-							</ul>
+							<?= $widget1Text ?>
 						</div>
-					</div> <!-- / .col-md-6 .col-intro -->
+					</div> <!-- / .col-md-6 -->
 					
-					<div class="col-md-6 col-sub hidden-sm hidden-xs">
-						<h3 class="col-title">Đăng ký nhận tin</h3>
-						<p class="col-summary">Nhận tin mới nhất về những sản phẩm của chúng tôi</p>
-						<div class="col-content input-group">
-							<span class="input-group-addon">@</span>
-							<input class="form-control" type="email" placeholder="Email" name="sub_email"/>
-							<span class="input-group-btn">							
-								<button class="btn btn-primary" type="button" name="sub_done">ĐĂNG KÝ</button>
-							</span>						
+					<div class="col-md-6">
+						<h3 class="col-title"><?= $widget2Title ?></h3>
+						<p class="col-summary">						
+						</p>
+						<div class="col-content">
+							<?= $widget2Text ?>
 						</div>
-					</div> <!-- / .col-md-6 .col-sub .hidden-sm .hidden-xs -->
-					
-					<div class="col-md-6 col-sub-xs visible-sm-block visible-xs-block">
-						<h3 class="col-title">Đăng ký nhận tin</h3>
-						<p class="col-summary">Nhận tin mới nhất về những sản phẩm của chúng tôi</p>
-						<div class="col-content input-group">
-							<span class="input-group-addon">@</span>
-							<input class="form-control" type="email" placeholder="Email" name="sub_email"/>
-							<span class="input-group-btn">							
-								<button class="btn btn-primary" type="button" name="sub_done">ĐĂNG KÝ</button>
-							</span>						
-						</div>
-					</div> <!-- / .col-sub-xs .visible-sm-block .visible-xs-block -->
-				</div> <!-- / .row -->
+					</div> <!-- / .col-md-6 -->
+				</div> <!-- / .row -->				
 			</div> <!-- / .footer-header .container -->
-		</div> <!-- / .container-fluid -->		
+		</div> <!-- / .container-fluid -->
+		<?php endif; ?>
 		<div class="footer-text">
 			<div class="container">
 				<p>&copy; <?= date('Y') ?> Bản quyền thuộc về <strong><?= $websiteName ?></strong>.</p>
