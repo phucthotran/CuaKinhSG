@@ -20,6 +20,7 @@ class GeneralController extends Controller
 		$corporationName = Setting::findOne(['name' => 'general_corp_name']);
 		$corporationAddress = Setting::findOne(['name' => 'general_corp_address']);
 		$corporationEmail = Setting::findOne(['name' => 'general_corp_email']);
+		$corporationPhone = Setting::findOne(['name' => 'general_corp_phone']);
 		
 		if( $model->load(Yii::$app->request->post()) && $model->validate() )
 		{
@@ -30,10 +31,11 @@ class GeneralController extends Controller
 			$corporationName->value = $model->corporationName;
 			$corporationAddress->value = $model->corporationAddress;
 			$corporationEmail->value = $model->corporationEmail;
+			$corporationPhone->value = $model->corporationPhone;
 			
 			$save_all = $maintenanceEnable->save() && $maintenanceMessage->save() && 
 						$websiteName->save() && $websiteTitle->save() && 
-						$corporationName->save() && $corporationAddress->save() && $corporationEmail->save();			
+						$corporationName->save() && $corporationAddress->save() && $corporationEmail->save() && $corporationPhone->save();			
 
 			if( $save_all )
 				Yii::$app->session->setFlash('ChangeGeneralSuccess');
@@ -50,6 +52,7 @@ class GeneralController extends Controller
 		$model->corporationName = $corporationName->value;
 		$model->corporationAddress = $corporationAddress->value;
 		$model->corporationEmail = $corporationEmail->value;
+		$model->corporationPhone = $corporationPhone->value;
 
 		return $this->render('index', array('model' => $model));
 	}

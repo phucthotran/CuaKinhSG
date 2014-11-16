@@ -17,6 +17,7 @@ class GeneralForm extends Model
 	public $corporationName;
 	public $corporationAddress;
 	public $corporationEmail;
+	public $corporationPhone;
 
 	/**
 	 * @return array the validation rules.
@@ -25,7 +26,7 @@ class GeneralForm extends Model
 	{
 		return [
 			//web's name, title and corp's name, address and email is required
-			[['websiteName', 'websiteTitle', 'corporationName', 'corporationAddress', 'corporationEmail'], 'required'],
+			[['websiteName', 'websiteTitle', 'corporationName', 'corporationAddress', 'corporationEmail', 'corporationPhone'], 'required'],
 			[['maintenanceEnable', 'maintenanceMessage'], 'safe'],
 		];
 	}
@@ -43,6 +44,7 @@ class GeneralForm extends Model
 			'corporationName' => 'Tên Doanh Nghiệp/Công Ty',
 			'corporationAddress' => 'Địa Chỉ',
 			'corporationEmail' => 'Email',
+			'corporationPhone' => 'SĐT',
 		];
 	}
 }

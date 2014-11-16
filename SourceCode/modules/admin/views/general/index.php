@@ -32,6 +32,7 @@ $this->title = 'Thông tin Website | Quốc Bảo - Control Panel';
 		<?= $form->field($model, 'corporationName') ?>
 		<?= $form->field($model, 'corporationAddress') ?>
 		<?= $form->field($model, 'corporationEmail') ?>
+		<?= $form->field($model, 'corporationPhone') ?>
 		<div class="form-group">
 			<?= Html::submitButton('LƯU CÀI ĐẶT', array('class' => 'btn btn-primary', 'name' => 'general-button')) ?>
 		</div>
