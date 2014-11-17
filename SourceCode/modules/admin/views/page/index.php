@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Setting;
 $pagePublishScript = <<<EOT
 	$('.page-publish').on('click', function(){
 		var current = $(this);
@@ -36,11 +37,32 @@ $pageDelScript = <<<EOT
 	});
 EOT;
 
+$setHomepageScript = <<<EOT
+	$('.page-home').on('click', function(){		
+		var current = $(this);
+		var pageId = current.attr('page-id');
+		
+		$.post('/web/admin/page/homepage/' + pageId, function(result){
+			if (parseInt(result) > 0) {
+				$('.page-home').removeClass('glyphicon-home');
+				$('.page-home').addClass('glyphicon-file');
+				current.removeClass('glyphicon-file');
+				current.addClass('glyphicon-home');
+			}
+		});
+	});
+EOT;
+
 /* @var $this yii\web\View */
 
 $this->title = 'Quản Lý Trang';
 $this->registerJs($pagePublishScript, \yii\web\View::POS_READY);
 $this->registerJs($pageDelScript, \yii\web\View::POS_READY);
+$this->registerJs($setHomepageScript, \yii\web\View::POS_READY);
+
+if ( Setting::findOne(['name' => 'homepage_id']) ) {
+	$homepageId = intval( Setting::findOne(['name' => 'homepage_id'])->value );
+}
 ?>
 
 <div id="page-manager-page">
@@ -57,6 +79,7 @@ $this->registerJs($pageDelScript, \yii\web\View::POS_READY);
 					<th>URL</th>
 					<th>Từ Khóa</th>
 					<th>Công Khai</th>
+					<th>Trang Chủ</th>
 					<th style="width: 16px;"></th>
 					<th style="width: 16px;"></th>
 				</tr>
@@ -77,7 +100,11 @@ $this->registerJs($pageDelScript, \yii\web\View::POS_READY);
 					<?php else: ?>
 						<td style="text-align: center;"><a class="glyphicon glyphicon-remove page-publish" page-id="<?= $page->id ?>" href="#"></a></td>
 					<?php endif; ?>
-					
+					<?php if ( $page->id == $homepageId ): ?>
+						<td><a class="glyphicon glyphicon-home page-home" page-id="<?= $page->id ?>" title="Đặt làm Trang Chủ" href="#"></a></td>
+					<?php else: ?>
+						<td><a class="glyphicon glyphicon-file page-home" page-id="<?= $page->id ?>" title="Đặt làm Trang Chủ" href="#"></a></td>
+					<?php endif; ?>
 					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="/web/admin/page/edit/<?= $page->id ?>"></a></td>
 					<td><a class="glyphicon glyphicon-trash page-del" page-id="<?= $page->id ?>" title="Xóa" href="#"></a></td>
 				</tr>

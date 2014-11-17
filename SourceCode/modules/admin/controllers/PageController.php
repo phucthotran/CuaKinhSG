@@ -8,6 +8,7 @@ use app\models\Page;
 use app\modules\admin\models\PageForm;
 use yii\web\NotFoundHttpException;
 use yii\web\BadRequestHttpException;
+use app\models\Setting;
 
 class PageController extends Controller
 {	
@@ -99,5 +100,17 @@ class PageController extends Controller
     		throw new BadRequestHttpException;
     	    	    	
     	return $page->publish;
+    }
+    
+    public function actionHomepage( $id ) {
+    	$homepage = Setting::findOne(['name' => 'homepage_id']);
+
+    	if ( $homepage == null ) {
+    		throw new BadRequestHttpException;
+    	}
+    	
+    	$homepage->value = $id;
+    	
+    	return $homepage->save();
     }
 }

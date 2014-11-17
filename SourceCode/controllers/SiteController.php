@@ -51,7 +51,17 @@ class SiteController extends Controller
     }
 
     public function actionIndex()
-    {
+    {    	
+    	if ( Setting::findOne(['name' => 'homepage_id']) ) {
+    		$homepageId = intval( Setting::findOne(['name' => 'homepage_id'])->value );
+    		
+    		if ( $homepageId != 0 ) {
+    			$page = Page::findOne(['id' => $homepageId]);
+    			
+    			return $this->actionPage($page->url);
+    		}
+    	}
+    	
         return $this->render('index');
     }
 
