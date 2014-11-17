@@ -7,10 +7,12 @@ use app\assets\AppAsset;
 use yii\bootstrap\Carousel;
 use app\models\Setting;
 use app\models\Announcement;
+use app\models\Page;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 /* @var $announcement app\models\Announcement */
+/* @var $page app\models\Page */
 
 AppAsset::register($this);
 
@@ -48,6 +50,23 @@ if ( $widgetEnable ) {
 	
 	if ( Setting::findOne(['name' => 'widget_2_text']) != null ) {
 		$widget2Text = Setting::findOne(['name' => 'widget_2_text'])->value;
+	}
+}
+
+if ( Setting::findOne(['name' => 'navbar_items']) != null ) {
+	$pagesId = explode( ';', strval( Setting::findOne(['name' => 'navbar_items'])->value ) );
+	
+	$navbarItems = array();
+	$idx = 0;
+	
+	foreach ( $pagesId as $pageId ) {
+		$page = Page::findOne(['id' => $pageId, 'publish' => '1']);
+		
+		if ( $page != null ) {
+			$navbarItems[$idx] = array('label' => $page->title, 'url' => '/web/site/page/' . $page->url);
+		}
+		
+		$idx++;
 	}
 }
 
@@ -151,12 +170,7 @@ $this->registerJs($maplaceScript, \yii\web\View::POS_READY, 'maplace');
 	    ]);
 	    echo Nav::widget([
 	        'options' => ['class' => 'navbar-nav'],
-	        'items' => [
-	            ['label' => 'Trang Chủ', 'url' => ['/site/index']],
-	            ['label' => 'Giới Thiệu', 'url' => ['/site/about']],
-	            ['label' => 'Bảng Báo Giá', 'url' => ['/site/products']],
-	        	['label' => 'Liên Hệ', 'url' => ['/site/contact']],	            
-	        ],
+	        'items' => $navbarItems,
 	    ]);
 	    NavBar::end();
 	?>
