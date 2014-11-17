@@ -54,10 +54,15 @@ $this->registerJsFile( 'https://cdn.rawgit.com/jprichardson/string.js/master/lib
 	    echo Nav::widget( array(
 	        'options' => ['class' => 'navbar-nav'],
 	        'items' => array(
-	            array('label' => 'Trang Chủ', 'url' => ['/admin'])
+	            array( 'label' => 'Trang Chủ', 'url' => ['/admin'] ),	        	
+	        	Yii::$app->user->isGuest ? 
+	        		array( 'label' => '', 'url' => ['#'] ) : 
+	        		array( 'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+	        				'url' => ['/admin/user/logout'],
+	        				'linkOptions' => ['data-method' => 'post']),
 	        ),
 	    ) );
-	    NavBar::end();
+	    NavBar::end();	     
 	?>
 	
 	<div id="main-wrapper">
@@ -109,7 +114,7 @@ $this->registerJsFile( 'https://cdn.rawgit.com/jprichardson/string.js/master/lib
 				</div> <!-- / .col-md-9 -->
 			</div> <!-- / .row -->
 		</div> <!-- / .container-fluid -->
-	</div> <!-- / #main-wrapper -->
+	</div> <!-- / #main-wrapper -->	
 	<?php $this->endBody() ?>
 </body>
 </html>
