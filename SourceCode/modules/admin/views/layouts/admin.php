@@ -54,7 +54,7 @@ $this->registerJsFile( 'https://cdn.rawgit.com/jprichardson/string.js/master/lib
 	    echo Nav::widget( array(
 	        'options' => ['class' => 'navbar-nav'],
 	        'items' => array(
-	            array( 'label' => 'Trang Chủ', 'url' => ['/admin'] ),	        	
+	            array( 'label' => 'Trang Chủ', 'url' => ['/admin/default/index'] ),	        	
 	        	Yii::$app->user->isGuest ? 
 	        		array( 'label' => '', 'url' => ['#'] ) : 
 	        		array( 'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
