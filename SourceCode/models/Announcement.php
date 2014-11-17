@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "announcement".
+ * This is the model class for table "announcements".
  *
  * @property integer $id
  * @property string $title
@@ -20,7 +20,7 @@ class Announcement extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'announcement';
+        return 'announcements';
     }
 
     /**
