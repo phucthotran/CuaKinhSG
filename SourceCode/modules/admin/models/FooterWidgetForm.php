@@ -4,6 +4,9 @@ namespace app\modules\admin\models;
 
 use yii\base\Model;
 
+/**
+ * FooterWidgetForm is the model behind the footer widget form.
+ */
 class FooterWidgetForm extends Model
 {
 	public $enable;
@@ -13,7 +16,7 @@ class FooterWidgetForm extends Model
 	public $widget2Text;
 	
 	/**
-	 * @inheritdoc
+	 * @return array the validation rules.
 	 */
 	public function rules() {
 		return [
@@ -22,7 +25,7 @@ class FooterWidgetForm extends Model
 	}
 	
 	/**
-	 * @inheritdoc
+	 * @return array customized attribute labels
 	 */
 	public function attributeLabels() {
 		return [

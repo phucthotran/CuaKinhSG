@@ -12,19 +12,16 @@ use app\models\Setting;
 
 class PageController extends Controller
 {	
-    public function actionIndex()
-    {
+    public function actionIndex() {
     	$pages = Page::find()->all();
     	
-        return $this->render('index', ['pages' => $pages]);
+        return $this->render( 'index', array( 'pages' => $pages ) );
     }
     		
-    public function actionNew()
-    {    	
+    public function actionNew() {    	
     	$model = new PageForm();    	
 
-    	if($model->load(Yii::$app->request->post()) && $model->validate())
-    	{
+    	if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
     		$page = new Page();
     		$page->title = $model->title;
     		$page->url = $model->url;
@@ -32,37 +29,38 @@ class PageController extends Controller
     		$page->publish = $model->publish;
     		$page->content = $model->content;
     		
-    		if($page->save()) 		
-    			Yii::$app->session->setFlash('addPageSuccess');
-    		else
-    			Yii::$app->session->setFlash('addPageFail');
+    		if( $page->save() ) {
+    			Yii::$app->session->setFlash( 'Done' );
+    		} else {
+    			Yii::$app->session->setFlash( 'Fail' );
+    		}
     		
     		return $this->refresh();
     	}    	
     	
-    	return $this->render('new', ['model' => $model]);
+    	return $this->render('new', array( 'model' => $model ) );
     }
 
-    public function actionEdit( $id )
-    {
+    public function actionEdit( $id ) {
     	$model = new PageForm();
-    	$page = Page::findOne(['id' => $id]);
+    	$page = Page::findOne( $id );
     	
-    	if($page == null)
+    	if ( $page == null ) {
     		throw new NotFoundHttpException;
+    	}
 
-    	if($model->load(Yii::$app->request->post()) && $model->validate())
-    	{
+    	if ( $model->load( Yii::$app->request->post() ) && $model->validate() )	{
     		$page->title = $model->title;
     		$page->url = $model->url;
     		$page->keywords = $model->keywords;
     		$page->publish = $model->publish;
     		$page->content = $model->content;
     		
-    		if($page->save())
-    			Yii::$app->session->setFlash('editPageSuccess');
-    		else
-    			Yii::$app->session->setFlash('editPageFail');
+    		if( $page->save() ) {
+    			Yii::$app->session->setFlash( 'Done' );
+    		} else {
+    			Yii::$app->session->setFlash( 'Fail' );
+    		}
     		
     		return $this->refresh();
     	}
@@ -73,37 +71,40 @@ class PageController extends Controller
     	$model->publish = $page->publish;
     	$model->content = $page->content;
     	
-    	return $this->render('edit', ['model' => $model]);
+    	return $this->render('edit', array( 'model' => $model ) );
     }
     
     public function actionRemove( $id )
     {
-    	$page = Page::findOne(['id' => $id]);
+    	$page = Page::findOne( $id );
     	
-    	if($page == null)
+    	if ( $page == null ) {
     		throw new NotFoundHttpException;
+    	}
 		
     	return $page->delete();
     }
     
     public function actionPublish( $id )
     {
-    	$page = Page::findOne(['id' => $id]);
+    	$page = Page::findOne( $id );
     	
-    	if($page == null)
+    	if ( $page == null ) {
     		throw new NotFoundHttpException;
+    	}
     	
     	$publish = $page->publish;
-    	$page->publish = $publish > 0 ? 0 : 1; //If page published, unpublish and otherwise
+    	$page->publish = $publish == 1 ? 0 : 1; //If page published, unpublish and otherwise
     	
-    	if(!$page->save())
+    	if ( !$page->save() ) {
     		throw new BadRequestHttpException;
+    	}
     	    	    	
     	return $page->publish;
     }
     
     public function actionHomepage( $id ) {
-    	$homepage = Setting::findOne(['name' => 'homepage_id']);
+    	$homepage = Setting::findOne( ['name' => 'homepage_id'] );
 
     	if ( $homepage == null ) {
     		throw new BadRequestHttpException;

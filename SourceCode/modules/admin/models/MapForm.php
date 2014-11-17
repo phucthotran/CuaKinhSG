@@ -2,7 +2,6 @@
 
 namespace app\modules\admin\models;
 
-use Yii;
 use yii\base\Model;
 
 /**
@@ -16,8 +15,7 @@ class MapForm extends Model
 	/**
 	 * @return array the validation rules.
 	 */
-	public function rules()
-	{
+	public function rules()	{
 		return [
 			//lat, long is required
 			[['lat', 'long'], 'required'],
@@ -27,8 +25,7 @@ class MapForm extends Model
 	/**
 	 * @return array customized attribute labels
 	 */
-	public function attributeLabels()
-	{
+	public function attributeLabels() {
 		return [
 			'lat' => 'Lat',
 			'long' => 'Long',

@@ -2,7 +2,6 @@
 
 namespace app\modules\admin\models;
 
-use Yii;
 use yii\base\Model;
 
 /**
@@ -19,8 +18,7 @@ class PageForm extends Model
 	/**
 	 * @return array the validation rules.
 	 */
-	public function rules()
-	{
+	public function rules()	{
 		return [
 			//title, url, keywords, content is required
 			[['title', 'url', 'keywords', 'content'], 'required'],
@@ -31,8 +29,7 @@ class PageForm extends Model
 	/**
 	 * @return array customized attribute labels
 	 */
-	public function attributeLabels()
-	{
+	public function attributeLabels() {
 		return [
 			'title' => 'Tiêu Đề',
 			'url' => 'URL (Đường dẫn đến trang)',

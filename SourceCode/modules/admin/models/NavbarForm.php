@@ -4,12 +4,15 @@ namespace app\modules\admin\models;
 
 use yii\base\Model;
 
+/**
+ * NavbarForm is the model behind the navbar form.
+ */
 class NavbarForm extends Model
 {
 	public $items = array();
 	
 	/**
-	 * @inheritdoc
+	 * @return array the validation rules.
 	 */
 	public function rules() {
 		return [
@@ -18,7 +21,7 @@ class NavbarForm extends Model
 	}
 	
 	/**
-	 * @inheritdoc
+	 * @return array customized attribute labels
 	 */
 	public function attributeLabels() {
 		return [

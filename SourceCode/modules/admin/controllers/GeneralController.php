@@ -13,18 +13,17 @@ class GeneralController extends Controller
 	{
 		$model = new GeneralForm();
 		
-		$maintenanceEnable = Setting::findOne(['name' => 'general_maintenance_enable']);
-		$maintenanceMessage = Setting::findOne(['name' => 'general_maintenance_message']);
-		$breadcrumbEnable = Setting::findOne(['name' => 'general_breadcrumb_enable']);
-		$websiteName = Setting::findOne(['name' => 'general_web_name']);
-		$websiteTitle = Setting::findOne(['name' => 'general_web_title']);
-		$corporationName = Setting::findOne(['name' => 'general_corp_name']);
-		$corporationAddress = Setting::findOne(['name' => 'general_corp_address']);
-		$corporationEmail = Setting::findOne(['name' => 'general_corp_email']);
-		$corporationPhone = Setting::findOne(['name' => 'general_corp_phone']);
+		$maintenanceEnable = Setting::findOne( ['name' => 'general_maintenance_enable'] );
+		$maintenanceMessage = Setting::findOne( ['name' => 'general_maintenance_message'] );
+		$breadcrumbEnable = Setting::findOne( ['name' => 'general_breadcrumb_enable'] );
+		$websiteName = Setting::findOne( ['name' => 'general_web_name'] );
+		$websiteTitle = Setting::findOne( ['name' => 'general_web_title'] );
+		$corporationName = Setting::findOne( ['name' => 'general_corp_name'] );
+		$corporationAddress = Setting::findOne( ['name' => 'general_corp_address'] );
+		$corporationEmail = Setting::findOne( ['name' => 'general_corp_email'] );
+		$corporationPhone = Setting::findOne( ['name' => 'general_corp_phone'] );
 		
-		if( $model->load(Yii::$app->request->post()) && $model->validate() )
-		{
+		if( $model->load(Yii::$app->request->post() ) && $model->validate() ) {
 			$maintenanceEnable->value = $model->maintenanceEnable;
 			$maintenanceMessage->value = $model->maintenanceMessage;
 			$breadcrumbEnable->value = $model->breadcrumbEnable;
@@ -40,10 +39,11 @@ class GeneralController extends Controller
 						$websiteName->save() && $websiteTitle->save() && 
 						$corporationName->save() && $corporationAddress->save() && $corporationEmail->save() && $corporationPhone->save();			
 
-			if( $save_all )
-				Yii::$app->session->setFlash('ChangeGeneralSuccess');
-			else 
-				Yii::$app->session->setFlash('ChangeGeneralFail');
+			if( $save_all ) {
+				Yii::$app->session->setFlash( 'Done' );
+			} else { 
+				Yii::$app->session->setFlash( 'Fail' );
+			}
 
 			return $this->refresh();
 		}
@@ -58,6 +58,6 @@ class GeneralController extends Controller
 		$model->corporationEmail = $corporationEmail->value;
 		$model->corporationPhone = $corporationPhone->value;
 
-		return $this->render('index', array('model' => $model));
+		return $this->render( 'index', array( 'model' => $model ) );
 	}
 }

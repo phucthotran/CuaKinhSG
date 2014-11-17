@@ -5,35 +5,26 @@ use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model app\models\GeneralForm */
+/* @var $model app\modules\admin\models\GeneralForm */
 
 $this->title = 'Thông tin Website';
 
 ?>
 
-<?php if(Yii::$app->session->hasFlash('ChangeGeneralSuccess')): ?>
-	<div class="alert alert-success">Đã cập nhật thông tin Website!</div>
-<?php elseif (Yii::$app->session->hasFlash('ChangeGeneralFail')): ?>
-	<div class="alert alert-warning">
-		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		<p>Không thể cập nhật thông tin Website lúc này!</p>
-	</div>
-<?php endif; ?>
-
 <div class="panel panel-default">
 	<div class="panel-body">
-		<?php $form = ActiveForm::begin(['id' => 'general-form']); ?>
+		<?php $form = ActiveForm::begin( ['id' => 'general-form'] ); ?>
 		<div class="panel panel-danger">
 			<div class="panel-body">
-			<?= $form->field($model, 'maintenanceEnable')->checkbox() ?>
-			<?= $form->field($model, 'maintenanceMessage', array(
-				'inputOptions' => array('placeholder' => $model->getAttributeLabel('maintenanceMessage'))
-				)) ?>
+			<?= $form->field( $model, 'maintenanceEnable' )->checkbox() ?>
+			<?= $form->field( $model, 'maintenanceMessage', array(
+				'inputOptions' => array( 'placeholder' => $model->getAttributeLabel('maintenanceMessage') )
+				) ) ?>
 			</div>
 		</div>
 		<div class="panel panel-danger">
 			<div class="panel panel-body">
-				<?= $form->field($model, 'breadcrumbEnable')->checkbox() ?>
+				<?= $form->field( $model, 'breadcrumbEnable' )->checkbox() ?>
 				<ul class="breadcrumb">					
 					<li><a href="#">TRANG CHỦ</a></li>
 					<li class="active">LIÊN HỆ</li>
@@ -42,16 +33,16 @@ $this->title = 'Thông tin Website';
 		</div>
 		<div class="panel panel-danger">
 			<div class="panel-body">
-			<?= $form->field($model, 'websiteName') ?>
-			<?= $form->field($model, 'websiteTitle') ?>
-			<?= $form->field($model, 'corporationName') ?>
-			<?= $form->field($model, 'corporationAddress') ?>
-			<?= $form->field($model, 'corporationEmail') ?>
-			<?= $form->field($model, 'corporationPhone') ?>
+			<?= $form->field( $model, 'websiteName' ) ?>
+			<?= $form->field( $model, 'websiteTitle' ) ?>
+			<?= $form->field( $model, 'corporationName' ) ?>
+			<?= $form->field( $model, 'corporationAddress') ?>
+			<?= $form->field( $model, 'corporationEmail' ) ?>
+			<?= $form->field( $model, 'corporationPhone' ) ?>
 			</div>
 		</div>
 		<div class="form-group">
-			<?= Html::submitButton('LƯU CÀI ĐẶT', array('class' => 'btn btn-primary', 'name' => 'general-button')) ?>
+			<?= Html::submitButton( 'LƯU CÀI ĐẶT', array( 'class' => 'btn btn-primary', 'name' => 'general-button' ) ) ?>
 		</div>
 		<?php ActiveForm::end(); ?> <!-- / #general-form -->
 	</div>

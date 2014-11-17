@@ -9,21 +9,20 @@ use app\models\Setting;
 
 class MapController extends Controller
 {
-	public function actionIndex()
-	{
+	public function actionIndex() {
 		$model = new MapForm();
-		$mapLat = Setting::findOne(['name' => 'map_lat']);
-		$mapLong = Setting::findOne(['name' => 'map_long']);
+		$mapLat = Setting::findOne( ['name' => 'map_lat'] );
+		$mapLong = Setting::findOne( ['name' => 'map_long'] );
 		
-		if( $model->load(Yii::$app->request->post()) && $model->validate() )
-		{
+		if ( $model->load(Yii::$app->request->post() ) && $model->validate() ) {
 			$mapLat->value = $model->lat;
 			$mapLong->value = $model->long;
 			
-			if($mapLat->save() && $mapLong->save())
-				Yii::$app->session->setFlash('ChangeMapSuccess');
-			else
-				Yii::$app->session->setFlash('ChangeMapFail');
+			if ( $mapLat->save() && $mapLong->save() ) {
+				Yii::$app->session->setFlash( 'Done' );
+			} else {
+				Yii::$app->session->setFlash( 'Fail' );
+			}
 			
 			return $this->refresh();
 		}
@@ -31,6 +30,6 @@ class MapController extends Controller
 		$model->lat = $mapLat->value;
 		$model->long = $mapLong->value;
 		
-		return $this->render('index', array('model' => $model));
+		return $this->render('index', array( 'model' => $model ) );
 	}
 }

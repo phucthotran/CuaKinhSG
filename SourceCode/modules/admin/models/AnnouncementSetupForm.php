@@ -4,6 +4,9 @@ namespace app\modules\admin\models;
 
 use yii\base\Model;
 
+/**
+ * AnnouncementSetupForm is the model behind the announcement setup form.
+ */
 class AnnouncementSetupForm extends Model
 {
 	public $enable = true;

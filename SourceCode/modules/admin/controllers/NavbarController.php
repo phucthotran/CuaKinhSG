@@ -12,16 +12,16 @@ class NavbarController extends Controller
 {
 	public function actionIndex() {
 		$model = new NavbarForm();
-		$navbarItems = Setting::findOne(['name' => 'navbar_items']);
-		$pages = Page::find()->where(['publish' => '1'])->all();
+		$navbarItems = Setting::findOne( ['name' => 'navbar_items'] );
+		$pages = Page::find()->where( ['publish' => '1'] )->all();
 		
 		if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
 			$navbarItems->value = implode( ';', $model->items );
 						
 			if ( $navbarItems->save() ) {
-				Yii::$app->session->setFlash('Done');
+				Yii::$app->session->setFlash( 'Done' );
 			} else {
-				Yii::$app->session->setFlash('Fail');
+				Yii::$app->session->setFlash( 'Fail' );
 			}
 			
 			return $this->refresh();
@@ -30,14 +30,14 @@ class NavbarController extends Controller
 		$model->items = explode( ';', strval( $navbarItems->value ) );
 		$pagesArray = array();
 		
-		foreach ( $pages as $page ) {
-			$pagesArray[$page->id] = $page->title;
+		foreach( $pages as $page ) {
+			$pagesArray[ $page->id ] = $page->title;
 		}
 		
-		return $this->render('index', 
+		return $this->render( 'index', 
 				array(
 					'model' => $model, 
 					'pages' => $pagesArray	
-				));
+				) );
 	}
 }

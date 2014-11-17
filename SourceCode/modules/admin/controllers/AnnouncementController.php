@@ -11,27 +11,25 @@ use app\modules\admin\models\AnnouncementForm;
 use yii\web\NotFoundHttpException;
 use yii\bootstrap\ActiveForm;
 
-/* @var $form yii\bootstrap\ActiveForm */
-
 class AnnouncementController extends Controller
 {
 	public function actionIndex() {
 		$announments = Announcement::find()->all();
 		
-		return $this->render('index', array('announcements' => $announments));
+		return $this->render( 'index', array('announcements' => $announments) );
 	}
 	
 	public function actionSetup() {
 		$model = new AnnouncementSetupForm();
-		$announcementEnable = Setting::findOne(['name' => 'announcement_enable']);
+		$announcementEnable = Setting::findOne( ['name' => 'announcement_enable'] );
 	
 		if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
 			$announcementEnable->value = $model->enable;
 				
 			if ( $announcementEnable->save() ) {
-				Yii::$app->session->setFlash('EnableAnnouncementSuccess');
+				Yii::$app->session->setFlash( 'Done' );
 			} else {
-				Yii::$app->session->setFlash('EnableAnnouncementFail');
+				Yii::$app->session->setFlash( 'Fail' );
 			}
 				
 			return $this->refresh();
@@ -39,7 +37,7 @@ class AnnouncementController extends Controller
 	
 		$model->enable = $announcementEnable->value;
 	
-		return $this->render('setup', ['model' => $model]);
+		return $this->render( 'setup', array( 'model' => $model ) );
 	}
 	
 	public function actionNew() {
@@ -53,20 +51,20 @@ class AnnouncementController extends Controller
 			$announcement->content = $model->content;
 			
 			if ( $announcement->save() ) {
-				Yii::$app->session->setFlash('AddAnnouncementSuccess');
+				Yii::$app->session->setFlash( 'Done' );
 			} else {
-				Yii::$app->session->setFlash('AddAnnouncementFail');
+				Yii::$app->session->setFlash( 'Fail' );
 			}
 			
 			return $this->refresh();
 		}
 		
-		return $this->render('new', array('model' => $model));
+		return $this->render('new', array( 'model' => $model ) );
 	}
 	
 	public function actionEdit( $id ) {
 		$model = new AnnouncementForm();
-		$announcement = Announcement::findOne(['id' => $id]);
+		$announcement = Announcement::findOne( $id );
 		
 		if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
 			$announcement->title = $model->title;
@@ -75,9 +73,9 @@ class AnnouncementController extends Controller
 			$announcement->content = $model->content;
 			
 			if ( $announcement->save() ) {
-				Yii::$app->session->setFlash('EditAnnouncementSuccess');
+				Yii::$app->session->setFlash( 'Done' );
 			} else {
-				Yii::$app->session->setFlash('EditAnnouncementFail');
+				Yii::$app->session->setFlash( 'Fail' );
 			}
 			
 			return $this->refresh();
@@ -88,11 +86,11 @@ class AnnouncementController extends Controller
 		$model->publish = $announcement->publish;
 		$model->content = $announcement->content;
 		
-		return $this->render('edit', array('model' => $model));
+		return $this->render('edit', array( 'model' => $model ) );
 	}
 	
 	public function actionRemove( $id ) {
-		$announcement = Announcement::findOne(['id' => $id]);
+		$announcement = Announcement::findOne( $id );
 		
 		if ( $announcement == null ) {
 			throw new NotFoundHttpException;
@@ -102,14 +100,14 @@ class AnnouncementController extends Controller
 	}
 	
 	public function actionPriority( $id ) {
-		$announcement = Announcement::findOne(['id' => $id]);
+		$announcement = Announcement::findOne( $id );
 		
 		if ( $announcement == null ) {
 			throw new NotFoundHttpException;
 		}
 		
 		$priority = $announcement->modeId;
-		$announcement->modeId = $priority > 0 ? 0 : 1; //If announcement mode is normal switch to important
+		$announcement->modeId = $priority == 1 ? 0 : 1; //If announcement mode is normal switch to important
 		
 		if ( !$announcement->save() ) {
 			throw new BadRequestHttpException;
@@ -119,17 +117,18 @@ class AnnouncementController extends Controller
 	}
 	
 	public function actionPublish( $id ) {
-		$announcement = Announcement::findOne(['id' => $id]);
+		$announcement = Announcement::findOne( $id );
 		
 		if ( $announcement == null ) {
 			throw new NotFoundHttpException;
 		}
 		
 		$publish = $announcement->publish;
-		$announcement->publish = $publish > 0 ? 0 : 1; //If announcement published, unpublish and otherwise
+		$announcement->publish = $publish == 1 ? 0 : 1; //If announcement published, unpublish and otherwise
 		
-		if ( !$announcement->save() )
+		if ( !$announcement->save() ) {
 			throw new BadRequestHttpException;
+		}
 		
 		return $announcement->publish;
 	}

@@ -61,9 +61,9 @@ EOT;
 /* @var $announcement app\models\Announcement */
 
 $this->title = 'Quản Lý Thông Báo';
-$this->registerJs($priorityToggleScript, \yii\web\View::POS_READY);
-$this->registerJs($publishToggleScript, \yii\web\View::POS_READY);
-$this->registerJs($deleteToggleScript, \yii\web\View::POS_READY);
+$this->registerJs( $priorityToggleScript, \yii\web\View::POS_READY );
+$this->registerJs( $publishToggleScript, \yii\web\View::POS_READY );
+$this->registerJs( $deleteToggleScript, \yii\web\View::POS_READY );
 ?>
 <div id="announcement-manager-page">
 	<div class="row">
@@ -85,7 +85,7 @@ $this->registerJs($deleteToggleScript, \yii\web\View::POS_READY);
 			<tbody>
 				<?php 
 				$nth = 1;
-				foreach ( $announcements as $announcement ):
+				foreach( $announcements as $announcement ):
 				?>
 				<tr>
 					<td><?= $nth ?></td>

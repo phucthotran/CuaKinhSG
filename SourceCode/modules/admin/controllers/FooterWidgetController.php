@@ -12,11 +12,11 @@ class FooterWidgetController extends Controller
 	public function actionIndex() {
 		$model = new FooterWidgetForm();
 		
-		$widgetEnable = Setting::findOne(['name' => 'widget_enable']);
-		$widget1Title = Setting::findOne(['name' => 'widget_1_title']);
-		$widget1Text = Setting::findOne(['name' => 'widget_1_text']);
-		$widget2Title = Setting::findOne(['name' => 'widget_2_title']);
-		$widget2Text = Setting::findOne(['name' => 'widget_2_text']);
+		$widgetEnable = Setting::findOne( ['name' => 'widget_enable'] );
+		$widget1Title = Setting::findOne( ['name' => 'widget_1_title'] );
+		$widget1Text = Setting::findOne( ['name' => 'widget_1_text'] );
+		$widget2Title = Setting::findOne( ['name' => 'widget_2_title'] );
+		$widget2Text = Setting::findOne( ['name' => 'widget_2_text'] );
 		
 		if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
 			$widgetEnable->value = $model->enable;
@@ -30,9 +30,9 @@ class FooterWidgetController extends Controller
 						$widget2Title->save() && $widget2Text->save();
 			
 			if ( $saveAll ) {
-				Yii::$app->session->setFlash('ChangeWidgetSuccess');
+				Yii::$app->session->setFlash( 'Done' );
 			} else {
-				Yii::$app->session->setFlash('ChangeWidgetFail');
+				Yii::$app->session->setFlash( 'Fail' );
 			}
 		}
 		
@@ -42,6 +42,6 @@ class FooterWidgetController extends Controller
 		$model->widget2Title = $widget2Title->value;
 		$model->widget2Text = $widget2Text->value;
 		
-		return $this->render('index', array('model' => $model));
+		return $this->render('index', array( 'model' => $model ) );
 	}
 }

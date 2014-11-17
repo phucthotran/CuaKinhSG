@@ -4,6 +4,9 @@ namespace app\modules\admin\models;
 
 use yii\base\Model;
 
+/**
+ * AnnouncementForm is the model behind the announcement form.
+ */
 class AnnouncementForm extends Model
 {
 	public $title;
@@ -12,7 +15,7 @@ class AnnouncementForm extends Model
 	public $content;
 	
 	/**
-	 * @inheritdoc
+	 * @return array the validation rules.
 	 */
 	public function rules() {
 		return [
@@ -22,7 +25,7 @@ class AnnouncementForm extends Model
 	}
 	
 	/**
-	 * @inheritdoc
+	 * @return array customized attribute labels
 	 */
 	public function attributeLabels() {
 		return [

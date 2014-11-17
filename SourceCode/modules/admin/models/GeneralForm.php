@@ -2,7 +2,6 @@
 
 namespace app\modules\admin\models;
 
-use Yii;
 use yii\base\Model;
 
 /**
@@ -23,8 +22,7 @@ class GeneralForm extends Model
 	/**
 	 * @return array the validation rules.
 	 */
-	public function rules()
-	{
+	public function rules()	{
 		return [
 			//web's name, title and corp's name, address and email is required
 			[['websiteName', 'websiteTitle', 'corporationName', 'corporationAddress', 'corporationEmail', 'corporationPhone'], 'required'],
@@ -37,8 +35,7 @@ class GeneralForm extends Model
 	/**
 	 * @return array customized attribute labels
 	 */
-	public function attributeLabels()
-	{
+	public function attributeLabels() {
 		return [
 			'maintenanceEnable' => 'Đóng Cửa Bảo Trì',
 			'maintenanceMessage' => 'Nội Dung Thông Báo',

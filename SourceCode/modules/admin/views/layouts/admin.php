@@ -14,22 +14,21 @@ AppAsset::register($this);
 ?>
 
 <?php 
-$this->registerCssFile('/web/css/admin-custom.css', ['position' => \yii\web\View::POS_BEGIN]);
+$this->registerCssFile( '/web/css/admin-custom.css', ['position' => \yii\web\View::POS_BEGIN] );
 
-$this->registerJsFile('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', ['position' => \yii\web\View::POS_HEAD]);
-$this->registerJsFile('https://oss.maxcdn.com/respond/1.4.2/respond.min.js', ['position' => \yii\web\View::POS_HEAD]);
+$this->registerJsFile( 'https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', ['position' => \yii\web\View::POS_HEAD] );
+$this->registerJsFile( 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js', ['position' => \yii\web\View::POS_HEAD] );
 
-$this->registerJsFile('https://cdn.rawgit.com/jprichardson/string.js/master/lib/string.min.js', ['position' => \yii\web\View::POS_END]);
+$this->registerJsFile( 'https://cdn.rawgit.com/jprichardson/string.js/master/lib/string.min.js', ['position' => \yii\web\View::POS_END] );
 ?>
 
 <?php 
 	$controller = Yii::$app->controller->id;
 	$action = Yii::$app->controller->action->id;
 	
-	$url = "$controller/$action";
+	$url = "$controller/$action";	
 	
-	if( Setting::findOne(['name' => 'general_corp_name']) != null )
-		$corporationName = strval( Setting::findOne(['name' => 'general_corp_name'])->value );
+	$corporationName = strval( Setting::findOne( ['name' => 'general_corp_name'] )->value );
 ?>
 
 <?php $this->beginPage() ?>
@@ -45,24 +44,19 @@ $this->registerJsFile('https://cdn.rawgit.com/jprichardson/string.js/master/lib/
 <body>
 	<?php $this->beginBody() ?>
 	<?php
-	    NavBar::begin([
+	    NavBar::begin( array(
 	        'brandLabel' => $corporationName . ' <small>Control Panel</small>',
 	        'brandUrl' => '#',
 	        'options' => [
 	            'class' => 'navbar-inverse',
 	        ],
-	    ]);
-	    echo Nav::widget([
+	    ) );
+	    echo Nav::widget( array(
 	        'options' => ['class' => 'navbar-nav'],
-	        'items' => [
-	            ['label' => 'Trang Chủ', 'url' => ['/admin']],
-        		Yii::$app->user->isGuest ?
-        		['label' => ''] :
-        		['label' => 'Thoát (' . Yii::$app->user->identity->username . ')', 
-        				'url' => ['/admin/logout'],
-        				'linkOptions' => ['data-method' => 'post']],
-	        ],
-	    ]);
+	        'items' => array(
+	            array('label' => 'Trang Chủ', 'url' => ['/admin'])
+	        ),
+	    ) );
 	    NavBar::end();
 	?>
 	
@@ -103,6 +97,14 @@ $this->registerJsFile('https://cdn.rawgit.com/jprichardson/string.js/master/lib/
 
 				</div> <!-- / .col-md-3 -->
 				<div class="col-md-9">
+					<?php if ( Yii::$app->session->hasFlash( 'Done' ) ): ?>
+						<div class="alert alert-success">Thông tin đã được lưu lại!</div>
+					<?php elseif ( Yii::$app->session->hasFlash( 'Fail' ) ): ?>
+						<div class="alert alert-warning">
+							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<p>Không thể thực hiện thao tác lúc này!</p>
+						</div>
+					<?php endif; ?>
 					<?= $content ?>
 				</div> <!-- / .col-md-9 -->
 			</div> <!-- / .row -->

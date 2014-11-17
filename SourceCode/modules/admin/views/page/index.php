@@ -1,11 +1,20 @@
 <?php
-
 use app\models\Setting;
-$pagePublishScript = <<<EOT
+
+/* @var $this yii\web\View */
+/* @var $page app\models\Page */
+
+$this->title = 'Quản Lý Trang';
+
+$homepageId = intval( Setting::findOne( ['name' => 'homepage_id'] )->value );
+?>
+
+<?php 
+$publishToggleScript = <<<EOT
 	$('.page-publish').on('click', function(){
 		var current = $(this);
 		var pageId = current.attr('page-id');
-		
+
 		$.post('/web/admin/page/publish/' + pageId, function (result){
 			if(parseInt(result) > 0) { //Boolean
 				current.removeClass('glyphicon-remove');
@@ -14,34 +23,34 @@ $pagePublishScript = <<<EOT
 				current.removeClass('glyphicon-ok');
 				current.addClass('glyphicon-remove');
 			}
-		});		
+		});
 	});
 EOT;
 
-$pageDelScript = <<<EOT
+$deleteToggleScript = <<<EOT
 	$('.page-del').on('click', function(){
 		if(!confirm('Bạn có chắc muốn xóa trang này'))
 			return;
-		
+
 		var current = $(this);
 		var pageId = current.attr('page-id');
-		
+
 		$.post('/web/admin/page/remove/' + pageId, function(result){
 			if(parseInt(result) == 'NaN' || parseInt(result) <= 0){
 				alert('Không thể thực hiện thao tác lúc này');
 				return;
 			}
-			
+		
 			current.parents('tr').remove();
 		});
 	});
 EOT;
 
-$setHomepageScript = <<<EOT
-	$('.page-home').on('click', function(){		
+$homepageToggleScript = <<<EOT
+	$('.page-home').on('click', function(){
 		var current = $(this);
 		var pageId = current.attr('page-id');
-		
+
 		$.post('/web/admin/page/homepage/' + pageId, function(result){
 			if (parseInt(result) > 0) {
 				$('.page-home').removeClass('glyphicon-home');
@@ -52,17 +61,12 @@ $setHomepageScript = <<<EOT
 		});
 	});
 EOT;
+?>
 
-/* @var $this yii\web\View */
-
-$this->title = 'Quản Lý Trang';
-$this->registerJs($pagePublishScript, \yii\web\View::POS_READY);
-$this->registerJs($pageDelScript, \yii\web\View::POS_READY);
-$this->registerJs($setHomepageScript, \yii\web\View::POS_READY);
-
-if ( Setting::findOne(['name' => 'homepage_id']) ) {
-	$homepageId = intval( Setting::findOne(['name' => 'homepage_id'])->value );
-}
+<?php 
+$this->registerJs( $publishToggleScript, \yii\web\View::POS_READY );
+$this->registerJs( $deleteToggleScript, \yii\web\View::POS_READY );
+$this->registerJs( $homepageToggleScript, \yii\web\View::POS_READY );
 ?>
 
 <div id="page-manager-page">
@@ -95,7 +99,7 @@ if ( Setting::findOne(['name' => 'homepage_id']) ) {
 					<td><?= $page->title ?></td>
 					<td><?= $page->url ?></td>
 					<td><?= $page->keywords ?></td>
-					<?php if($page->publish > 0): ?>
+					<?php if ( $page->publish == 1 ): ?>
 						<td style="text-align: center;"><a class="glyphicon glyphicon-ok page-publish" page-id="<?= $page->id ?>" href="#"></a></td>
 					<?php else: ?>
 						<td style="text-align: center;"><a class="glyphicon glyphicon-remove page-publish" page-id="<?= $page->id ?>" href="#"></a></td>
