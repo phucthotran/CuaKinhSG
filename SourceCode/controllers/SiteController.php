@@ -56,7 +56,7 @@ class SiteController extends Controller
     		$homepageId = intval( Setting::findOne(['name' => 'homepage_id'])->value );
     		
     		if ( $homepageId != 0 ) {
-    			$page = Page::findOne(['id' => $homepageId]);
+    			$page = Page::findOne($homepageId);
     			
     			return $this->actionPage($page->url);
     		}

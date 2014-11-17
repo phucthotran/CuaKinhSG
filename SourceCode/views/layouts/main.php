@@ -57,7 +57,9 @@ if ( Setting::findOne(['name' => 'navbar_items']) != null ) {
 	$pagesId = explode( ';', strval( Setting::findOne(['name' => 'navbar_items'])->value ) );
 	
 	$navbarItems = array();
-	$idx = 0;
+	$idx = 1;
+	
+	$navbarItems[0] = array('label' => 'Trang Chủ', 'url' => '/web');
 	
 	foreach ( $pagesId as $pageId ) {
 		$page = Page::findOne(['id' => $pageId, 'publish' => '1']);
