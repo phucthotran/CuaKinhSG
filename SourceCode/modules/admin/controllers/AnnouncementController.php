@@ -21,12 +21,12 @@ class AnnouncementController extends Controller
 	
 	public function actionSetup() {
 		$model = new AnnouncementSetupForm();
-		$announcementEnable = Setting::findOne( ['name' => 'announcement_enable'] );
+		$status = Setting::findOne( ['name' => 'announcement_enable'] );
 	
 		if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
-			$announcementEnable->value = $model->enable;
+			$status->value = $model->enable;
 				
-			if ( $announcementEnable->save() ) {
+			if ( $status->save() ) {
 				Yii::$app->session->setFlash( 'Done' );
 			} else {
 				Yii::$app->session->setFlash( 'Fail' );
@@ -35,7 +35,7 @@ class AnnouncementController extends Controller
 			return $this->refresh();
 		}
 	
-		$model->enable = $announcementEnable->value;
+		$model->enable = $status->value;
 	
 		return $this->render( 'setup', array( 'model' => $model ) );
 	}
@@ -44,13 +44,13 @@ class AnnouncementController extends Controller
 		$model = new AnnouncementForm();
 		
 		if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
-			$announcement = new Announcement();
-			$announcement->title = $model->title;
-			$announcement->modeId = $model->modeId;
-			$announcement->publish = $model->publish;
-			$announcement->content = $model->content;
+			$newAnnouncement = new Announcement();			
+			$newAnnouncement->title = $model->title;
+			$newAnnouncement->modeId = $model->modeId;
+			$newAnnouncement->publish = $model->publish;
+			$newAnnouncement->content = $model->content;
 			
-			if ( $announcement->save() ) {
+			if ( $newAnnouncement->save() ) {
 				Yii::$app->session->setFlash( 'Done' );
 			} else {
 				Yii::$app->session->setFlash( 'Fail' );
@@ -59,7 +59,7 @@ class AnnouncementController extends Controller
 			return $this->refresh();
 		}
 		
-		return $this->render('new', array( 'model' => $model ) );
+		return $this->render( 'new', array( 'model' => $model ) );
 	}
 	
 	public function actionEdit( $id ) {
