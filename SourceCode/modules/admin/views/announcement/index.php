@@ -1,11 +1,13 @@
-<?php 
+<?php
+
+$url = Yii::$app->urlManager->createUrl('admin/announcement');
 
 $priorityToggleScript = <<<EOT
 	$('.announcement-priority').on('click', function(){
 		var current = $(this);
 		var announcementId = current.attr('announcement-id');
 		
-		$.post('/web/admin/announcement/priority/' + announcementId, function (result){
+		$.post('{$url}/priority/' + announcementId, function (result){
 			if(parseInt(result) > 0) { //Boolean
 				current.removeClass('glyphicon-bookmark');
 				current.addClass('glyphicon-fire');
@@ -22,7 +24,7 @@ $publishToggleScript = <<<EOT
 		var current = $(this);
 		var announcementId = current.attr('announcement-id');
 		
-		$.post('/web/admin/announcement/publish/' + announcementId, function (result){
+		$.post('{$url}/publish/' + announcementId, function (result){
 			if(parseInt(result) > 0) { //Boolean
 				current.removeClass('glyphicon-remove');
 				current.addClass('glyphicon-ok');
@@ -42,7 +44,7 @@ $deleteToggleScript = <<<EOT
 		var current = $(this);
 		var announcementId = current.attr('announcement-id');
 		
-		$.post('/web/admin/announcement/remove/' + announcementId, function(result){
+		$.post('{$url}/remove/' + announcementId, function(result){
 			if(parseInt(result) == 'NaN' || parseInt(result) <= 0){
 				alert('Không thể thực hiện thao tác lúc này');
 				return;
@@ -67,7 +69,7 @@ $this->registerJs( $deleteToggleScript, \yii\web\View::POS_READY );
 ?>
 <div id="announcement-manager-page">
 	<div class="row">
-		<a class="btn btn-primary" href="/web/admin/announcement/new">THÊM THÔNG BÁO</a>
+		<a class="btn btn-primary" href="<?= $url ?>/new">THÊM THÔNG BÁO</a>
 	</div> <!-- / .row -->
 	<div style="margin: 20px 0;"></div>
 	<div class="row">
@@ -103,7 +105,7 @@ $this->registerJs( $deleteToggleScript, \yii\web\View::POS_READY );
 						<td><a class="glyphicon glyphicon-remove announcement-publish" announcement-id="<?= $announcement->id ?>" href="#"></a></td>
 					<?php endif; ?>
 					
-					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="/web/admin/announcement/edit/<?= $announcement->id ?>"></a></td>
+					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="<?= $url ?>/edit/<?= $announcement->id ?>"></a></td>
 					<td><a class="glyphicon glyphicon-trash announcement-del" announcement-id="<?= $announcement->id ?>" title="Xóa" href="#"></a></td>
 				</tr>
 				<?php 

@@ -8,12 +8,12 @@ use yii\helpers\Html;
 $this->title = 'Đăng Nhập';
 ?>
 <div class="center-block">	
-	<?php $form = ActiveForm::begin() ?>
+	<?php $form = ActiveForm::begin(['id' => 'login-form']) ?>
 		<?= $form->field( $model, 'username' ) ?>
 		<?= $form->field( $model, 'password' )->passwordInput() ?>
 		<?= $form->field( $model, 'rememberMe' )->checkbox() ?>
 		<div class="form-group">
 			<?= Html::submitButton('ĐĂNG NHẬP', [ 'class' => 'btn btn-primary', 'name' => 'login-button' ] ) ?>
 		</div>
-	<?php ActiveForm::end() ?>
+	<?php ActiveForm::end() ?> <!-- / #login-form -->
 </div>

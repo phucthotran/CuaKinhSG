@@ -35,7 +35,7 @@ $corporationName = strval( Setting::findOne( ['name' => 'general_corp_name'] )->
 	<?php
 	    NavBar::begin( array(
 	        'brandLabel' => $corporationName . ' <small>Control Panel</small>',
-	        'brandUrl' => '#',
+	        'brandUrl' => 'default/index',
 	        'options' => [
 	            'class' => 'navbar-inverse',
 	        ],
@@ -43,7 +43,7 @@ $corporationName = strval( Setting::findOne( ['name' => 'general_corp_name'] )->
 	    echo Nav::widget( array(
 	        'options' => ['class' => 'navbar-nav'],
 	        'items' => array(
-	            array( 'label' => 'Trang Chủ', 'url' => ['/admin'] ),
+	            array( 'label' => 'Trang Chủ', 'url' => ['default/index'] ),
 	        ),
 	    ) );
 	    NavBar::end();	     

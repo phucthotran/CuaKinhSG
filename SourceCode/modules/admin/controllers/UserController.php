@@ -20,7 +20,7 @@ class UserController extends Controller
 	
 	public function actionLogin() {    	
     	if ( !Yii::$app->user->isGuest ) {
-    		return $this->redirect('/web/admin');
+    		return $this->redirect(Yii::$app->urlManager->createUrl('admin'));
     	}    	
     	
     	$model = new LoginForm();

@@ -40,19 +40,19 @@ if ( Setting::findOne( ['name' => 'navbar_items'] ) != null ) {
 	$navbarItems = array();
 	$idx = 1;
 
-	$navbarItems[0] = array( 'label' => 'Trang Chủ', 'url' => Yii::$app->homeUrl );
+	$navbarItems[0] = array( 'label' => 'Trang Chủ', 'url' => [Yii::$app->homeUrl] );
 
 	foreach ( $pagesId as $pageId ) {
 		$page = Page::findOne( ['id' => $pageId, 'publish' => '1'] );
 
 		if ( $page != null ) {
-			$navbarItems[$idx] = array( 'label' => $page->title, 'url' => '/web/site/page/' . $page->url );
+			$navbarItems[$idx] = array( 'label' => $page->title, 'url' => ['site/page/' . $page->url] );
 		}
 
 		$idx++;
 	}
 	
-	$navbarItems[count($navbarItems)] = array( 'label' => 'Liên Hệ', 'url' => '/web/site/contact' );
+	$navbarItems[count($navbarItems)] = array( 'label' => 'Liên Hệ', 'url' => ['site/contact'] );
 }
 
 //Check if Breadcrumb enable

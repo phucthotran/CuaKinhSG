@@ -7,6 +7,7 @@ use app\models\Setting;
 $this->title = 'Quản Lý Trang';
 
 $homepageId = intval( Setting::findOne( ['name' => 'homepage_id'] )->value );
+$url = Yii::$app->urlManager->createUrl('admin/page');
 ?>
 
 <?php 
@@ -15,7 +16,7 @@ $publishToggleScript = <<<EOT
 		var current = $(this);
 		var pageId = current.attr('page-id');
 
-		$.post('/web/admin/page/publish/' + pageId, function (result){
+		$.post('{$url}/publish/' + pageId, function (result){
 			if(parseInt(result) > 0) { //Boolean
 				current.removeClass('glyphicon-remove');
 				current.addClass('glyphicon-ok');
@@ -35,7 +36,7 @@ $deleteToggleScript = <<<EOT
 		var current = $(this);
 		var pageId = current.attr('page-id');
 
-		$.post('/web/admin/page/remove/' + pageId, function(result){
+		$.post('{$url}/remove/' + pageId, function(result){
 			if(parseInt(result) == 'NaN' || parseInt(result) <= 0){
 				alert('Không thể thực hiện thao tác lúc này');
 				return;
@@ -51,7 +52,7 @@ $homepageToggleScript = <<<EOT
 		var current = $(this);
 		var pageId = current.attr('page-id');
 
-		$.post('/web/admin/page/homepage/' + pageId, function(result){
+		$.post('{$url}/homepage/' + pageId, function(result){
 			if (parseInt(result) > 0) {
 				$('.page-home').removeClass('glyphicon-home');
 				$('.page-home').addClass('glyphicon-file');
@@ -71,7 +72,7 @@ $this->registerJs( $homepageToggleScript, \yii\web\View::POS_READY );
 
 <div id="page-manager-page">
 	<div class="row">
-		<a class="btn btn-primary" href="/web/admin/page/new">THÊM TRANG</a>
+		<a class="btn btn-primary" href="<?= $url ?>/new">THÊM TRANG</a>
 	</div> <!-- / .row -->
 	<div style="margin: 20px 0;"></div>
 	<div class="row">
@@ -109,7 +110,7 @@ $this->registerJs( $homepageToggleScript, \yii\web\View::POS_READY );
 					<?php else: ?>
 						<td><a class="glyphicon glyphicon-file page-home" page-id="<?= $page->id ?>" title="Đặt làm Trang Chủ" href="#"></a></td>
 					<?php endif; ?>
-					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="/web/admin/page/edit/<?= $page->id ?>"></a></td>
+					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="<?= $url ?>/edit/<?= $page->id ?>"></a></td>
 					<td><a class="glyphicon glyphicon-trash page-del" page-id="<?= $page->id ?>" title="Xóa" href="#"></a></td>
 				</tr>
 				<?php

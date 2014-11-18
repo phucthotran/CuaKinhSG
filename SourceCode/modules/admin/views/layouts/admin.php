@@ -46,7 +46,7 @@ $this->registerJsFile( 'https://cdn.rawgit.com/jprichardson/string.js/master/lib
 	<?php
 	    NavBar::begin( array(
 	        'brandLabel' => $corporationName . ' <small>Control Panel</small>',
-	        'brandUrl' => '#',
+	        'brandUrl' => 'default/index',
 	        'options' => [
 	            'class' => 'navbar-inverse',
 	        ],
@@ -54,11 +54,11 @@ $this->registerJsFile( 'https://cdn.rawgit.com/jprichardson/string.js/master/lib
 	    echo Nav::widget( array(
 	        'options' => ['class' => 'navbar-nav'],
 	        'items' => array(
-	            array( 'label' => 'Trang Chủ', 'url' => ['/admin/default/index'] ),	        	
+	            array( 'label' => 'Trang Chủ', 'url' => ['default/index'] ),	        	
 	        	Yii::$app->user->isGuest ? 
 	        		array( 'label' => '', 'url' => ['#'] ) : 
 	        		array( 'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-	        				'url' => ['/admin/user/logout'],
+	        				'url' => ['user/logout'],
 	        				'linkOptions' => ['data-method' => 'post']),
 	        ),
 	    ) );
@@ -72,31 +72,31 @@ $this->registerJsFile( 'https://cdn.rawgit.com/jprichardson/string.js/master/lib
 					<div class="panel panel-danger">
 						<div class="panel-heading">Cài Đặt Chung</div>
 						<ul class="list-group">						
-							<li class="list-group-item <?= $url == 'general/index' ? 'active' : '' ?>"><a href="/web/admin/general"><span class="glyphicon glyphicon-cog"></span> Cài Đặt Cơ Bản</a></li>														
-							<li class="list-group-item <?= $url == 'map/index' ? 'active' : '' ?>"><a href="/web/admin/map"><span class="glyphicon glyphicon-globe"></span> Bản Đồ</a></li>
-							<li class="list-group-item <?= $url == 'footer-widget/index' ? 'active' : '' ?>"><a href="/web/admin/footer-widget"><span class="glyphicon glyphicon-th-large"></span> Footer Widget</a></li>
+							<li class="list-group-item <?= $url == 'general/index' ? 'active' : '' ?>"><a href="<?= Yii::$app->urlManager->createUrl('admin/general') ?>"><span class="glyphicon glyphicon-cog"></span> Cài Đặt Cơ Bản</a></li>														
+							<li class="list-group-item <?= $url == 'map/index' ? 'active' : '' ?>"><a href="<?= Yii::$app->urlManager->createUrl('admin/map') ?>"><span class="glyphicon glyphicon-globe"></span> Bản Đồ</a></li>
+							<li class="list-group-item <?= $url == 'footer-widget/index' ? 'active' : '' ?>"><a href="<?= Yii::$app->urlManager->createUrl('admin/footer-widget') ?>"><span class="glyphicon glyphicon-th-large"></span> Footer Widget</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-danger -->
 
 					<div class="panel panel-danger">
 						<div class="panel-heading">Trang</div>
 						<ul class="list-group">
-							<li class="list-group-item <?= $url == 'page/index' || $url == 'page/new' || $url == 'page/edit' ? 'active' : '' ?>"><a href="/web/admin/page"><span class="glyphicon glyphicon-file"></span> Quản Lý Trang</a></li>
+							<li class="list-group-item <?= $url == 'page/index' || $url == 'page/new' || $url == 'page/edit' ? 'active' : '' ?>"><a href="<?= Yii::$app->urlManager->createUrl('admin/page') ?>"><span class="glyphicon glyphicon-file"></span> Quản Lý Trang</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-danger -->
 
 					<div class="panel panel-info">
 						<div class="panel-heading">Thanh Điều Hướng</div>
 						<ul class="list-group">
-							<li class="list-group-item <?= $url == 'navbar/index' ? 'active' : '' ?>"><a href="/web/admin/navbar"><span class="glyphicon glyphicon-list"></span> Cài Đặt</a></li>
+							<li class="list-group-item <?= $url == 'navbar/index' ? 'active' : '' ?>"><a href="<?= Yii::$app->urlManager->createUrl('admin/navbar') ?>"><span class="glyphicon glyphicon-list"></span> Cài Đặt</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-info -->
 
 					<div class="panel panel-info">
 						<div class="panel-heading">Thông Báo</div>
 						<ul class="list-group">
-							<li class="list-group-item <?= $url == 'announcement/setup' ? 'active' : '' ?>"><a href="/web/admin/announcement/setup"><span class="glyphicon glyphicon-wrench"></span> Cài Đặt</a></li>
-							<li class="list-group-item <?= $url == 'announcement/index' || $url == 'announcement/new' || $url == 'announcement/edit' ? 'active' : '' ?>"><a href="/web/admin/announcement"><span class="glyphicon glyphicon-bullhorn"></span> Quản Lý</a></li>
+							<li class="list-group-item <?= $url == 'announcement/setup' ? 'active' : '' ?>"><a href="<?= Yii::$app->urlManager->createUrl('admin/announcement/setup') ?>"><span class="glyphicon glyphicon-wrench"></span> Cài Đặt</a></li>
+							<li class="list-group-item <?= $url == 'announcement/index' || $url == 'announcement/new' || $url == 'announcement/edit' ? 'active' : '' ?>"><a href="<?= Yii::$app->urlManager->createUrl('admin/announcement') ?>"><span class="glyphicon glyphicon-bullhorn"></span> Quản Lý</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-info -->
 

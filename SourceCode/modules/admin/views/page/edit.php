@@ -46,6 +46,6 @@ $this->registerJs( $script, \yii\web\View::POS_READY );
 		<div class="form-group">
 			<?= Html::submitButton( 'LƯU TRANG', ['class' => 'btn btn-primary', 'name' => 'page-button'] ) ?>
 		</div>
-		<?php ActiveForm::end(); ?> <!-- #new-page-form -->		
+		<?php ActiveForm::end(); ?> <!-- #edit-page-form -->		
 	</div> <!-- / .panel-body -->
 </div> <!-- / .panel .panel-default -->
