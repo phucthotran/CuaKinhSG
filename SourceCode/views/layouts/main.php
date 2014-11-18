@@ -40,7 +40,7 @@ if ( Setting::findOne( ['name' => 'navbar_items'] ) != null ) {
 	$navbarItems = array();
 	$idx = 1;
 
-	$navbarItems[0] = array( 'label' => 'Trang Chủ', 'url' => [Yii::$app->homeUrl] );
+	$navbarItems[0] = array( 'label' => 'Trang Chủ', 'url' => ['/'] );
 
 	foreach ( $pagesId as $pageId ) {
 		$page = Page::findOne( ['id' => $pageId, 'publish' => '1'] );
