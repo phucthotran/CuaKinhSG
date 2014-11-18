@@ -9,7 +9,7 @@ use yii\base\Model;
  */
 class FooterWidgetForm extends Model
 {
-	public $enable;
+	public $enable = true;
 	public $widget1Title;
 	public $widget1Text;
 	public $widget2Title;
@@ -22,7 +22,6 @@ class FooterWidgetForm extends Model
 		return [
 			[['enable', 'widget1Title', 'widget1Text', 'widget2Title', 'widget2Text'], 'required'],
 			['enable', 'boolean'],
-			['enable', 'default', 'value' => 1],
 			['widget1Title', 'string', 'length' => [3, 45]],
 			['widget2Title', 'string', 'length' => [3, 45]],
 		];

@@ -9,7 +9,7 @@ use yii\base\Model;
  */
 class GeneralForm extends Model
 {
-	public $maintenanceEnable;
+	public $maintenanceEnable = false;
 	public $maintenanceMessage;
 	public $breadcrumbEnable = true;
 	public $websiteName;
@@ -32,8 +32,7 @@ class GeneralForm extends Model
 			['corporationAddress', 'string', 'length' => [4, 100]],
 			['corporationPhone', 'string', 'min' => 9],
 			[['maintenanceEnable', 'maintenanceMessage', 'breadcrumbEnable'], 'safe'],
-			['maintenanceEnable', 'boolean'],				
-			['maintenanceEnable', 'default', 'value' => 0],
+			['maintenanceEnable', 'boolean'],
 			['maintenanceMessage', 'string', 'length' => [15, 200]],
 			// email has to be a valid email address
 			['corporationEmail', 'email'],

@@ -13,7 +13,7 @@ class PageForm extends Model
 	public $title;
 	public $url;
 	public $keywords;
-	public $publish;
+	public $publish = true;
 	public $content;
 	
 	/**
@@ -28,7 +28,6 @@ class PageForm extends Model
 			['url', 'unique', 'targetClass' => Page::className(), 'targetAttribute' => 'url',],
 			[['publish'], 'safe'],
 			['publish', 'boolean'],
-			['publish', 'default', 'value' => 1],
 		];
 	}
 	

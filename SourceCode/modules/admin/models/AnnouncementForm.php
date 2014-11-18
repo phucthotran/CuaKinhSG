@@ -10,8 +10,8 @@ use yii\base\Model;
 class AnnouncementForm extends Model
 {
 	public $title;
-	public $modeId;
-	public $publish;
+	public $modeId = 0;
+	public $publish = true;
 	public $content;
 	
 	/**
@@ -22,11 +22,10 @@ class AnnouncementForm extends Model
 			[['title', 'modeId', 'content'], 'required'],
 			['title', 'string', 'length' => [4, 45]],
 			['content', 'string', 'length' => [20, 200]],
-			['modeId', 'integer', 'default' => 1],
+			['modeId', 'integer'],
 			['modeId', 'in', 'range' => [0, 1]],
 			[['publish'], 'safe'],
 			['publish', 'boolean'],
-			['publish', 'default', 'value' => 1],
 		];
 	}
 	
