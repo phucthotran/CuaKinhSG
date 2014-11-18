@@ -169,7 +169,7 @@ $this->registerJs( $maplaceScript, \yii\web\View::POS_READY, 'maplace' );
 	    NavBar::end();
 	?>
 	
-	<?php if ( Yii::$app->controller->action->id == 'index' && $sliderEnable ): ?>
+	<?php if ( Yii::$app->controller->action->id == 'index' && $sliderEnable && count($sliders) > 0 ): ?>
 	
 	<div style="padding: 0; margin-top: -20px;" class="container-fluid">
 		<div id="web-carousel" class="carousel slide" data-ride="carousel">
