@@ -14,6 +14,22 @@ use yii\web\NotFoundHttpException;
 
 class SiteController extends Controller
 {
+	public function beforeAction( $action ) {
+		$maintenanceEnable = Setting::findOne( ['name' => 'general_maintenance_enable'] )->value;
+		
+		if ( $action->id == 'maintenance' ) {
+			return true;
+		}
+		
+		if ( $maintenanceEnable ) {			
+			$this->redirect( Yii::$app->urlManager->createUrl( 'site/maintenance' ) );		
+			
+			return false;
+		}
+		
+		return true;
+	}
+	
     public function actions() {
         return array(
             'error' => array(
@@ -73,6 +89,12 @@ class SiteController extends Controller
     	}
    	
     	return $this->render( 'page', array( 'page' => $page ) );
+    }
+    
+    public function actionMaintenance() {
+    	$maintenanceMessage = Setting::findOne( ['name' => 'general_maintenance_message'] )->value;
+    	
+    	return $this->render( 'maintenance', array( 'message' => $maintenanceMessage ) );
     }
 
 }
