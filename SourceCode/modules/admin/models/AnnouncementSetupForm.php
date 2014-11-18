@@ -9,7 +9,7 @@ use yii\base\Model;
  */
 class AnnouncementSetupForm extends Model
 {
-	public $enable = true;
+	public $enable;
 	
 	/**
 	 * @return array the validation rules.
@@ -17,7 +17,9 @@ class AnnouncementSetupForm extends Model
 	public function rules() {
 		return [
 			// enable is required
-			[['enable'], 'required'],			
+			[['enable'], 'required'],
+			['enable', 'boolean', 'trueValue' => true, 'falseValue' => false],
+			['enable', 'default', 'value' => true],
 		];
 	}
 	

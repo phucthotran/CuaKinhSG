@@ -26,9 +26,18 @@ class GeneralForm extends Model
 		return [
 			//web's name, title and corp's name, address and email is required
 			[['websiteName', 'websiteTitle', 'corporationName', 'corporationAddress', 'corporationEmail', 'corporationPhone'], 'required'],
+			['websiteName', 'string', 'length' => [4, 45]],
+			['websiteTitle', 'string', 'length' => [4, 100]],
+			['corporationName', 'string', 'length' => [4, 45]],
+			['corporationAddress', 'string', 'length' => [4, 100]],
+			['corporationPhone', 'string', 'min' => 9],
 			[['maintenanceEnable', 'maintenanceMessage', 'breadcrumbEnable'], 'safe'],
+			['maintenanceEnable', 'boolean'],				
+			['maintenanceEnable', 'default', 'value' => 0],
+			['maintenanceMessage', 'string', 'length' => [15, 200]],
 			// email has to be a valid email address
 			['corporationEmail', 'email'],
+			['corporationEmail', 'string', 'length' => [6, 45]],
 		];
 	}
 	

@@ -11,7 +11,7 @@ class AnnouncementForm extends Model
 {
 	public $title;
 	public $modeId;
-	public $publish = true;
+	public $publish;
 	public $content;
 	
 	/**
@@ -20,7 +20,13 @@ class AnnouncementForm extends Model
 	public function rules() {
 		return [
 			[['title', 'modeId', 'content'], 'required'],
+			['title', 'string', 'length' => [4, 45]],
+			['content', 'string', 'length' => [20, 200]],
+			['modeId', 'integer', 'default' => 1],
+			['modeId', 'in', 'range' => [0, 1]],
 			[['publish'], 'safe'],
+			['publish', 'boolean'],
+			['publish', 'default', 'value' => 1],
 		];
 	}
 	

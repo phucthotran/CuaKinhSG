@@ -3,6 +3,7 @@
 namespace app\modules\admin\models;
 
 use yii\base\Model;
+use app\models\Page;
 
 /**
  * PageForm is the model behind the page edit/new form.
@@ -22,7 +23,12 @@ class PageForm extends Model
 		return [
 			//title, url, keywords, content is required
 			[['title', 'url', 'keywords', 'content'], 'required'],
+			['title', 'exist', 'targetClass' => Page::className()],
+			[['title', 'keywords'], 'string', 'length' => [4, 100]],
+			['url', 'string', 'length' => [4, 45]],
 			[['publish'], 'safe'],
+			['publish', 'boolean'],
+			['publish', 'default', 'value' => 1],
 		];
 	}
 	

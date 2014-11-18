@@ -19,6 +19,8 @@ class MapForm extends Model
 		return [
 			//lat, long is required
 			[['lat', 'long'], 'required'],
+			['lat', 'double'],
+			['long', 'double'],
 		];
 	}
 	
