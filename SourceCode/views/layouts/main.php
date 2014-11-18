@@ -8,11 +8,13 @@ use yii\bootstrap\Carousel;
 use app\models\Setting;
 use app\models\Announcement;
 use app\models\Page;
+use app\models\Slider;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 /* @var $announcement app\models\Announcement */
 /* @var $page app\models\Page */
+/* @var $slider app\models\Slider */
 
 AppAsset::register( $this );
 
@@ -55,9 +57,15 @@ if ( Setting::findOne( ['name' => 'navbar_items'] ) != null ) {
 	$navbarItems[count($navbarItems)] = array( 'label' => 'Liên Hệ', 'url' => ['site/contact'] );
 }
 
+//Check if Slider enable
+$sliderEnable = Setting::findOne( ['name' => 'slider_enable'] )->value;
+$sliders = Slider::find()->where( ['publish' => '1'] )->all();
+
 //Check if Breadcrumb enable
 $breadcrumbEnable = Setting::findOne( ['name' => 'general_breadcrumb_enable'] )->value;
 
+//Check if Announcement enable
+$announcementEnable = Setting::findOne( ['name' => 'announcement_enable'] )->value;
 //Fetch announcements and orderby mode (important first)
 $announcements = Announcement::find()->where( ['publish' => '1'] )->orderBy( 'modeId DESC' )->all();
 
@@ -161,34 +169,39 @@ $this->registerJs( $maplaceScript, \yii\web\View::POS_READY, 'maplace' );
 	    NavBar::end();
 	?>
 	
-	<?php if ( Yii::$app->controller->action->id == 'index' ): ?>
+	<?php if ( Yii::$app->controller->action->id == 'index' && $sliderEnable ): ?>
 	
 	<div style="padding: 0; margin-top: -20px;" class="container-fluid">
 		<div id="web-carousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
-				<li data-target="#web-carousel" data-slide-to="0" class="active"></li>
-				<li data-target="#web-carousel" data-slide-to="1"></li>
-				<li data-target="#web-carousel" data-slide-to="2"></li>
+				<?php
+				$nth = 0;
+				foreach( $sliders as $slider ): 
+				?>					
+					<li data-target="#web-carousel" data-slide-to="<?= $nth ?>" <?php $nth == 0 ? 'class="active"' : '' ?>></li>
+				<?php
+					$nth++;
+				endforeach; 
+				?>
 			</ol> <!-- / .carousel-indicators -->
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
-				<div class="item active">
-				  <img src="/web/data/s1.jpg" alt="...">
-				  <div class="carousel-caption">					
-				  </div>
-				</div>
-				<div class="item">
-				  <img src="/web/data/s2.jpg" alt="...">
-				  <div class="carousel-caption">					
-				  </div>
-				</div>
-				<div class="item">
-				  <img src="/web/data/s3.jpg" alt="...">
-				  <div class="carousel-caption">					
-				  </div>
-				</div>
+				<?php
+				$nth = 0;
+				foreach( $sliders as $slider ): 
+				?>					
+					<div class="item <?= $nth == 0 ? 'active' : '' ?>">
+						  <a href="<?= $slider->link ?>"><img src="<?= $slider->imageLink ?>" alt="<?= $slider->caption ?>"></a>
+						  <div class="carousel-caption">
+						  	<?= $slider->caption ?>
+						  </div>
+					</div>
+				<?php
+					$nth++;
+				endforeach; 
+				?>
 			</div> <!-- / .carousel-inner -->
 
 			<!-- Controls -->
@@ -213,22 +226,24 @@ $this->registerJs( $maplaceScript, \yii\web\View::POS_READY, 'maplace' );
 		</div>
 		<?php endif; ?>
 		
-		<?php foreach( $announcements as $announcement ): ?>
-			<?php if ( $announcement->modeId == 0 ): ?>
-				<div class="row">
-					<div class="alert alert-info normal-announcement" role="alert">
-						<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>						
-						<p><strong><?= $announcement->title ?></strong>: <?= $announcement->content ?></p>
+		<?php if ( $announcementEnable ): ?>
+			<?php foreach( $announcements as $announcement ): ?>
+				<?php if ( $announcement->modeId == 0 ): ?>
+					<div class="row">
+						<div class="alert alert-info normal-announcement" role="alert">
+							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>						
+							<p><strong><?= $announcement->title ?></strong>: <?= $announcement->content ?></p>
+						</div>
 					</div>
-				</div>
-			<?php elseif ( $announcement->modeId == 1 ): ?>
-				<div class="row">
-					<div class="alert alert-danger important-announcement" role="alert">						
-						<p><strong><?= $announcement->title ?></strong>: <?= $announcement->content ?></p>
+				<?php elseif ( $announcement->modeId == 1 ): ?>
+					<div class="row">
+						<div class="alert alert-danger important-announcement" role="alert">						
+							<p><strong><?= $announcement->title ?></strong>: <?= $announcement->content ?></p>
+						</div>
 					</div>
-				</div>
-			<?php endif; ?>		
-		<?php endforeach; ?>
+				<?php endif; ?>		
+			<?php endforeach; ?>
+		<?php endif; ?>
 		
 		<div id="main-content" class="row">
 			<?= $content ?>	
