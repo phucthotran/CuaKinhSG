@@ -29,6 +29,16 @@ content blob,
 PRIMARY KEY (id)
 );
 
+CREATE TABLE sliders
+(
+id int NOT NULL AUTO_INCREMENT,
+imageLink tinytext NOT NULL,
+caption tinytext NOT NULL,
+link tinytext NOT NULL,
+publish tinyint(1) DEFAULT 1,
+PRIMARY KEY (id)
+);
+
 CREATE TABLE settings
 (
 id int NOT NULL AUTO_INCREMENT,
@@ -60,3 +70,4 @@ INSERT INTO settings (name, value) VALUES ('widget_2_title', 'Keep In Touch');
 INSERT INTO settings (name, value) VALUES ('widget_2_text', '<p><span class="glyphicon glyphicon-home"></span> <strong>FACEBOOK </strong><a href="http://www.facebook.com/thotran.developer">Tho Tran Coder</a></p><p><span class="glyphicon glyphicon-inbox"></span> <strong>EMAIL </strong><a href="mailto:phucthotran@gmail.com">phucthotran@gmail.com</a></p><p><span class="glyphicon glyphicon-phone"></span> <strong>PHONE </strong>01655973646</p>');
 INSERT INTO settings (name) VALUES ('navbar_items');
 INSERT INTO settings (name) VALUES ('homepage_id');
+INSERT INTO settings (name, value) VALUES ('slider_enable', '1');
