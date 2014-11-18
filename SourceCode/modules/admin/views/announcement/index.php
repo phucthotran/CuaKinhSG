@@ -67,7 +67,7 @@ $this->registerJs( $priorityToggleScript, \yii\web\View::POS_READY );
 $this->registerJs( $publishToggleScript, \yii\web\View::POS_READY );
 $this->registerJs( $deleteToggleScript, \yii\web\View::POS_READY );
 ?>
-<div id="announcement-manager-page">
+<div>
 	<div class="row">
 		<a class="btn btn-primary" href="<?= $url ?>/new">THÊM THÔNG BÁO</a>
 	</div> <!-- / .row -->
@@ -115,4 +115,4 @@ $this->registerJs( $deleteToggleScript, \yii\web\View::POS_READY );
 			</tbody>
 		</table>
 	</div> <!-- / .row -->
-</div> <!-- / #announcement-manager-page -->
+</div>

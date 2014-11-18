@@ -34,12 +34,12 @@ class GeneralController extends Controller
 			$corporationEmail->value = $model->corporationEmail;
 			$corporationPhone->value = $model->corporationPhone;
 			
-			$save_all = $maintenanceEnable->save() && $maintenanceMessage->save() && 
+			$saveAll = $maintenanceEnable->save() && $maintenanceMessage->save() && 
 						$breadcrumbEnable->save() &&
 						$websiteName->save() && $websiteTitle->save() && 
 						$corporationName->save() && $corporationAddress->save() && $corporationEmail->save() && $corporationPhone->save();			
 
-			if( $save_all ) {
+			if( $saveAll ) {
 				Yii::$app->session->setFlash( 'Done' );
 			} else { 
 				Yii::$app->session->setFlash( 'Fail' );

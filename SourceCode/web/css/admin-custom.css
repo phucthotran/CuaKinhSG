@@ -93,12 +93,7 @@ body {
 		display: inline;
 	}
 
-#page-manager-page .table tr td a {
-	color: inherit;
-	text-decoration: none;
-}
-
-#announcement-manager-page .table tr td a {
+.table tr td a {
 	color: inherit;
 	text-decoration: none;
 }

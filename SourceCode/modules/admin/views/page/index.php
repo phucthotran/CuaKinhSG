@@ -70,7 +70,7 @@ $this->registerJs( $deleteToggleScript, \yii\web\View::POS_READY );
 $this->registerJs( $homepageToggleScript, \yii\web\View::POS_READY );
 ?>
 
-<div id="page-manager-page">
+<div>
 	<div class="row">
 		<a class="btn btn-primary" href="<?= $url ?>/new">THÊM TRANG</a>
 	</div> <!-- / .row -->
@@ -120,4 +120,4 @@ $this->registerJs( $homepageToggleScript, \yii\web\View::POS_READY );
 			</tbody>
 		</table>
 	</div> <!-- / .row -->
-</div> <!-- / #page-manager-page -->
+</div>

@@ -22,14 +22,14 @@ class PageController extends Controller
     	$model = new PageForm();    	
 
     	if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
-    		$page = new Page();
-    		$page->title = $model->title;
-    		$page->url = $model->url;
-    		$page->keywords = $model->keywords;
-    		$page->publish = $model->publish;
-    		$page->content = $model->content;
+    		$newPage = new Page();
+    		$newPage->title = $model->title;
+    		$newPage->url = $model->url;
+    		$newPage->keywords = $model->keywords;
+    		$newPage->publish = $model->publish;
+    		$newPage->content = $model->content;
     		
-    		if( $page->save() ) {
+    		if( $newPage->save() ) {
     			Yii::$app->session->setFlash( 'Done' );
     		} else {
     			Yii::$app->session->setFlash( 'Fail' );
