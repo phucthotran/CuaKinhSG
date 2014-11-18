@@ -99,6 +99,14 @@ $this->registerJsFile( 'https://cdn.rawgit.com/jprichardson/string.js/master/lib
 							<li class="list-group-item <?= $url == 'announcement/index' || $url == 'announcement/new' || $url == 'announcement/edit' ? 'active' : '' ?>"><a href="<?= Yii::$app->urlManager->createUrl('admin/announcement') ?>"><span class="glyphicon glyphicon-bullhorn"></span> Quản Lý</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-info -->
+					
+					<div class="panel panel-info">
+						<div class="panel-heading">Slider</div>
+						<ul class="list-group">
+							<li class="list-group-item <?= $url == 'slider/setup' ? 'active' : '' ?>"><a href="<?= Yii::$app->urlManager->createUrl('admin/slider/setup') ?>"><span class="glyphicon glyphicon-wrench"></span> Cài Đặt</a></li>
+							<li class="list-group-item <?= $url == 'slider/index' || $url == 'slider/new' || $url == 'slider/edit' ? 'active' : '' ?>"><a href="<?= Yii::$app->urlManager->createUrl('admin/slider') ?>"><span class="glyphicon glyphicon-picture"></span> Quản Lý</a></li>
+						</ul>
+					</div> <!-- / .panel .panel-info -->
 
 				</div> <!-- / .col-md-3 -->
 				<div class="col-md-9">
