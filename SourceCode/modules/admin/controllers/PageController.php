@@ -49,20 +49,27 @@ class PageController extends Controller
     		throw new NotFoundHttpException;
     	}
 
-    	if ( $model->load( Yii::$app->request->post() ) && $model->validate() )	{
-    		$page->title = $model->title;
-    		$page->url = $model->url;
-    		$page->keywords = $model->keywords;
-    		$page->publish = $model->publish;
-    		$page->content = $model->content;
+    	if ( $model->load( Yii::$app->request->post() ) )	{
+    		//If page url not change, not validate 'url' again
+    		$validate = $page->url == $model->url ? 
+    												$model->validate( ['title', 'keywords', 'publish', 'content'] ) : 
+    												$model->validate();
     		
-    		if( $page->save() ) {
-    			Yii::$app->session->setFlash( 'Done' );
-    		} else {
-    			Yii::$app->session->setFlash( 'Fail' );
+    		if ( $validate ) {
+	    		$page->title = $model->title;
+	    		$page->url = $model->url;
+	    		$page->keywords = $model->keywords;
+	    		$page->publish = $model->publish;
+	    		$page->content = $model->content;
+	    		
+	    		if( $page->save() ) {
+	    			Yii::$app->session->setFlash( 'Done' );
+	    		} else {
+	    			Yii::$app->session->setFlash( 'Fail' );
+	    		}
+	    		
+	    		return $this->refresh();
     		}
-    		
-    		return $this->refresh();
     	}
 
     	$model->title = $page->title;

@@ -13,7 +13,7 @@ class PageForm extends Model
 	public $title;
 	public $url;
 	public $keywords;
-	public $publish = true;
+	public $publish;
 	public $content;
 	
 	/**
@@ -22,10 +22,10 @@ class PageForm extends Model
 	public function rules()	{
 		return [
 			//title, url, keywords, content is required
-			[['title', 'url', 'keywords', 'content'], 'required'],
-			['title', 'exist', 'targetClass' => Page::className()],
+			[['title', 'url', 'keywords', 'content'], 'required'],			
 			[['title', 'keywords'], 'string', 'length' => [4, 100]],
 			['url', 'string', 'length' => [4, 45]],
+			['url', 'unique', 'targetClass' => Page::className(), 'targetAttribute' => 'url',],
 			[['publish'], 'safe'],
 			['publish', 'boolean'],
 			['publish', 'default', 'value' => 1],
