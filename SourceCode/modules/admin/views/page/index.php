@@ -87,6 +87,7 @@ $this->registerJs( $homepageToggleScript, \yii\web\View::POS_READY );
 					<th>Trang Chủ</th>
 					<th style="width: 16px;"></th>
 					<th style="width: 16px;"></th>
+					<th style="width: 16px;"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -110,6 +111,7 @@ $this->registerJs( $homepageToggleScript, \yii\web\View::POS_READY );
 					<?php else: ?>
 						<td><a class="glyphicon glyphicon-file page-home" page-id="<?= $page->id ?>" title="Đặt làm Trang Chủ" href="#"></a></td>
 					<?php endif; ?>
+					<td><a class="glyphicon glyphicon-eye-open" title="Xem Trước" target="_blank" href="<?= Yii::$app->urlManager->createUrl('site/page') ?>/<?= $page->url ?>"></a></td>
 					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="<?= $url ?>/edit/<?= $page->id ?>"></a></td>
 					<td><a class="glyphicon glyphicon-trash page-del" page-id="<?= $page->id ?>" title="Xóa" href="#"></a></td>
 				</tr>
