@@ -87,33 +87,6 @@ if ( $widgetEnable ) {
 ?>
 
 <?php 
-$style = <<<EOT
-	#web-carousel {
-		max-height: 400px !important;
-		overflow: hidden !important;
-	 }
-	
-	#web-carousel .carousel-indicators li {
-		background-color: #edecec !important;
-		border-color: #bababa !important;
-	}
-	
-	#web-carousel .carousel-indicators li.active {
-		background-color: #ccc !important;
-	}
-	
-	#web-carousel .carousel-indicators li:hover {
-		background-color: #fff !important;
-	}
-	
-	#web-carousel .carousel-inner .carousel-caption {
-		color: #666 !important;
-		text-transform: uppercase !important;
-		font-size: 1.1em !important;
-		text-shadow: none !important;	
-	}
-EOT;
-
 $maplaceScript = <<<EOT
 	new Maplace({
 			locations: [{ lat: {lat}, lon: {long}, zoom: 16 }],
@@ -127,10 +100,6 @@ EOT;
 
 $maplaceScript = str_replace( '{lat}', $mapLat, $maplaceScript );
 $maplaceScript = str_replace( '{long}', $mapLong, $maplaceScript );
-
-if ( Yii::$app->controller->action->id == 'index' ) {
-	$this->registerCss( $style, ['position' => \yii\web\View::POS_HEAD] );
-}
 
 $this->registerJs( $maplaceScript, \yii\web\View::POS_READY, 'maplace' );
 ?>
@@ -169,7 +138,7 @@ $this->registerJs( $maplaceScript, \yii\web\View::POS_READY, 'maplace' );
 	    NavBar::end();
 	?>
 	
-	<?php if ( Yii::$app->controller->action->id == 'index' && $sliderEnable && count($sliders) > 0 ): ?>
+	<?php if ( ( Yii::$app->controller->action->id == 'index' || Yii::$app->controller->action->id == 'page' ) && $sliderEnable && count($sliders) > 0 ): ?>
 	
 	<div style="padding: 0; margin-top: -20px;" class="container-fluid">
 		<div id="web-carousel" class="carousel slide" data-ride="carousel">
