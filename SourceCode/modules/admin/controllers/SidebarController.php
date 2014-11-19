@@ -43,21 +43,28 @@ class SidebarController extends Controller
 		$model = new SidebarForm();
 		$sidebar = Sidebar::findOne( $id );
 		
-		if ( $model->load( Yii::$app->request->post() ) && $model->validate() ) {
-			$sidebar->title = $model->title;
-			$sidebar->body = $model->body;
-			$sidebar->priorityMode = $model->priorityMode;
-			$sidebar->position = $model->position;
-			$sidebar->templateMode = $model->templateMode;
-			$sidebar->publish = $model->publish;
-				
-			if ( $sidebar->save() ) {
-				Yii::$app->session->setFlash( 'Done' );
-			} else {
-				Yii::$app->session->setFlash( 'Fail' );
+		if ( $model->load( Yii::$app->request->post() ) ) {
+			//If sidebar position not change, not validate 'position' again
+			$validate = $sidebar->position == $model->position ?
+												$model->validate( ['title', 'body', 'priorityMode', 'templateMode', 'publish'] ) :
+												$model->validate();
+			
+			if ( $validate ) {
+				$sidebar->title = $model->title;
+				$sidebar->body = $model->body;
+				$sidebar->priorityMode = $model->priorityMode;
+				$sidebar->position = $model->position;
+				$sidebar->templateMode = $model->templateMode;
+				$sidebar->publish = $model->publish;
+					
+				if ( $sidebar->save() ) {
+					Yii::$app->session->setFlash( 'Done' );
+				} else {
+					Yii::$app->session->setFlash( 'Fail' );
+				}
+					
+				return $this->refresh();
 			}
-				
-			return $this->refresh();
 		}
 		
 		$model->title = $sidebar->title;

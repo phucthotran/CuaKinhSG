@@ -3,6 +3,7 @@
 namespace app\modules\admin\models;
 
 use yii\base\Model;
+use app\models\Sidebar;
 
 /**
  * Sidebar is the model behind the sidebar form.
@@ -24,6 +25,7 @@ class SidebarForm extends Model
 				[['title', 'body', 'position'], 'required'],
 				['title', 'string', 'length' => [3, 20]],
 				[['priorityMode', 'position', 'templateMode'], 'integer'],
+				['position', 'unique', 'targetClass' => Sidebar::className(), 'targetAttribute' => 'position'],
 				[['priorityMode', 'templateMode', 'publish'], 'safe'],
 				['publish', 'boolean'],
 		];
