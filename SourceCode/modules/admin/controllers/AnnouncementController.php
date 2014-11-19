@@ -90,6 +90,10 @@ class AnnouncementController extends Controller
 	}
 	
 	public function actionRemove( $id ) {
+		if ( !Yii::$app->request->isPost ) {
+			throw new MethodNotAllowedHttpException;
+		}
+		
 		$announcement = Announcement::findOne( $id );
 		
 		if ( $announcement == null ) {
@@ -100,6 +104,10 @@ class AnnouncementController extends Controller
 	}
 	
 	public function actionPriority( $id ) {
+		if ( !Yii::$app->request->isPost ) {
+			throw new MethodNotAllowedHttpException;
+		}
+		
 		$announcement = Announcement::findOne( $id );
 		
 		if ( $announcement == null ) {
@@ -117,6 +125,10 @@ class AnnouncementController extends Controller
 	}
 	
 	public function actionPublish( $id ) {
+		if ( !Yii::$app->request->isPost ) {
+			throw new MethodNotAllowedHttpException;
+		}
+		
 		$announcement = Announcement::findOne( $id );
 		
 		if ( $announcement == null ) {

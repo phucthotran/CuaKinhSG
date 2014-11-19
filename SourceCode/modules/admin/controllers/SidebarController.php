@@ -71,6 +71,10 @@ class SidebarController extends Controller
 	}
 	
 	public function actionRemove( $id ) {
+		if ( !Yii::$app->request->isPost ) {
+			throw new MethodNotAllowedHttpException;
+		}
+		
 		$sidebar = Sidebar::findOne( $id );
 		
 		if ( $sidebar == null ) {
@@ -81,6 +85,10 @@ class SidebarController extends Controller
 	}
 	
 	public function actionPriority( $id ) {
+		if ( !Yii::$app->request->isPost ) {
+			throw new MethodNotAllowedHttpException;
+		}
+		
 		$sidebar = Sidebar::findOne( $id );
 	
 		if ( $sidebar == null ) {
@@ -98,6 +106,10 @@ class SidebarController extends Controller
 	}
 	
 	public function actionPublish( $id ) {
+		if ( !Yii::$app->request->isPost ) {
+			throw new MethodNotAllowedHttpException;
+		}
+		
 		$sidebar = Sidebar::findOne( $id );
 		
 		if ( $sidebar == null ) {

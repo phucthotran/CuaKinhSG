@@ -9,6 +9,7 @@ use app\modules\admin\models\PageForm;
 use yii\web\NotFoundHttpException;
 use yii\web\BadRequestHttpException;
 use app\models\Setting;
+use yii\web\MethodNotAllowedHttpException;
 
 class PageController extends Controller
 {	
@@ -84,10 +85,9 @@ class PageController extends Controller
     	return $this->render('edit', array( 'model' => $model ) );
     }
     
-    public function actionRemove( $id )
-    {
-    	if ( !Yii::$app->request->isPost ) {
-    		throw new BadRequestHttpException;
+    public function actionRemove( $id ) {
+    if ( !Yii::$app->request->isPost ) {
+    		throw new MethodNotAllowedHttpException;
     	}
     	
     	$page = Page::findOne( $id );
@@ -99,10 +99,9 @@ class PageController extends Controller
     	return $page->delete();
     }
     
-    public function actionPublish( $id )
-    {
+    public function actionPublish( $id ) {
     	if ( !Yii::$app->request->isPost ) {
-    		throw new BadRequestHttpException;
+    		throw new MethodNotAllowedHttpException;
     	}
     	
     	$page = Page::findOne( $id );
@@ -123,7 +122,7 @@ class PageController extends Controller
     
     public function actionHomepage( $id ) {
     	if ( !Yii::$app->request->isPost ) {
-    		throw new BadRequestHttpException;
+    		throw new MethodNotAllowedHttpException;
     	}
     	
     	$homepage = Setting::findOne( ['name' => 'homepage_id'] );
@@ -139,7 +138,7 @@ class PageController extends Controller
     
     public function actionSidebar( $id ) {
     	if ( !Yii::$app->request->isPost ) {
-    		throw new BadRequestHttpException;
+    		throw new MethodNotAllowedHttpException;
     	}
     	
     	$page = Page::findOne( $id );
