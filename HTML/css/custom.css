@@ -1,7 +1,7 @@
 @import url('fonts.css');
 
 /*
- * RESTYLE 
+ * RESTYLE
  */
 
 /* NAVBAR */
@@ -28,7 +28,7 @@
 		color: #572B2B;
 		background-color: #834139;
 	}
-	
+
 	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
 		color: #fff;
 		background-color: #595959;
@@ -41,9 +41,9 @@
 	.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
 		color: #A5A5A5;
 	}
-	
+
 /* BREADCRUMB */
-	
+
 .breadcrumb {
 	border-radius: 0;
 	border-bottom: 1px solid #E26B6B;
@@ -52,7 +52,7 @@
 /* HEADING */
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "MyriadPro Condensed", "Roboto Regular", "MyriadPro Regular", "Helvetica Neue",Helvetica,Arial,sans-serif;	
+	font-family: "MyriadPro Condensed", "Roboto Regular", "MyriadPro Regular", "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 /*
@@ -60,9 +60,9 @@ h1, h2, h3, h4, h5, h6 {
  *  GENERAL
  *
  */
- 
+
  body {
-	font-family: "Roboto Regular", "MyriadPro Regular", "Helvetica Neue",Helvetica,Arial,sans-serif;	
+	font-family: "Roboto Regular", "MyriadPro Regular", "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .top-button {
@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-button:hover {
-	background-image: url('../img/up_hover.png');	
+	background-image: url('../img/up_hover.png');
 }
 
 .breadcrumb li {
@@ -97,18 +97,30 @@ h1, h2, h3, h4, h5, h6 {
 		.normal-announcement p span {
 			color: #ff0000;
 		}
-		
+
 #main-wrapper {
 	margin-top: 30px;
 }
- 
+
+.web-sidebar .panel {
+	border-radius: 0 !important;
+	border-bottom-width: 4px !important;
+}
+
+	.web-sidebar .panel .panel-heading {
+		text-transform: uppercase !important;
+		text-align: center !important;
+		font-weight: bold !important;
+		border-radius: 0 !important;
+	}
+
 .thumbnail {
 	border: none;
 	text-align: center;
 }
 
 	.thumbnail .thumbnail-inner {
-		padding: 5px;			
+		padding: 5px;
 	}
 
 		.thumbnail .thumbnail-image {
@@ -122,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
 			font-size: 0.9em;
 		}
 
-.corp-map {	
+.corp-map {
 	margin-top: 50px;
 	padding-top: 15px;
 	background-color: #DB604A;
@@ -143,11 +155,11 @@ h1, h2, h3, h4, h5, h6 {
 		background-color: #fff;
 	}
 
-#footer {	
-	overflow: hidden;	
+#footer {
+	overflow: hidden;
 }
 
-	#footer .footer-header {		
+	#footer .footer-header {
 		padding: 20px 15px;
 		min-height: 300px;
 	}
@@ -167,19 +179,19 @@ h1, h2, h3, h4, h5, h6 {
 			padding: 5px 0;
 			font-size: 1.1em;
 		}
-		
+
 		#footer .col-intro .col-title {
 			border-bottom: 1px solid #E5E5E5;
 		}
-		
+
 		#footer .col-sub {
 			box-shadow: 0px -4px 10px -2px #ccc;
 		}
-		
+
 		#footer .col-sub-xs {
 			box-shadow: none;
 		}
-		
+
 		#footer .col-sub .col-title {
 			border-bottom: 1px solid #E5E5E5;
 		}
@@ -187,12 +199,12 @@ h1, h2, h3, h4, h5, h6 {
 	#footer .footer-text {
 		font-size: 1em;
 		text-align: center;
-		background-color: #efefef;			
+		background-color: #efefef;
 		color: #666;
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
-	
+
 		#footer .footer-text p {
 			margin-top: 0;
 			margin-bottom: 0;
@@ -203,7 +215,7 @@ h1, h2, h3, h4, h5, h6 {
  *  HOME PAGE
  *
  */
- 
+
  #web-carousel {
 	max-height: 400px;
 	overflow: hidden;
@@ -226,9 +238,9 @@ h1, h2, h3, h4, h5, h6 {
 	color: #666;
 	text-transform: uppercase;
 	font-size: 1.1em;
-	text-shadow: none;	
-}			
-	
+	text-shadow: none;
+}
+
 	#home-page .panel-happy {
 		font-size: 2.2em;
 		font-weight: bold;
@@ -241,18 +253,18 @@ h1, h2, h3, h4, h5, h6 {
 		border-radius: 0;
 		border-bottom: 4px solid #4491DB;
 	}
-	
+
 	#home-page .panel-happy:hover {
 		background-color: rgb(21, 102, 152);
 		cursor: pointer;
 	}
-	
+
 		#home-page .panel-happy span {
 			display: block;
 			margin-bottom: 5px;
 			font-size: 1.5em;
 		}
-	
+
 	#home-page .panel-hotline {
 		font-size: 2.2em;
 		font-weight: bold;
@@ -265,18 +277,18 @@ h1, h2, h3, h4, h5, h6 {
 		border-radius: 0;
 		border-bottom: 4px solid #842727;
 	}
-	
+
 	#home-page .panel-hotline:hover {
 		background-color: rgb(152, 61, 61);
 		cursor: pointer;
 	}
-	
+
 		#home-page .panel-hotline span {
 			display: block;
 			margin-bottom: 5px;
 			font-size: 1.5em;
 		}
-	
+
 	#home-page .panel-quality {
 		font-size: 2.2em;
 		font-weight: bold;
@@ -289,12 +301,12 @@ h1, h2, h3, h4, h5, h6 {
 		border-radius: 0;
 		border-bottom: 4px solid #248E06;
 	}
-	
+
 	#home-page .panel-quality:hover {
 		background-color: rgb(51, 166, 61);
 		cursor: pointer;
 	}
-	
+
 		#home-page .panel-quality span {
 			display: block;
 			margin-bottom: 5px;
@@ -306,7 +318,7 @@ h1, h2, h3, h4, h5, h6 {
  *  CONTACT PAGE
  *
  */
- 
+
 #contact-page {
 	min-height: 500px;
 }
@@ -324,22 +336,22 @@ h1, h2, h3, h4, h5, h6 {
  *  PRODUCT PAGE
  *
  */
- 
+
 #product-page .panel-success {
 	border-radius: 0;
  }
- 
+
 #product-page .panel .panel-heading {
 	font-weight: bold;
 	text-align: center;
  }
- 
+
  /*
  *
  *  NOT FOUND PAGE
  *
  */
- 
+
 #notfound-page {
 	text-align: center;
 }
