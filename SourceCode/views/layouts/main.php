@@ -245,8 +245,10 @@ $this->registerJs( $maplaceScript, \yii\web\View::POS_READY, 'maplace' );
 			<?php endforeach; ?>
 		<?php endif; ?>
 		
-		<div id="main-content" class="row">
-			<?= $content ?>	
+		<div id="main-content">
+			<div class="row">
+				<?= $content ?>
+			</div> <!-- / .row -->
 		</div> <!-- / #main-content .row -->
 		
 	</div> <!-- / .container #main-wrapper -->

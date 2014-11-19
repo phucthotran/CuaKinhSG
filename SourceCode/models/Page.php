@@ -11,7 +11,8 @@ use Yii;
  * @property string $title
  * @property string $url
  * @property string $keywords
- * @property integer $publish
+ * @property integer $sidebarSupport
+ * @property integer $publish 
  * @property resource $content
  */
 class Page extends \yii\db\ActiveRecord
@@ -31,7 +32,7 @@ class Page extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'url', 'keywords', 'content'], 'required'],
-            [['publish'], 'integer'],
+            [['publish', 'sidebarSupport'], 'integer'],
             [['content'], 'string'],
             [['title', 'keywords'], 'string', 'max' => 100],
             [['url'], 'string', 'max' => 45]
@@ -48,6 +49,7 @@ class Page extends \yii\db\ActiveRecord
             'title' => 'Tiêu Đề',
             'url' => 'Liên Kết',
             'keywords' => 'Từ Khóa',
+        	'sidebarSupport' => 'Hỗ Trợ Sidebar',
             'publish' => 'Công Khai',
             'content' => 'Nội Dung',
         ];

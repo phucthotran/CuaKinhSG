@@ -26,6 +26,7 @@ class PageController extends Controller
     		$newPage->title = $model->title;
     		$newPage->url = $model->url;
     		$newPage->keywords = $model->keywords;
+    		$newPage->sidebarSupport = $model->sidebarSupport;
     		$newPage->publish = $model->publish;
     		$newPage->content = $model->content;
     		
@@ -52,13 +53,14 @@ class PageController extends Controller
     	if ( $model->load( Yii::$app->request->post() ) )	{
     		//If page url not change, not validate 'url' again
     		$validate = $page->url == $model->url ? 
-    												$model->validate( ['title', 'keywords', 'publish', 'content'] ) : 
+    												$model->validate( ['title', 'keywords', 'sidebarSupport', 'publish', 'content'] ) : 
     												$model->validate();
     		
     		if ( $validate ) {
 	    		$page->title = $model->title;
 	    		$page->url = $model->url;
 	    		$page->keywords = $model->keywords;
+	    		$page->sidebarSupport = $model->sidebarSupport;
 	    		$page->publish = $model->publish;
 	    		$page->content = $model->content;
 	    		
@@ -75,6 +77,7 @@ class PageController extends Controller
     	$model->title = $page->title;
     	$model->url = $page->url;
     	$model->keywords = $page->keywords;
+    	$model->sidebarSupport = $page->sidebarSupport;
     	$model->publish = $page->publish;
     	$model->content = $page->content;
     	
@@ -83,6 +86,10 @@ class PageController extends Controller
     
     public function actionRemove( $id )
     {
+    	if ( !Yii::$app->request->isPost ) {
+    		throw new BadRequestHttpException;
+    	}
+    	
     	$page = Page::findOne( $id );
     	
     	if ( $page == null ) {
@@ -94,6 +101,10 @@ class PageController extends Controller
     
     public function actionPublish( $id )
     {
+    	if ( !Yii::$app->request->isPost ) {
+    		throw new BadRequestHttpException;
+    	}
+    	
     	$page = Page::findOne( $id );
     	
     	if ( $page == null ) {
@@ -111,6 +122,10 @@ class PageController extends Controller
     }
     
     public function actionHomepage( $id ) {
+    	if ( !Yii::$app->request->isPost ) {
+    		throw new BadRequestHttpException;
+    	}
+    	
     	$homepage = Setting::findOne( ['name' => 'homepage_id'] );
 
     	if ( $homepage == null ) {
@@ -120,5 +135,26 @@ class PageController extends Controller
     	$homepage->value = $id;
     	
     	return $homepage->save();
+    }
+    
+    public function actionSidebar( $id ) {
+    	if ( !Yii::$app->request->isPost ) {
+    		throw new BadRequestHttpException;
+    	}
+    	
+    	$page = Page::findOne( $id );
+    	
+    	if ( $page == null ) {
+    		throw new NotFoundHttpException;
+    	}
+    	
+    	$sidebarSupport = $page->sidebarSupport;
+    	$page->sidebarSupport = $sidebarSupport == 1 ? 0 : 1; //If page has been support sidebar, unsupport and otherwise
+    	
+    	if ( !$page->save() ) {
+    		throw new BadRequestHttpException;
+    	}
+    	
+    	return $page->sidebarSupport;
     }
 }

@@ -88,7 +88,7 @@ class SiteController extends Controller
     		throw new NotFoundHttpException;
     	}
    	
-    	return $this->render( 'page', array( 'page' => $page ) );
+    	return $this->render( 'page', array( 'page' => $page, 'sidebarSupport' => $page->sidebarSupport ) );
     }
     
     public function actionMaintenance() {

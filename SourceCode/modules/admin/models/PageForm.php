@@ -13,6 +13,7 @@ class PageForm extends Model
 	public $title;
 	public $url;
 	public $keywords;
+	public $sidebarSupport = true;
 	public $publish = true;
 	public $content;
 	
@@ -26,8 +27,8 @@ class PageForm extends Model
 			[['title', 'keywords'], 'string', 'length' => [4, 100]],
 			['url', 'string', 'length' => [4, 45]],
 			['url', 'unique', 'targetClass' => Page::className(), 'targetAttribute' => 'url',],
-			[['publish'], 'safe'],
-			['publish', 'boolean'],
+			[['publish', 'sidebarSupport'], 'safe'],
+			[['publish', 'sidebarSupport'], 'boolean'],
 		];
 	}
 	
@@ -39,6 +40,7 @@ class PageForm extends Model
 			'title' => 'Tiêu Đề',
 			'url' => 'URL (Đường dẫn đến trang)',
 			'keywords' => 'Từ Khóa SEO',
+			'sidebarSupport' => 'Hỗ Trợ Sidebar',
 			'publish' => 'Công Khai',
 			'content' => 'Nội Dung',
 		];

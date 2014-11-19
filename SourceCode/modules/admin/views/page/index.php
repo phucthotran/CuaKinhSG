@@ -62,12 +62,30 @@ $homepageToggleScript = <<<EOT
 		});
 	});
 EOT;
+
+$sidebarToggleScript = <<<EOT
+	$('.page-sidebar').on('click', function(){
+		var current = $(this);
+		var pageId = current.attr('page-id');
+
+		$.post('{$url}/sidebar/' + pageId, function (result){
+			if(parseInt(result) > 0) { //Boolean
+				current.removeClass('glyphicon-align-justify');
+				current.addClass('glyphicon-tasks');
+			} else {
+				current.removeClass('glyphicon-tasks');
+				current.addClass('glyphicon-align-justify');
+			}
+		});
+	});
+EOT;
 ?>
 
 <?php 
 $this->registerJs( $publishToggleScript, \yii\web\View::POS_READY );
 $this->registerJs( $deleteToggleScript, \yii\web\View::POS_READY );
 $this->registerJs( $homepageToggleScript, \yii\web\View::POS_READY );
+$this->registerJs( $sidebarToggleScript, \yii\web\View::POS_READY );
 ?>
 
 <div>
@@ -85,6 +103,7 @@ $this->registerJs( $homepageToggleScript, \yii\web\View::POS_READY );
 					<th>Từ Khóa</th>
 					<th>Công Khai</th>
 					<th>Trang Chủ</th>
+					<th style="width: 16px;"></th>
 					<th style="width: 16px;"></th>
 					<th style="width: 16px;"></th>
 					<th style="width: 16px;"></th>
@@ -112,6 +131,13 @@ $this->registerJs( $homepageToggleScript, \yii\web\View::POS_READY );
 						<td><a class="glyphicon glyphicon-file page-home" page-id="<?= $page->id ?>" title="Đặt làm Trang Chủ" href="#"></a></td>
 					<?php endif; ?>
 					<td><a class="glyphicon glyphicon-eye-open" title="Xem Trước" target="_blank" href="<?= Yii::$app->urlManager->createUrl('site/page') ?>/<?= $page->url ?>"></a></td>
+					
+					<?php if ( $page->sidebarSupport == 1 ): ?>
+						<td><a class="glyphicon glyphicon-tasks page-sidebar" title="Hỗ trợ Sidebar" page-id="<?= $page->id ?>" href="#"></a></td>
+					<?php else: ?>
+						<td><a class="glyphicon glyphicon-align-justify page-sidebar" title="Không hỗ trợ Sidebar" page-id="<?= $page->id ?>" href="#"></a></td>
+					<?php endif; ?>
+					
 					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="<?= $url ?>/edit/<?= $page->id ?>"></a></td>
 					<td><a class="glyphicon glyphicon-trash page-del" page-id="<?= $page->id ?>" title="Xóa" href="#"></a></td>
 				</tr>
