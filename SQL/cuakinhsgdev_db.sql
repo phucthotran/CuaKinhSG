@@ -24,6 +24,7 @@ id int NOT NULL AUTO_INCREMENT,
 title tinytext NOT NULL,
 url tinytext NOT NULL,
 keywords tinytext NOT NULL,
+sidebarSupport tinyint(1) DEFAULT 1,
 publish tinyint(1) DEFAULT 1,
 content blob,
 PRIMARY KEY (id)
@@ -35,6 +36,18 @@ id int NOT NULL AUTO_INCREMENT,
 imageLink tinytext NOT NULL,
 caption tinytext NOT NULL,
 link tinytext NOT NULL,
+publish tinyint(1) DEFAULT 1,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE sidebars
+(
+id int NOT NULL AUTO_INCREMENT,
+title tinytext NOT NULL,
+body text NOT NULL,
+priorityMode tinyint(1) DEFAULT 0,
+templateMode tinyint(1) DEFAULT 0,
+position tinyint(3),
 publish tinyint(1) DEFAULT 1,
 PRIMARY KEY (id)
 );
