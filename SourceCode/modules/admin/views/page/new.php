@@ -37,6 +37,7 @@ $this->registerJs( $script, \yii\web\View::POS_READY );
 		<?= $form->field( $model, 'title' ) ?>
 		<?= $form->field( $model, 'url' ) ?>
 		<?= $form->field( $model, 'keywords' ) ?>
+		<?= $form->field( $model, 'sidebarSupport' )->checkbox() ?>
 		<?= $form->field( $model, 'publish' )->checkbox() ?>
 		<?= $form->field( $model, 'content' )->textarea( ['rows' => 20, 'class' => 'ckeditor'] ) ?>
 		<div class="form-group">
