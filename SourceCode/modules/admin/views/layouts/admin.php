@@ -107,6 +107,13 @@ $this->registerJsFile( 'https://cdn.rawgit.com/jprichardson/string.js/master/lib
 							<li class="list-group-item <?= $url == 'slider/index' || $url == 'slider/new' || $url == 'slider/edit' ? 'active' : '' ?>"><a href="<?= Yii::$app->urlManager->createUrl('admin/slider') ?>"><span class="glyphicon glyphicon-picture"></span> Quản Lý</a></li>
 						</ul>
 					</div> <!-- / .panel .panel-info -->
+					
+					<div class="panel panel-info">
+						<div class="panel-heading">Sidebar</div>
+						<ul class="list-group">							
+							<li class="list-group-item <?= $url == 'sidebar/index' || $url == 'sidebar/new' || $url == 'sidebar/edit' ? 'active' : '' ?>"><a href="<?= Yii::$app->urlManager->createUrl('admin/sidebar') ?>"><span class="glyphicon glyphicon-tasks"></span> Quản Lý</a></li>
+						</ul>
+					</div> <!-- / .panel .panel-info -->
 
 				</div> <!-- / .col-md-3 -->
 				<div class="col-md-9">
