@@ -3,24 +3,27 @@
 	use app\models\Sidebar;
 	
 	/* @var $sidebar app\models\Sidebar */
+	/* @var $page app\models\Page */
 	/* @var $this yii\web\View */
 
 	$this->title = $page->title;
 	
-	$homepageId = intval( Setting::findOne(['name' => 'homepage_id'])->value );
+	$this->registerMetaTag( ['name' => 'description', 'content' => $descriptionMeta], 'description' );
+	$this->registerMetaTag( ['name' => 'keywords', 'content' => $page->keywords], 'keywords' );
+
 	//Not show Breadcrumb if current page is 'home page'	
-	if ( $homepageId != 0 && $homepageId != $page->id ) {
+	if ( !$isHomepage ) {
 		$this->params['breadcrumbs'][] = $page->title;
 	}
 	
 	$sidebars = array();
 	
-	if ( $sidebarSupport ) {
+	if ( $page->sidebarSupport ) {
 		$sidebars = Sidebar::find()->where( ['publish' => '1'] )->orderBy( 'position ASC, priorityMode DESC' )->all();
 	}
 ?>
 
-<?php if ( $sidebarSupport && count($sidebars) > 0 ): ?>
+<?php if ( $page->sidebarSupport && count($sidebars) > 0 ): ?>
 	<div class="col-md-9">			
 		<?= $page->content ?>
 	</div>

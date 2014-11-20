@@ -81,14 +81,43 @@ class SiteController extends Controller
         	) );        
     }
     
+    function descriptionMeta( $text ) {
+    	$meta = \yii\helpers\Html::decode( $text );
+    	$meta = strip_tags( $meta );
+    	$meta = \yii\helpers\StringHelper::truncateWords( $meta, 50 );
+    	
+	    $tempMeta = preg_split('/\s+/', $meta);
+		$idx = 0;
+		
+		$newMeta = array();
+		
+		while( $idx < count( $tempMeta ) ) {	
+			if ( !empty( $tempMeta[$idx] ) ) {
+				array_push( $newMeta, trim( $tempMeta[$idx] ) );
+			}
+		
+			$idx++;
+		}
+    	
+    	return implode( " ", $newMeta );
+    }
+    
     public function actionPage( $url ) {
     	$page = Page::findOne( ['url' => $url] );
 
-    	if( $page == null ) {
+    	if( is_null( $page ) ) {
     		throw new NotFoundHttpException;
     	}
+    	
+    	$homepageId = intval( Setting::findOne(['name' => 'homepage_id'])->value );
+    	$isHomepage = $page->id == $homepageId;
+    	
+    	$descriptionMeta = $this->descriptionMeta( $page->content );
    	
-    	return $this->render( 'page', array( 'page' => $page, 'sidebarSupport' => $page->sidebarSupport ) );
+    	return $this->render( 'page', array( 
+    									'page' => $page, 
+    									'isHomepage' => $isHomepage, 
+    									'descriptionMeta' => $descriptionMeta ) );
     }
     
     public function actionMaintenance() {

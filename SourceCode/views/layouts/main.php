@@ -109,8 +109,10 @@ $this->registerJs( $maplaceScript, \yii\web\View::POS_READY, 'maplace' );
 <html lang="<?= Yii::$app->language ?>">
 <head>
 	<meta charset="<?= Yii::$app->charset ?>">
+	<?php if ( is_null( $this->metaTags['description'] ) && is_null( $this->metaTags['keywords'] ) ): ?>
 	<meta name="description" content="Cơ sở cửa kính nhôm Quốc Bảo, cửa kính nhôm cao cấp">
 	<meta name="keywords" content="QUốc Bảo, Cửa kính nhôm, Quoc Bao, Cua kinh nhom">
+	<?php endif; ?>
 	<meta name="author" content="ThoTran Coder">
 	<?= Html::csrfMetaTags() ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>	
