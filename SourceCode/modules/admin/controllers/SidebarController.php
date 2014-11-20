@@ -6,9 +6,24 @@ use Yii;
 use yii\web\Controller;
 use app\models\Sidebar;
 use app\modules\admin\models\SidebarForm;
+use yii\web\MethodNotAllowedHttpException;
+use yii\web\BadRequestHttpException;
 
 class SidebarController extends Controller
 {
+	public function beforeAction( $action ) {
+		switch ( $action->id ) {
+			case 'remove':
+			case 'publish':
+			case 'priority':
+				if ( !Yii::$app->request->isPost ) {
+					throw new MethodNotAllowedHttpException;
+				}
+		}
+	
+		return true;
+	}
+	
 	public function actionIndex() {
 		$sidebars = Sidebar::find()->all();
 		
@@ -77,28 +92,22 @@ class SidebarController extends Controller
 		return $this->render('edit', array( 'model' => $model ) );
 	}
 	
-	public function actionRemove( $id ) {
-		if ( !Yii::$app->request->isPost ) {
-			throw new MethodNotAllowedHttpException;
-		}
-		
+	public function actionRemove( $id ) {		
 		$sidebar = Sidebar::findOne( $id );
 		
-		if ( $sidebar == null ) {
+		if ( is_null( $sidebar ) ) {
 			throw new NotFoundHttpException;
 		}
 		
-		return $sidebar->delete();
+		if ( !$sidebar->delete() ) {
+			throw new BadRequestHttpException;
+		}
 	}
 	
-	public function actionPriority( $id ) {
-		if ( !Yii::$app->request->isPost ) {
-			throw new MethodNotAllowedHttpException;
-		}
-		
+	public function actionPriority( $id ) {		
 		$sidebar = Sidebar::findOne( $id );
 	
-		if ( $sidebar == null ) {
+		if ( is_null( $sidebar ) ) {
 			throw new NotFoundHttpException;
 		}
 	
@@ -108,18 +117,12 @@ class SidebarController extends Controller
 		if ( !$sidebar->save() ) {
 			throw new BadRequestHttpException;
 		}
-	
-		return $sidebar->priorityMode;
 	}
 	
-	public function actionPublish( $id ) {
-		if ( !Yii::$app->request->isPost ) {
-			throw new MethodNotAllowedHttpException;
-		}
-		
+	public function actionPublish( $id ) {		
 		$sidebar = Sidebar::findOne( $id );
 		
-		if ( $sidebar == null ) {
+		if ( is_null( $sidebar ) ) {
 			throw new NotFoundHttpException;
 		}
 		
@@ -129,7 +132,5 @@ class SidebarController extends Controller
 		if ( !$sidebar->save() ) {
 			throw new BadRequestHttpException;
 		}
-		
-		return $sidebar->publish;
 	}
 }

@@ -8,9 +8,23 @@ use app\models\Slider;
 use app\models\Setting;
 use app\modules\admin\models\SliderSetupForm;
 use app\modules\admin\models\SliderForm;
+use yii\web\BadRequestHttpException;
+use yii\web\MethodNotAllowedHttpException;
 
 class SliderController extends Controller
 {
+	public function beforeAction( $action ) {
+		switch ( $action->id ) {
+			case 'remove':
+			case 'publish':
+				if ( !Yii::$app->request->isPost ) {
+					throw new MethodNotAllowedHttpException;
+				}
+		}
+	
+		return true;
+	}
+	
 	public function actionIndex() {
 		$sliders = Slider::find()->all();
 		
@@ -91,17 +105,19 @@ class SliderController extends Controller
 	public function actionRemove( $id ) {
 		$slider = Slider::findOne( $id );
 		
-		if ( $slider == null ) {
+		if ( is_null( $slider ) ) {
 			throw new NotFoundHttpException;
 		}
 		
-		return $slider->delete();
+		if ( !$slider->delete() ) {
+			throw new BadRequestHttpException;
+		}
 	}
 	
 	public function actionPublish( $id ) {
 		$slider = Slider::findOne( $id );
 		
-		if ( $slider == null ) {
+		if ( is_null( $slider ) ) {
 			throw new NotFoundHttpException;
 		}
 		
@@ -111,7 +127,5 @@ class SliderController extends Controller
 		if ( !$slider->save() ) {
 			throw new BadRequestHttpException;
 		}
-		
-		return $slider->publish;
 	}
 }

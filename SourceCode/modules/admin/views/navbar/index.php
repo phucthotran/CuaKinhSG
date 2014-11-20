@@ -6,6 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\modules\admin\models\NavbarForm */
+
+$this->title = 'Thanh Điều Hướng';
 ?>
 
 <?php 

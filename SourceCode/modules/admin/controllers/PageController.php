@@ -12,7 +12,21 @@ use app\models\Setting;
 use yii\web\MethodNotAllowedHttpException;
 
 class PageController extends Controller
-{	
+{
+	public function beforeAction( $action ) {		
+		switch ( $action->id ) {
+			case 'remove':
+			case 'publish':
+			case 'homepage':
+			case 'sidebar':
+				if ( !Yii::$app->request->isPost ) {
+					throw new MethodNotAllowedHttpException;
+				}
+		}
+		
+		return true;
+	}
+	
     public function actionIndex() {
     	$pages = Page::find()->all();
     	
@@ -85,28 +99,22 @@ class PageController extends Controller
     	return $this->render('edit', array( 'model' => $model ) );
     }
     
-    public function actionRemove( $id ) {
-    if ( !Yii::$app->request->isPost ) {
-    		throw new MethodNotAllowedHttpException;
-    	}
-    	
+    public function actionRemove( $id ) {    	
     	$page = Page::findOne( $id );
     	
-    	if ( $page == null ) {
+    	if ( is_null( $page ) ) {
     		throw new NotFoundHttpException;
     	}
 		
-    	return $page->delete();
+    	if ( !$page->delete() ) {
+    		throw new BadRequestHttpException;
+    	}
     }
     
-    public function actionPublish( $id ) {
-    	if ( !Yii::$app->request->isPost ) {
-    		throw new MethodNotAllowedHttpException;
-    	}
-    	
+    public function actionPublish( $id ) {    	
     	$page = Page::findOne( $id );
     	
-    	if ( $page == null ) {
+    	if ( is_null( $page ) ) {
     		throw new NotFoundHttpException;
     	}
     	
@@ -116,34 +124,26 @@ class PageController extends Controller
     	if ( !$page->save() ) {
     		throw new BadRequestHttpException;
     	}
-    	    	    	
-    	return $page->publish;
     }
     
-    public function actionHomepage( $id ) {
-    	if ( !Yii::$app->request->isPost ) {
-    		throw new MethodNotAllowedHttpException;
-    	}
-    	
+    public function actionHomepage( $id ) {    	
     	$homepage = Setting::findOne( ['name' => 'homepage_id'] );
 
-    	if ( $homepage == null ) {
+    	if ( is_null( $homepage ) ) {
     		throw new BadRequestHttpException;
     	}
     	
     	$homepage->value = $id;
     	
-    	return $homepage->save();
+    	if ( !$homepage->save() ) {
+    		throw new BadRequestHttpException;
+    	}
     }
     
-    public function actionSidebar( $id ) {
-    	if ( !Yii::$app->request->isPost ) {
-    		throw new MethodNotAllowedHttpException;
-    	}
-    	
+    public function actionSidebar( $id ) {    	
     	$page = Page::findOne( $id );
     	
-    	if ( $page == null ) {
+    	if ( is_null( $page ) ) {
     		throw new NotFoundHttpException;
     	}
     	
@@ -153,7 +153,5 @@ class PageController extends Controller
     	if ( !$page->save() ) {
     		throw new BadRequestHttpException;
     	}
-    	
-    	return $page->sidebarSupport;
     }
 }

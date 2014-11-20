@@ -10,9 +10,24 @@ use app\modules\admin\models\AnnouncementSetupForm;
 use app\modules\admin\models\AnnouncementForm;
 use yii\web\NotFoundHttpException;
 use yii\bootstrap\ActiveForm;
+use yii\web\MethodNotAllowedHttpException;
+use yii\web\BadRequestHttpException;
 
 class AnnouncementController extends Controller
 {
+	public function beforeAction( $action ) {
+		switch ( $action->id ) {
+			case 'remove':
+			case 'publish':
+			case 'priority':
+				if ( !Yii::$app->request->isPost ) {
+					throw new MethodNotAllowedHttpException;
+				}
+		}
+	
+		return true;
+	}
+	
 	public function actionIndex() {
 		$announments = Announcement::find()->all();
 		
@@ -89,28 +104,22 @@ class AnnouncementController extends Controller
 		return $this->render('edit', array( 'model' => $model ) );
 	}
 	
-	public function actionRemove( $id ) {
-		if ( !Yii::$app->request->isPost ) {
-			throw new MethodNotAllowedHttpException;
-		}
-		
+	public function actionRemove( $id ) {	
 		$announcement = Announcement::findOne( $id );
 		
-		if ( $announcement == null ) {
+		if ( is_null( $announcement ) ) {
 			throw new NotFoundHttpException;
 		}
 		
-		return $announcement->delete();
+		if ( !$announcement->delete() ) {
+			throw new BadRequestHttpException;
+		}
 	}
 	
-	public function actionPriority( $id ) {
-		if ( !Yii::$app->request->isPost ) {
-			throw new MethodNotAllowedHttpException;
-		}
-		
+	public function actionPriority( $id ) {		
 		$announcement = Announcement::findOne( $id );
 		
-		if ( $announcement == null ) {
+		if ( is_null( $announcement ) ) {
 			throw new NotFoundHttpException;
 		}
 		
@@ -120,18 +129,12 @@ class AnnouncementController extends Controller
 		if ( !$announcement->save() ) {
 			throw new BadRequestHttpException;
 		}
-		
-		return $announcement->modeId;
 	}
 	
-	public function actionPublish( $id ) {
-		if ( !Yii::$app->request->isPost ) {
-			throw new MethodNotAllowedHttpException;
-		}
-		
+	public function actionPublish( $id ) {		
 		$announcement = Announcement::findOne( $id );
 		
-		if ( $announcement == null ) {
+		if ( is_null( $announcement ) ) {
 			throw new NotFoundHttpException;
 		}
 		
@@ -140,8 +143,6 @@ class AnnouncementController extends Controller
 		
 		if ( !$announcement->save() ) {
 			throw new BadRequestHttpException;
-		}
-		
-		return $announcement->publish;
+		}		
 	}
 }

@@ -1,91 +1,24 @@
 <?php
 use app\models\Setting;
+use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $page app\models\Page */
-
-$this->title = 'Quản Lý Trang';
+$pageUpdateScript = <<<EOT
+	$('.table-update').on('click', function(e) {
+		e.preventDefault();		
+		$.pjax.reload({container: '#data-table'});
+	});
+EOT;
 
 $homepageId = intval( Setting::findOne( ['name' => 'homepage_id'] )->value );
 $url = Yii::$app->urlManager->createUrl('admin/page');
 ?>
 
-<?php 
-$publishToggleScript = <<<EOT
-	$('.page-publish').on('click', function(){
-		var current = $(this);
-		var pageId = current.attr('page-id');
+<?php
+/* @var $this yii\web\View */
+/* @var $page app\models\Page */
 
-		$.post('{$url}/publish/' + pageId, function (result){
-			if(parseInt(result) > 0) { //Boolean
-				current.removeClass('glyphicon-remove');
-				current.addClass('glyphicon-ok');
-			} else {
-				current.removeClass('glyphicon-ok');
-				current.addClass('glyphicon-remove');
-			}
-		});
-	});
-EOT;
-
-$deleteToggleScript = <<<EOT
-	$('.page-del').on('click', function(){
-		if(!confirm('Bạn có chắc muốn xóa trang này'))
-			return;
-
-		var current = $(this);
-		var pageId = current.attr('page-id');
-
-		$.post('{$url}/remove/' + pageId, function(result){
-			if(parseInt(result) == 'NaN' || parseInt(result) <= 0){
-				alert('Không thể thực hiện thao tác lúc này');
-				return;
-			}
-		
-			current.parents('tr').remove();
-		});
-	});
-EOT;
-
-$homepageToggleScript = <<<EOT
-	$('.page-home').on('click', function(){
-		var current = $(this);
-		var pageId = current.attr('page-id');
-
-		$.post('{$url}/homepage/' + pageId, function(result){
-			if (parseInt(result) > 0) {
-				$('.page-home').removeClass('glyphicon-home');
-				$('.page-home').addClass('glyphicon-file');
-				current.removeClass('glyphicon-file');
-				current.addClass('glyphicon-home');
-			}
-		});
-	});
-EOT;
-
-$sidebarToggleScript = <<<EOT
-	$('.page-sidebar').on('click', function(){
-		var current = $(this);
-		var pageId = current.attr('page-id');
-
-		$.post('{$url}/sidebar/' + pageId, function (result){
-			if(parseInt(result) > 0) { //Boolean
-				current.removeClass('glyphicon-align-justify');
-				current.addClass('glyphicon-tasks');
-			} else {
-				current.removeClass('glyphicon-tasks');
-				current.addClass('glyphicon-align-justify');
-			}
-		});
-	});
-EOT;
-?>
-
-<?php 
-$this->registerJs( $publishToggleScript, \yii\web\View::POS_READY );
-$this->registerJs( $deleteToggleScript, \yii\web\View::POS_READY );
-$this->registerJs( $homepageToggleScript, \yii\web\View::POS_READY );
-$this->registerJs( $sidebarToggleScript, \yii\web\View::POS_READY );
+$this->title = 'Quản Lý Trang';
+$this->registerJs( $pageUpdateScript, \yii\web\View::POS_READY );
 ?>
 
 <div>
@@ -94,6 +27,7 @@ $this->registerJs( $sidebarToggleScript, \yii\web\View::POS_READY );
 	</div> <!-- / .row -->
 	<div style="margin: 20px 0;"></div>
 	<div class="row">
+		<?php \yii\widgets\Pjax::begin( ['id' => 'data-table'] ) ?>
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
@@ -101,8 +35,8 @@ $this->registerJs( $sidebarToggleScript, \yii\web\View::POS_READY );
 					<th>Tiêu Đề</th>
 					<th>URL</th>
 					<th>Từ Khóa</th>
-					<th>Công Khai</th>
-					<th>Trang Chủ</th>
+					<th style="width: 16px;"></th>
+					<th style="width: 16px;"></th>
 					<th style="width: 16px;"></th>
 					<th style="width: 16px;"></th>
 					<th style="width: 16px;"></th>
@@ -121,25 +55,26 @@ $this->registerJs( $sidebarToggleScript, \yii\web\View::POS_READY );
 					<td><?= $page->url ?></td>
 					<td><?= $page->keywords ?></td>
 					<?php if ( $page->publish == 1 ): ?>
-						<td style="text-align: center;"><a class="glyphicon glyphicon-ok page-publish" page-id="<?= $page->id ?>" href="#"></a></td>
+						<td><?= Html::a( "", "{$url}/publish/{$page->id}", ['class' => 'glyphicon glyphicon-ok table-update', 'data-method' => 'post', 'title' => 'Công khai'] ) ?></td>						
 					<?php else: ?>
-						<td style="text-align: center;"><a class="glyphicon glyphicon-remove page-publish" page-id="<?= $page->id ?>" href="#"></a></td>
+						<td><?= Html::a( "", "{$url}/publish/{$page->id}", ['class' => 'glyphicon glyphicon-remove table-update', 'data-method' => 'post', 'title' => 'Không công khai'] ) ?></td>						
 					<?php endif; ?>
 					<?php if ( $page->id == $homepageId ): ?>
-						<td><a class="glyphicon glyphicon-home page-home" page-id="<?= $page->id ?>" title="Đặt làm Trang Chủ" href="#"></a></td>
+						<td><?= Html::a( "", "{$url}/homepage/{$page->id}", ['class' => 'glyphicon glyphicon-home table-update', 'data-method' => 'post', 'title' => 'Trang Chủ'] ) ?></td>						
 					<?php else: ?>
-						<td><a class="glyphicon glyphicon-file page-home" page-id="<?= $page->id ?>" title="Đặt làm Trang Chủ" href="#"></a></td>
+						<td><?= Html::a( "", "{$url}/homepage/{$page->id}", ['class' => 'glyphicon glyphicon-file table-update', 'data-method' => 'post', 'title' => 'Đặt làm Trang Chủ'] ) ?></td>
 					<?php endif; ?>
+					
 					<td><a class="glyphicon glyphicon-eye-open" title="Xem Trước" target="_blank" href="<?= Yii::$app->urlManager->createUrl('site/page') ?>/<?= $page->url ?>"></a></td>
 					
 					<?php if ( $page->sidebarSupport == 1 ): ?>
-						<td><a class="glyphicon glyphicon-tasks page-sidebar" title="Hỗ trợ Sidebar" page-id="<?= $page->id ?>" href="#"></a></td>
+						<td><?= Html::a( "", "{$url}/sidebar/{$page->id}", ['class' => 'glyphicon glyphicon-tasks table-update', 'data-method' => 'post', 'title' => 'Hỗ trợ Sidebar'] ) ?></td>						
 					<?php else: ?>
-						<td><a class="glyphicon glyphicon-align-justify page-sidebar" title="Không hỗ trợ Sidebar" page-id="<?= $page->id ?>" href="#"></a></td>
+						<td><?= Html::a( "", "{$url}/sidebar/{$page->id}", ['class' => 'glyphicon glyphicon-align-justify table-update', 'data-method' => 'post', 'title' => 'Không hỗ trợ Sidebar'] ) ?></td>						
 					<?php endif; ?>
 					
-					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="<?= $url ?>/edit/<?= $page->id ?>"></a></td>
-					<td><a class="glyphicon glyphicon-trash page-del" page-id="<?= $page->id ?>" title="Xóa" href="#"></a></td>
+					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="<?= "{$url}/edit/{$page->id}" ?>"></a></td>
+					<td><?= Html::a( "", "{$url}/remove/{$page->id}", ['class' => 'glyphicon glyphicon-trash table-update', 'data-method' => 'post', 'title' => 'Xóa'] ) ?></td>					
 				</tr>
 				<?php
 					$nth++;
@@ -147,5 +82,6 @@ $this->registerJs( $sidebarToggleScript, \yii\web\View::POS_READY );
 				?>
 			</tbody>
 		</table>
+		<?php \yii\widgets\Pjax::end() ?>
 	</div> <!-- / .row -->
 </div>
