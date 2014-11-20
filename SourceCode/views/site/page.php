@@ -10,6 +10,8 @@
 	
 	$this->registerMetaTag( ['name' => 'description', 'content' => $descriptionMeta], 'description' );
 	$this->registerMetaTag( ['name' => 'keywords', 'content' => $page->keywords], 'keywords' );
+	$this->registerMetaTag( ['name' => 'og:description', 'content' => $descriptionMeta], 'description_fb' );
+	$this->registerMetaTag( ['name' => 'og:keywords', 'content' => $page->keywords], 'keywords_fb' );
 
 	//Not show Breadcrumb if current page is 'home page'	
 	if ( !$isHomepage ) {

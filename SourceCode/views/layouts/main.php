@@ -112,6 +112,8 @@ $this->registerJs( $maplaceScript, \yii\web\View::POS_READY, 'maplace' );
 	<?php if ( is_null( $this->metaTags['description'] ) && is_null( $this->metaTags['keywords'] ) ): ?>
 	<meta name="description" content="Cơ sở cửa kính nhôm Quốc Bảo, cửa kính nhôm cao cấp">
 	<meta name="keywords" content="QUốc Bảo, Cửa kính nhôm, Quoc Bao, Cua kinh nhom">
+	<meta name="og:description" content="Cơ sở cửa kính nhôm Quốc Bảo, cửa kính nhôm cao cấp">
+	<meta name="og:keywords" content="QUốc Bảo, Cửa kính nhôm, Quoc Bao, Cua kinh nhom">
 	<?php endif; ?>
 	<meta name="author" content="ThoTran Coder">
 	<?= Html::csrfMetaTags() ?>
