@@ -44,17 +44,17 @@ $this->registerJs( $pageUpdateScript, \yii\web\View::POS_READY );
 				?>
 				<tr>
 					<td><?= $nth ?></td>
-					<td><?= $slider->caption ?>
-					<td><a href="<?= $slider->link ?>" title="Click"><?= $slider->link ?></a></td>
+					<td><?= $slider['caption'] ?>
+					<td><a href="<?= $slider['link'] ?>" title="Click"><?= $slider['link'] ?></a></td>
 					
-					<?php if ( $slider->publish == 1 ): ?>
-						<td><?= Html::a( "", "{$url}/publish/{$slider->id}", ['class' => 'glyphicon glyphicon-ok table-update', 'data-method' => 'post', 'title' => 'Công khai'] ) ?></td>						
+					<?php if ( $slider['publish'] == 1 ): ?>
+						<td><?= Html::a( "", "{$url}/publish/{$slider['id']}", ['class' => 'glyphicon glyphicon-ok table-update', 'data-method' => 'post', 'title' => 'Công khai'] ) ?></td>						
 					<?php else: ?>
-						<td><?= Html::a( "", "{$url}/publish/{$slider->id}", ['class' => 'glyphicon glyphicon-remove table-update', 'data-method' => 'post', 'title' => 'Không công khai'] ) ?></td>						
+						<td><?= Html::a( "", "{$url}/publish/{$slider['id']}", ['class' => 'glyphicon glyphicon-remove table-update', 'data-method' => 'post', 'title' => 'Không công khai'] ) ?></td>						
 					<?php endif; ?>
 					
-					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="<?= $url ?>/edit/<?= $slider->id ?>"></a></td>
-					<td><?= Html::a( "", "{$url}/remove/{$slider->id}", ['class' => 'glyphicon glyphicon-trash table-update', 'data-method' => 'post', 'title' => 'Xóa'] ) ?></td>					
+					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="<?= "{$url}/edit/{$slider['id']}" ?>"></a></td>
+					<td><?= Html::a( "", "{$url}/remove/{$slider['id']}", ['class' => 'glyphicon glyphicon-trash table-update', 'data-method' => 'post', 'title' => 'Xóa'] ) ?></td>					
 				</tr>
 				<?php 
 					$nth ++;

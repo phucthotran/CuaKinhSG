@@ -28,7 +28,7 @@ class PageController extends Controller
 	}
 	
     public function actionIndex() {
-    	$pages = Page::find()->all();
+    	$pages = Page::find()->asArray()->all();
     	
         return $this->render( 'index', array( 'pages' => $pages ) );
     }

@@ -51,30 +51,30 @@ $this->registerJs( $pageUpdateScript, \yii\web\View::POS_READY );
 				?>
 				<tr>
 					<td><?= $nth ?></td>
-					<td><?= $page->title ?></td>
-					<td><?= $page->url ?></td>
-					<td><?= $page->keywords ?></td>
-					<?php if ( $page->publish == 1 ): ?>
-						<td><?= Html::a( "", "{$url}/publish/{$page->id}", ['class' => 'glyphicon glyphicon-ok table-update', 'data-method' => 'post', 'title' => 'Công khai'] ) ?></td>						
+					<td><?= $page['title'] ?></td>
+					<td><?= $page['url'] ?></td>
+					<td><?= $page['keywords'] ?></td>
+					<?php if ( $page['publish'] == 1 ): ?>
+						<td><?= Html::a( "", "{$url}/publish/{$page['id']}", ['class' => 'glyphicon glyphicon-ok table-update', 'data-method' => 'post', 'title' => 'Công khai'] ) ?></td>						
 					<?php else: ?>
-						<td><?= Html::a( "", "{$url}/publish/{$page->id}", ['class' => 'glyphicon glyphicon-remove table-update', 'data-method' => 'post', 'title' => 'Không công khai'] ) ?></td>						
+						<td><?= Html::a( "", "{$url}/publish/{$page['id']}", ['class' => 'glyphicon glyphicon-remove table-update', 'data-method' => 'post', 'title' => 'Không công khai'] ) ?></td>						
 					<?php endif; ?>
-					<?php if ( $page->id == $homepageId ): ?>
-						<td><?= Html::a( "", "{$url}/homepage/{$page->id}", ['class' => 'glyphicon glyphicon-home table-update', 'data-method' => 'post', 'title' => 'Trang Chủ'] ) ?></td>						
+					<?php if ( $page['id'] == $homepageId ): ?>
+						<td><?= Html::a( "", "{$url}/homepage/{$page['id']}", ['class' => 'glyphicon glyphicon-home table-update', 'data-method' => 'post', 'title' => 'Trang Chủ'] ) ?></td>						
 					<?php else: ?>
-						<td><?= Html::a( "", "{$url}/homepage/{$page->id}", ['class' => 'glyphicon glyphicon-file table-update', 'data-method' => 'post', 'title' => 'Đặt làm Trang Chủ'] ) ?></td>
-					<?php endif; ?>
-					
-					<td><a class="glyphicon glyphicon-eye-open" title="Xem Trước" target="_blank" href="<?= Yii::$app->urlManager->createUrl('site/page') ?>/<?= $page->url ?>"></a></td>
-					
-					<?php if ( $page->sidebarSupport == 1 ): ?>
-						<td><?= Html::a( "", "{$url}/sidebar/{$page->id}", ['class' => 'glyphicon glyphicon-tasks table-update', 'data-method' => 'post', 'title' => 'Hỗ trợ Sidebar'] ) ?></td>						
-					<?php else: ?>
-						<td><?= Html::a( "", "{$url}/sidebar/{$page->id}", ['class' => 'glyphicon glyphicon-align-justify table-update', 'data-method' => 'post', 'title' => 'Không hỗ trợ Sidebar'] ) ?></td>						
+						<td><?= Html::a( "", "{$url}/homepage/{$page['id']}", ['class' => 'glyphicon glyphicon-file table-update', 'data-method' => 'post', 'title' => 'Đặt làm Trang Chủ'] ) ?></td>
 					<?php endif; ?>
 					
-					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="<?= "{$url}/edit/{$page->id}" ?>"></a></td>
-					<td><?= Html::a( "", "{$url}/remove/{$page->id}", ['class' => 'glyphicon glyphicon-trash table-update', 'data-method' => 'post', 'title' => 'Xóa'] ) ?></td>					
+					<td><a class="glyphicon glyphicon-eye-open" title="Xem Trước" target="_blank" href="<?= Yii::$app->urlManager->createUrl('site/page') ?>/<?= $page['url'] ?>"></a></td>
+					
+					<?php if ( $page['sidebarSupport'] == 1 ): ?>
+						<td><?= Html::a( "", "{$url}/sidebar/{$page['id']}", ['class' => 'glyphicon glyphicon-tasks table-update', 'data-method' => 'post', 'title' => 'Hỗ trợ Sidebar'] ) ?></td>						
+					<?php else: ?>
+						<td><?= Html::a( "", "{$url}/sidebar/{$page['id']}", ['class' => 'glyphicon glyphicon-align-justify table-update', 'data-method' => 'post', 'title' => 'Không hỗ trợ Sidebar'] ) ?></td>						
+					<?php endif; ?>
+					
+					<td><a class="glyphicon glyphicon-pencil" title="Sửa" href="<?= "{$url}/edit/{$page['id']}" ?>"></a></td>
+					<td><?= Html::a( "", "{$url}/remove/{$page['id']}", ['class' => 'glyphicon glyphicon-trash table-update', 'data-method' => 'post', 'title' => 'Xóa'] ) ?></td>					
 				</tr>
 				<?php
 					$nth++;

@@ -25,7 +25,7 @@ class SidebarController extends Controller
 	}
 	
 	public function actionIndex() {
-		$sidebars = Sidebar::find()->all();
+		$sidebars = Sidebar::find()->asArray()->all();
 		
 		return $this->render( 'index', array( 'sidebars' => $sidebars ) );
 	}	

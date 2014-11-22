@@ -29,7 +29,7 @@ class AnnouncementController extends Controller
 	}
 	
 	public function actionIndex() {
-		$announments = Announcement::find()->all();
+		$announments = Announcement::find()->asArray()->all();
 		
 		return $this->render( 'index', array('announcements' => $announments) );
 	}

@@ -26,7 +26,7 @@ class SliderController extends Controller
 	}
 	
 	public function actionIndex() {
-		$sliders = Slider::find()->all();
+		$sliders = Slider::find()->asArray()->all();
 		
 		return $this->render( 'index', array( 'sliders' => $sliders ) );
 	}

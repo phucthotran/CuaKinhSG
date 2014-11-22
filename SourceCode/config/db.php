@@ -6,4 +6,5 @@ return [
     'username' => 'cuakinhsgdev',
     'password' => 'NkUxIxIAwN9P3KY7',
     'charset' => 'utf8',
+	'enableSchemaCache' => true,
 ];
