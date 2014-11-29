@@ -27,6 +27,7 @@ $this->registerJsFile( 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jque
 $this->registerJsFile( 'http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7', ['position' => \yii\web\View::POS_END] );
 $this->registerJsFile( '/web/js/maplace-0.1.3.min.js', ['position' => \yii\web\View::POS_END] );
 $this->registerJsFile( '/web/js/functions.js', ['position' => \yii\web\View::POS_END] );
+$this->registerJsFile( '/web/js/analyticstracking.js', ['position' => \yii\web\View::POS_END] );
 ?>
 
 <?php
@@ -113,10 +114,10 @@ $this->registerJs( $maplaceScript, \yii\web\View::POS_READY, 'maplace' );
 	<meta name="description" content="Cơ sở cửa kính nhôm Quốc Bảo, cửa kính nhôm cao cấp">
 	<meta name="keywords" content="Quốc Bảo, Cửa kính nhôm, Quoc Bao, Cua kinh nhom">
 	<meta property="og:description" content="Cơ sở cửa kính nhôm Quốc Bảo, cửa kính nhôm cao cấp">
-	<meta property="og:keywords" content="Quốc Bảo, Cửa kính nhôm, Quoc Bao, Cua kinh nhom">
+	<meta property="article:tag" content="Quốc Bảo, Cửa kính nhôm, Quoc Bao, Cua kinh nhom">	
 	<?php endif; ?>
-	<meta property="og:type" content="article">
-	<meta name="author" content="<?= $corporationName ?>">
+	<meta property="og:type" content="article">	
+	<meta name="author" content="<?= $corporationName ?>">	
 	<meta name="robots" content="index, follow">
 	<?= Html::csrfMetaTags() ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>

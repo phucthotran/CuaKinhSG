@@ -1,5 +1,4 @@
 <?php
-use Yii;
 use app\models\Setting;
 use app\models\Sidebar;
 use app\components\Sidebar\SidebarWidget;
@@ -13,7 +12,7 @@ $this->title = $page->title;
 $this->registerMetaTag( ['name' => 'description', 'content' => $descriptionMeta], 'description' );
 $this->registerMetaTag( ['name' => 'keywords', 'content' => $page->keywords], 'keywords' );
 $this->registerMetaTag( ['property' => 'og:description', 'content' => $descriptionMeta], 'description_og' );
-$this->registerMetaTag( ['property' => 'og:keywords', 'content' => $page->keywords], 'keywords_og' );
+$this->registerMetaTag( ['property' => 'article:tag', 'content' => $page->keywords], 'tag_og' );
 $this->registerMetaTag( ['property' => 'og:title', 'content' => $this->title], 'title_og' );
 $this->registerMetaTag( ['property' => 'og:url', 'content' => Yii::$app->urlManager->createAbsoluteUrl("site/page/{$page->url}")], 'url_og' );
 
