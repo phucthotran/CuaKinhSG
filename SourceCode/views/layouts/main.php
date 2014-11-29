@@ -106,19 +106,21 @@ $this->registerJs( $maplaceScript, \yii\web\View::POS_READY, 'maplace' );
 
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Yii::$app->language ?>" prefix="og: http://ogp.me/ns#">
 <head>
 	<meta charset="<?= Yii::$app->charset ?>">
-	<?php if ( is_null( $this->metaTags['description'] ) && is_null( $this->metaTags['keywords'] ) ): ?>
+	<?php if ( !isset( $this->metaTags['description'] ) && !isset( $this->metaTags['keywords'] ) ): ?>
 	<meta name="description" content="Cơ sở cửa kính nhôm Quốc Bảo, cửa kính nhôm cao cấp">
-	<meta name="keywords" content="QUốc Bảo, Cửa kính nhôm, Quoc Bao, Cua kinh nhom">
-	<meta name="og:description" content="Cơ sở cửa kính nhôm Quốc Bảo, cửa kính nhôm cao cấp">
-	<meta name="og:keywords" content="QUốc Bảo, Cửa kính nhôm, Quoc Bao, Cua kinh nhom">
+	<meta name="keywords" content="Quốc Bảo, Cửa kính nhôm, Quoc Bao, Cua kinh nhom">
+	<meta property="og:description" content="Cơ sở cửa kính nhôm Quốc Bảo, cửa kính nhôm cao cấp">
+	<meta property="og:keywords" content="Quốc Bảo, Cửa kính nhôm, Quoc Bao, Cua kinh nhom">
 	<?php endif; ?>
-	<meta name="author" content="ThoTran Coder">
+	<meta property="og:type" content="article">
+	<meta name="author" content="<?= $corporationName ?>">
+	<meta name="robots" content="index, follow">
 	<?= Html::csrfMetaTags() ?>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>	
-    <title><?= Html::encode( $this->title ) . ' - ' . Html::encode( $websiteTitle ) ?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title><?= Html::encode( $this->title ) . ' - ' . Html::encode( $websiteTitle ) ?></title>
 	
 	<?php $this->head() ?>	
 </head>

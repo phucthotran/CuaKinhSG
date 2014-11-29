@@ -24,7 +24,8 @@ class PageForm extends Model
 		return [
 			//title, url, keywords, content is required
 			[['title', 'url', 'keywords', 'content'], 'required'],			
-			[['title', 'keywords'], 'string', 'length' => [4, 100]],
+			[['title'], 'string', 'length' => [4, 70]],
+			[['keywords'], 'string', 'length' => [4, 100]],
 			['url', 'string', 'length' => [4, 45]],
 			['url', 'unique', 'targetClass' => Page::className(), 'targetAttribute' => 'url',],
 			[['publish', 'sidebarSupport'], 'safe'],

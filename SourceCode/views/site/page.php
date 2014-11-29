@@ -1,4 +1,5 @@
 <?php
+use Yii;
 use app\models\Setting;
 use app\models\Sidebar;
 use app\components\Sidebar\SidebarWidget;
@@ -11,12 +12,18 @@ $this->title = $page->title;
 
 $this->registerMetaTag( ['name' => 'description', 'content' => $descriptionMeta], 'description' );
 $this->registerMetaTag( ['name' => 'keywords', 'content' => $page->keywords], 'keywords' );
-$this->registerMetaTag( ['name' => 'og:description', 'content' => $descriptionMeta], 'description_fb' );
-$this->registerMetaTag( ['name' => 'og:keywords', 'content' => $page->keywords], 'keywords_fb' );
+$this->registerMetaTag( ['property' => 'og:description', 'content' => $descriptionMeta], 'description_og' );
+$this->registerMetaTag( ['property' => 'og:keywords', 'content' => $page->keywords], 'keywords_og' );
+$this->registerMetaTag( ['property' => 'og:title', 'content' => $this->title], 'title_og' );
+$this->registerMetaTag( ['property' => 'og:url', 'content' => Yii::$app->urlManager->createAbsoluteUrl("site/page/{$page->url}")], 'url_og' );
 
 //Not show Breadcrumb if current page is 'home page'	
 if ( !$isHomepage ) {
 	$this->params['breadcrumbs'][] = $page->title;
+}
+
+if ( $isHomepage ) {
+	$this->registerLinkTag( ['rel' => 'canonical', 'href' => Yii::$app->urlManager->createAbsoluteUrl('/')], 'duplicate_home' );
 }
 
 $sidebars = array();

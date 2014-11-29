@@ -89,17 +89,19 @@ class SiteController extends Controller
 	    $tempMeta = preg_split('/\s+/', $meta);
 		$idx = 0;
 		
-		$newMeta = array();
+		$proccessMeta = array();
 		
 		while( $idx < count( $tempMeta ) ) {	
 			if ( !empty( $tempMeta[$idx] ) ) {
-				array_push( $newMeta, trim( $tempMeta[$idx] ) );
+				array_push( $proccessMeta, trim( $tempMeta[$idx] ) );
 			}
 		
 			$idx++;
 		}
     	
-    	return implode( " ", $newMeta );
+    	$newMeta = implode( " ", $proccessMeta );
+    	
+    	return \yii\helpers\StringHelper::truncate($newMeta, 200);
     }
     
     public function actionPage( $url ) {

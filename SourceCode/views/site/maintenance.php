@@ -16,6 +16,7 @@ $style = <<<EOT
 EOT;
 
 $this->registerCss( $style, ['position' => \yii\web\View::POS_HEAD] );
+$this->registerMetaTag( ['name' => 'robots', 'content' => 'noindex, nofollow'], 'no_robots' );
 ?>
 <div id="maintenance-page" class="center-block text-center">
 	<h1><span class="glyphicon glyphicon-time"></span><br>BẢO TRÌ WEBSITE</h1>

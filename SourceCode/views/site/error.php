@@ -26,6 +26,7 @@ $style = <<<EOT
 EOT;
 
 $this->registerCss( $style, \yii\web\View::POS_HEAD );
+$this->registerMetaTag( ['name' => 'robots', 'content' => 'noindex, nofollow'], 'no_robots' );
 ?>
 
 <div id="error-page">				

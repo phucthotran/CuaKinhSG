@@ -34,7 +34,7 @@ class Page extends \yii\db\ActiveRecord
             [['title', 'url', 'keywords', 'content'], 'required'],
             [['publish', 'sidebarSupport'], 'integer'],
             [['content'], 'string'],
-            [['title', 'keywords'], 'string', 'max' => 100],
+            [['title', 'keywords'], 'string', 'max' => 70],
             [['url'], 'string', 'max' => 45]
         ];
     }

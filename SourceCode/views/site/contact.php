@@ -27,6 +27,7 @@ $style = <<<EOT
 EOT;
 
 $this->registerCss( $style, ['position' => \yii\web\View::POS_HEAD] );
+$this->registerMetaTag( ['property' => 'og:url', 'content' => Yii::$app->urlManager->createAbsoluteUrl('site/contact')], 'url_og' );
 ?>
 
 <?php if (Yii::$app->session->hasFlash( 'Done' )): ?>
